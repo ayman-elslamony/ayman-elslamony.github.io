@@ -1,0 +1,478 @@
+{
+  "name": "Ayman Elslamony",
+  "description": "Mobile App Developer",
+  "subDescription": "Software Engineer | Flutter Developer",
+  "contacts": [
+    {
+      "tooltip": "LinkedIn",
+      "url": "https://www.linkedin.com/in/ayman-elslamony",
+      "iconCodePoint": "0xf08c",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter"
+    },
+    {
+      "tooltip": "Github",
+      "url": "https://github.com/ayman-elslamony",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter"
+    },
+    {
+      "tooltip": "aymanelslamony17@gmail.com",
+      "url": "mailto:aymanelslamony17@gmail.com",
+      "iconCodePoint": "0xf0e0",
+      "iconFontFamily": "FontAwesomeSolid",
+      "iconFontPackage": "font_awesome_flutter"
+    },
+    {
+      "tooltip": "(+20) 155 284 4195",
+      "url": "tel://+201552844195/",
+      "iconCodePoint": "0xf095",
+      "iconFontFamily": "FontAwesomeSolid",
+      "iconFontPackage": "font_awesome_flutter"
+    }
+  ],
+  "resumes": [
+    {
+      "languageCode": "en",
+      "url": "https://www.notion.so/aymanelslamony/ffb40e02728d4a08b2b4b9f90ebb977f?pvs=4#c4d44b97b95548049c28153328a504d6"
+    }
+  ],
+  "aboutDescription": "️Hello 🖐️, I am a mobile developer with a bachelor's degree in computer science, showcasing a profound passion for continuous learning and the perpetual expansion of my knowledge and technical skills. In pursuit of a new professional journey as a mobile developer, I am eager to collaborate with an expert team where I can apply and enhance my skills.\n\nSince January 2020, I have been actively engaged in developing Flutter applications, and my expertise encompasses the following areas:\n\n- App lifecycle\n- Dart\n- State management (Provider - Bloc - GetX)\n- Architecture Patterns (MVVM, MVC)\n- RESTful APIs\n- Third-party libraries (Social authentication libraries)\n- Firebase (Authentication – Messaging - Firestore – Notifications)\n- Location services (Google Maps - Google Places)\n- Offline storage (SqfLite - Shared preference)\n- External SDK Integration (Agora SDK, OneSignal SDK, HyperPay SDK)\n- Responsive design skills\n- UI (Unit testing – Widget testing)\n\nI am excited about the prospect of contributing my skills to a dynamic and challenging work environment.",
+  "experiences": [
+    {
+      "job": "Flutter Developer",
+      "company": "Excellent Protection",
+      "description": "- Developed and maintained mobile applications using Flutter framework.\n- Collaborated with cross-functional teams to deliver high-quality software products.\n- Implemented UI/UX designs and ensured smooth integration with backend services.\n- Conducted code reviews and provided constructive feedback to team members.",
+      "isPresent": true,
+      "startYear": 2022,
+      "startMonth": 3,
+      "endYear": 2023,
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "State Management (Bloc - GetX)",
+        "GitHub",
+        "Cloud Firestore",
+        "RESTful APIs",
+        "SQLite",
+        "Google Maps",
+        "HyperPay SDK",
+        "OneSignal SDK",
+        "Azure DevOps Services"
+      ],
+      "links": [
+        {
+          "url": "https://excp.sa/",
+          "display": "Excellent Protection Site"
+        }
+      ]
+    },
+    {
+      "job": "Flutter Developer",
+      "company": "Freelancer, Remote",
+      "description": "",
+      "startYear": 2019,
+      "startMonth": 12,
+      "endYear": 2020,
+      "endMonth": 10,
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Provider State Management",
+        "Git (GitHub, GitLab)",
+        "SQLite",
+        "Cloud Firestore",
+        "Social Media Authentication",
+        "RESTful APIs",
+        "Google Maps",
+        "Google Places",
+        "Video Player SDK"
+      ]
+    }
+  ],
+  "present": "Present",
+  "projects": [
+    {
+      "name": "HyperPay (Flutter Plugin)",
+      "description": "A platform that seamlessly integrates with HyperPay SDK, an end-to-end payment gateway for mobile apps.",
+      "url": "https://pub.dev/packages/hyperpay_plugin",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/hyper_pay.png",
+      "technologies": [
+        "HyperPay SDK",
+        "Swift",
+        "Java"
+      ],
+      "links": [
+        {
+          "url": "https://pub.dev/packages/hyperpay_plugin",
+          "display": "Pub.dev"
+        }
+      ]
+    },
+    {
+      "name": "Sraco (Flutter Application)",
+      "description": "An e-commerce application that allows users to book cleaning workers.",
+      "url": "https://play.google.com/store/apps/details?id=com.excprotection.sracohrapp",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/sraco.jpg",
+      "technologies": [
+        "Bloc State Management",
+        "HyperPay SDK",
+        "OneSignal SDK",
+        "Cloud Firestore"
+      ],
+      "links": [
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.sracohrapp",
+          "display": "Google Play",
+          "iconCodePoint": "0xf3ab",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/sracohr/id6443454083",
+          "display": "App Store",
+          "iconCodePoint": "0xf370",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
+    {
+      "name": "REFD (Flutter Application)",
+      "description": "Application provides expertly trained professionals for comprehensive household services, including cleaning, cooking, elderly care, and more, available through various hourly or flexible packages.",
+      "url": "https://play.google.com/store/apps/details?id=com.excprotection.refd",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/refd.png",
+      "technologies": [
+        "Bloc State Management",
+        "Google Maps",
+        "Cloud Firestore",
+        "HyperPay SDK",
+        "OneSignal SDK"
+      ],
+      "links": [
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.refd",
+          "display": "Google Play",
+          "iconCodePoint": "0xf3ab",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/refd/id1665842433",
+          "display": "App Store",
+          "iconCodePoint": "0xf370",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
+    {
+      "name": "Handaza (Flutter Application)",
+      "description": "A professionally designed application utilizing artificial intelligence, offering engineers tailored engineering content.",
+      "url": "https://play.google.com/store/apps/details?id=com.Handaza.academy_app",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/handaza.png",
+      "technologies": [
+        "Provider State Management",
+        "Video Player SDK"
+      ],
+      "links": [
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.Handaza.academy_app",
+          "display": "Google Play",
+          "iconCodePoint": "0xf3ab",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/handaza/id1579236532",
+          "display": "App Store",
+          "iconCodePoint": "0xf370",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
+    {
+      "name": "Driver Package (Flutter Application)",
+      "description": "This package was developed as the foundation for all driver applications made for various clients.",
+      "url": "https://github.com/ayman-elslamony/driver_package",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/rafah.png",
+      "technologies": [
+        "Bloc State Management",
+        "OneSignal SDK",
+        "Google Maps"
+      ],
+      "links": [
+        {
+          "url": "https://github.com/ayman-elslamony/driver_package",
+          "display": "Demo Driver",
+          "iconCodePoint": "0xf09b",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.enayadriverapp",
+          "display": "Enaya Driver",
+          "iconCodePoint": "0xf3ab",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.irc_drivers",
+          "display": "Awon Driver",
+          "iconCodePoint": "0xf3ab",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.jehan_driver",
+          "display": "Jehan Driver",
+          "iconCodePoint": "0xf3ab",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
+    {
+      "name": "Tadbeer (Flutter Application)",
+      "description": "An e-commerce application that allows users to book cleaning workers.",
+      "url": "https://play.google.com/store/apps/details?id=com.excprotection.tadbeermobile",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/tadbeer.jpg",
+      "technologies": [
+        "Bloc State Management",
+        "Google Maps",
+        "Cloud Firestore",
+        "HyperPay SDK",
+        "OneSignal SDK"
+      ],
+      "links": [
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.tadbeermobile",
+          "display": "Google Play",
+          "iconCodePoint": "0xf3ab",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/tadbeer/id1531299885",
+          "display": "App Store",
+          "iconCodePoint": "0xf370",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
+    {
+      "name": "Enaya (Flutter Application)",
+      "description": "An e-commerce application that allows users to book cleaning workers.",
+      "url": "https://play.google.com/store/apps/details?id=com.excprotection.EnayaMobile",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/enaya.jpg",
+      "technologies": [
+        "Bloc State Management",
+        "HyperPay SDK",
+        "OneSignal SDK",
+        "Cloud Firestore"
+      ],
+      "links": [
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.EnayaMobile",
+          "display": "Google Play",
+          "iconCodePoint": "0xf3ab",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/enaya/id1491310421",
+          "display": "App Store",
+          "iconCodePoint": "0xf370",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
+    {
+      "name": "Tanmya (Flutter Application)",
+      "description": "An e-commerce application that allows users to book baby care and maintenance services.",
+      "url": "https://play.google.com/store/apps/details?id=com.excprotection.eltanmia",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/tanmya.jpg",
+      "technologies": [
+        "HyperPay SDK",
+        "OneSignal SDK",
+        "Cloud Firestore",
+        "Bloc State Management"
+      ],
+      "links": [
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.eltanmia",
+          "display": "Google Play",
+          "iconCodePoint": "0xf3ab",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://apps.apple.com/uy/app/etanmia/id1599240880",
+          "display": "App Store",
+          "iconCodePoint": "0xf370",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
+    {
+      "name": "Eau de Milano (Flutter Application)",
+      "description": "A store app that enables customers to quickly find products easily and add them to their shopping carts for eventual purchase.",
+      "url": "https://github.com/ayman-elslamony/eaudemilano",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/eaudemilano.png",
+      "technologies": [
+        "Provider State Management",
+        "RESTful APIs"
+      ],
+      "links": [
+        {
+          "url": "https://github.com/ayman-elslamony/eaudemilano",
+          "display": "GitHub",
+          "iconCodePoint": "0xf09b",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
+    {
+      "name": "Coach Station (Flutter Application)",
+      "description": "It is a sports application that enables users to locate the top trainers, diet plans, and coaches.",
+      "url": "https://github.com/ayman-elslamony/coachstation",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/coach_station.png",
+      "technologies": [
+        "Provider State Management",
+        "RESTful APIs"
+      ],
+      "links": [
+        {
+          "url": "https://github.com/ayman-elslamony/coachstation",
+          "display": "GitHub",
+          "iconCodePoint": "0xf09b",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
+    {
+      "name": "Es3fni (Flutter Application)",
+      "description": "It is a medical application that enables users to ask for assistance, such as asking a nurse to administer an injection and draw blood or to schedule physiotherapy sessions.",
+      "url": "https://github.com/ayman-elslamony/Es3fni",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/es3fni.png",
+      "technologies": [
+        "Provider State Management",
+        "Google Maps",
+        "Cloud Firestore"
+      ],
+      "links": [
+        {
+          "url": "https://github.com/ayman-elslamony/Es3fni",
+          "display": "GitHub",
+          "iconCodePoint": "0xf09b",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
+    {
+      "name": "Health Book (Flutter Application)",
+      "description": "It is a medical application that aids the patient to keep their personal medical records in one place and communicate with the doctors using video chats.",
+      "url": "https://github.com/ayman-elslamony/HealthBookApp",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/health_book.png",
+      "technologies": [
+        "Provider State Management",
+        "Agora SDK",
+        "Cloud Firestore"
+      ],
+      "links": [
+        {
+          "url": "https://github.com/ayman-elslamony/HealthBookApp",
+          "display": "GitHub",
+          "iconCodePoint": "0xf09b",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
+    {
+      "name": "Check And Chat (Flutter Application)",
+      "description": "An e-commerce application that helps users find nearby services, rate them, add friends, chat with them, follow public groups, and add their own store.",
+      "url": "https://github.com/ayman-elslamony/checkAndChat",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/check_and_chat.png",
+      "technologies": [
+        "Provider State Management",
+        "Google Maps",
+        "Google Places",
+        "Cloud Firestore"
+      ],
+      "links": [
+        {
+          "url": "https://github.com/ayman-elslamony/checkAndChat",
+          "display": "GitHub",
+          "iconCodePoint": "0xf09b",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "code": "en",
+      "name": "English",
+      "nativeName": "English"
+    }
+  ],
+  "portfolio": "Portfolio",
+  "homeSectionTitle": "Home",
+  "aboutSectionTitle": "About",
+  "aboutSectionTitleAlt": "About Me",
+  "experienceSectionTitle": "Work Experience",
+  "projectsSectionTitle": "Projects",
+  "resume": "Resume",
+  "downloadResume": "Download resume",
+  "openUrlError": "Could not open the url",
+  "unknownLanguageError": "Language unknown"
+}

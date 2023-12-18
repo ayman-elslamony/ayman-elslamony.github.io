@@ -1,685 +1,245 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>   </title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 16;
-	padding: 16;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-    margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="ffb40e02-728d-4a08-b2b4-b9f90ebb977f" class="page sans"><header><h1 class="page-title">   </h1><p class="page-description"></p></header><div class="page-body"><figure id="25e215ea-a052-4ad4-9b45-2f24294ee8cc" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mstyle mathsize="1.728em"><mtext mathvariant="bold-sans-serif">Ayman</mtext><mtext> </mtext><mtext mathvariant="bold-sans-serif">Elslamony</mtext></mstyle><mspace linebreak="newline"></mspace><mstyle mathsize="1.44em"><mtext mathvariant="sans-serif">Flutter</mtext><mtext> </mtext><mtext mathvariant="sans-serif">Developer</mtext></mstyle><mspace linebreak="newline"></mspace><mstyle mathsize="0.9em"><mtext mathvariant="sans-serif">Mansoura,</mtext><mtext> </mtext><mtext mathvariant="sans-serif">El</mtext><mtext> </mtext><mtext mathvariant="sans-serif">Dakahlia,</mtext><mtext> </mtext><mtext mathvariant="sans-serif">Egypt</mtext></mstyle><mspace linebreak="newline"></mspace></mrow><annotation encoding="application/x-tex">\textsf{\textbf{\LARGE Ayman Elslamony}}\\
-\textsf{\textsf{\Large Flutter Developer}}\\
-\textsf{\textsf{\small Mansoura, El Dakahlia, Egypt}}\\
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.536em;vertical-align:-0.336em;"></span><span class="mord text"><span class="mord text"><span class="mord textsf textbf sizing reset-size6 size9">Ayman Elslamony</span></span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:1.28em;vertical-align:-0.28em;"></span><span class="mord text"><span class="mord text"><span class="mord textsf sizing reset-size6 size8">Flutter Developer</span></span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.8em;vertical-align:-0.175em;"></span><span class="mord text"><span class="mord text"><span class="mord textsf sizing reset-size6 size5">Mansoura, El Dakahlia, Egypt</span></span></span></span><span class="mspace newline"></span></span></span></span></div></figure><p id="25189679-032d-44ef-b151-98811de22cf1" class="block-color-default"><strong>Email:</strong> <a href="mailto:aymanelslamony17@gmail.com">aymanelslamony17@gmail.com</a> | <strong>Phone:</strong> <a href="tel://+201552844195/">(+20) 155 284 4195</a> | <strong>GitHub:</strong> <a href="https://github.com/ayman-elslamony">ayman-elslamony</a> | <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ayman-elslamony">ayman-elslamony</a></p><hr id="8a329cd5-2893-4075-a348-a21830d227ab"/><h2 id="52ecdbc7-4ec7-48fd-ae38-89aebb41209f" class=""><strong>Career Objectives</strong></h2><p id="9e6bf00c-7d25-4b82-8641-1954d1d8612c" class="">I have experience and extensive knowledge in developing innovative and user-friendly mobile applications that meet the needs of clients. I strive for excellence in all aspects of mobile development, including design, functionality, security, performance, and user experience.</p><h2 id="02fa8069-3330-4605-b715-ec4742b5d72b" class="">Work Experience</h2><hr id="b954769f-3e15-4954-8b6e-190916ea4f26"/><h3 id="8c5d97bc-c812-4f39-8d70-d8886621c702" class="">Flutter Developer at Excellent Protection (Mar. 2022 – Present)</h3><ul id="c1c38c0c-ada2-4dbb-8db2-9f49004711a0" class="bulleted-list"><li style="list-style-type:disc">Developed and maintained mobile applications using Flutter framework.</li></ul><ul id="32df8146-f998-448f-9565-c9848aa1e69f" class="bulleted-list"><li style="list-style-type:disc">Collaborated with cross-functional teams to deliver high-quality software products.</li></ul><ul id="e6dcdff5-c959-44e4-8541-10ce97de0dea" class="bulleted-list"><li style="list-style-type:disc">Implemented UI/UX designs and ensured smooth integration with backend services.</li></ul><ul id="179686b0-6e6e-49e4-90f6-495a622d753e" class="bulleted-list"><li style="list-style-type:disc">Conducted code reviews and provided constructive feedback to team members.</li></ul><h3 id="b4bb47c8-007e-4213-bd64-3249170b59b9" class="">Flutter Developer (Freelancer, Remote) (Dec. 2019 – Oct. 2020)</h3><h2 id="2f4c34e8-ee77-4a23-86a4-ed2803cc9a32" class="">Projects</h2><hr id="46aab370-e21e-44f9-92e0-4649cbf8b3ab"/><h3 id="663e7768-246a-4174-8502-d2bef0b2210b" class="">HyperPay (Flutter Plugin)</h3><p id="5f6df235-00f4-4e7c-a5c0-c496f3d756f5" class="">A platform that seamlessly integrates with HyperPay SDK, an end-to-end payment gateway for mobile apps.</p><p id="edb81054-9ac4-45eb-ad7a-4c88be08dda0" class=""><strong>Pub.dev:</strong> <a href="https://pub.dev/packages/hyperpay_plugin">https://pub.dev/packages/hyperpay_plugin</a></p><h3 id="3d8f7593-505f-4e0e-b261-e007e9ab1579" class="">Sraco (Flutter Application)</h3><p id="71a5620d-c9d9-4350-9bc9-2e4d9f967da1" class="">An e-commerce application that allows users to book cleaning workers.</p><p id="ee8a5234-5129-4713-aa3a-cc16c56c0227" class=""><strong>Android:</strong> <a href="https://play.google.com/store/apps/details?id=com.excprotection.sracohrapp">https://play.google.com/store/apps/details?id=com.excprotection.sracohrapp</a></p><p id="e819fbf8-ec19-48b2-8c62-d585a1a14801" class=""><strong>iOS:</strong> <a href="https://apps.apple.com/us/app/sracohr/id6443454083">https://apps.apple.com/us/app/sracohr/id6443454083</a></p><h3 id="df719ec3-4ace-4bdc-8316-e86f68c6e327" class="">REFD (Flutter Application)</h3><p id="94d1c07c-b2f3-4f23-9e92-bbf2e1c988c4" class="">Application provides expertly trained professionals for comprehensive household services, including cleaning, cooking, elderly care, and more, available through various hourly or flexible packages.</p><p id="31357ffe-01d8-4f73-9357-790fd439cc41" class=""><strong>Android:</strong> <a href="https://play.google.com/store/apps/details?id=com.excprotection.refd">https://play.google.com/store/apps/details?id=com.excprotection.refd</a></p><p id="68603295-a3ee-4493-a7d6-5feb96f186fd" class=""><strong>iOS:</strong> <a href="https://apps.apple.com/us/app/refd/id1665842433">https://apps.apple.com/us/app/refd/id1665842433</a></p><h2 id="a9678317-9e4b-4b4b-b0a0-a625b27f0c3d" class="">Handaza (Flutter Application)</h2><p id="7064702a-4514-480b-bfd1-57451ed20b37" class="">A professionally designed application utilizing artificial intelligence, offering engineers tailored engineering content.</p><p id="7495cc84-167c-4188-9c9f-45b68d3e8a7d" class=""><strong>Android:</strong> <a href="https://play.google.com/store/apps/details?id=com.Handaza.academy_app">https://play.google.com/store/apps/details?id=com.Handaza.academy_app</a></p><p id="3af386f2-d152-45c4-a745-efab3ee3debf" class=""><strong>iOS:</strong> <a href="https://apps.apple.com/us/app/handaza/id1579236532">https://apps.apple.com/us/app/handaza/id1579236532</a></p><h3 id="59ce9348-84eb-4dba-ad72-71a3470e9bc2" class="">Driver Package (Flutter Application)</h3><p id="321b6268-b209-4c91-846b-856a9e69a058" class="">This package was developed as the foundation for all driver applications made for various clients.</p><p id="0d619044-0dd5-44d4-8ad4-4074a3503b0d" class=""><strong>Android:</strong> <a href="https://play.google.com/store/apps/details?id=com.excprotection.enayadriverapp">https://play.google.com/store/apps/details?id=com.excprotection.enayadriverapp</a></p><p id="a50730f4-8ef7-4889-8563-3983501ab6fa" class=""><strong>Android:</strong> <a href="https://play.google.com/store/apps/details?id=com.excprotection.irc_drivers">https://play.google.com/store/apps/details?id=com.excprotection.irc_drivers</a></p><p id="604ad622-b9a3-47fb-bdb1-b613f7cbd96e" class=""><strong>Android:</strong> <a href="https://play.google.com/store/apps/details?id=com.excprotection.jehan_driver">https://play.google.com/store/apps/details?id=com.excprotection.jehan_driver</a></p><p id="441e0ebe-1c82-40bb-8089-6b142b7d3cc7" class=""><strong>GitHub:</strong> <a href="https://github.com/ayman-elslamony/driver_package">https://github.com/ayman-elslamony/driver_package</a></p><h3 id="48c9ed7f-6555-4616-8c30-d4d430b168be" class="">Tadbeer (Flutter Application)</h3><p id="6a2c81f3-1f1c-40c8-9217-708ef8503cbb" class="">An e-commerce application that allows users to book cleaning workers.</p><p id="3cc60bff-8d10-4c1e-a803-d6fccc6ec427" class=""><strong>Android:</strong> <a href="https://play.google.com/store/apps/details?id=com.excprotection.tadbeermobile">https://play.google.com/store/apps/details?id=com.excprotection.tadbeermobile</a></p><p id="8463dd27-7b40-470f-8ba9-7ad3ce3d810a" class=""><strong>iOS:</strong> <a href="https://apps.apple.com/us/app/tadbeer/id1531299885">https://apps.apple.com/us/app/tadbeer/id1531299885</a></p><h3 id="27307f50-a9d7-43f9-bd18-7aec299d39c1" class="">Enaya (Flutter Application)</h3><p id="65470fa1-c1a7-4689-904b-f7aa550b52b0" class="">An e-commerce application that allows users to book cleaning workers.</p><p id="0ec72527-7d91-4ad4-96c4-7071f21182e9" class=""><strong>Android:</strong> <a href="https://play.google.com/store/apps/details?id=com.excprotection.EnayaMobile">https://play.google.com/store/apps/details?id=com.excprotection.EnayaMobile</a></p><p id="47139d0e-b6be-4225-9caa-6590423ff879" class=""><strong>iOS:</strong> <a href="https://apps.apple.com/us/app/enaya/id1491310421">https://apps.apple.com/us/app/enaya/id1491310421</a></p><h3 id="e9faf465-091d-4cf4-bf5e-03f7f7885d88" class="">Tanmya (Flutter Application)</h3><p id="8563f638-a10f-4c32-9ddd-c63f07de7806" class="">An e-commerce application that allows users to book baby care and maintenance services.</p><p id="832c3887-4502-4767-bbb9-39c389785913" class=""><strong>Android:</strong> <a href="https://play.google.com/store/apps/details?id=com.excprotection.eltanmia">https://play.google.com/store/apps/details?id=com.excprotection.eltanmia</a></p><p id="e029c410-7d0b-4073-a144-c44534eadd4e" class=""><strong>iOS:</strong> <a href="https://apps.apple.com/uy/app/etanmia/id1599240880">https://apps.apple.com/uy/app/etanmia/id1599240880</a></p><h3 id="859638b6-d819-4710-b36a-5ca3656b2d5e" class="">Eau de Milano (Flutter Application)</h3><p id="a60d8ef9-cd33-4786-b7b3-9a6bbf6a138f" class="">A store app that enables customers to quickly find products easily and add them to their shopping carts for eventual purchase.</p><p id="f6211ca3-7504-4100-89bb-40aeba71eb8e" class=""><strong>GitHub:</strong> <a href="https://github.com/ayman-elslamony/eaudemilano">https://github.com/ayman-elslamony/eaudemilano</a></p><h3 id="f2405bdc-823a-4b9a-a8f2-104545b24d22" class="">Coach Station (Flutter Application)</h3><p id="764554c2-e921-41c3-849e-7e9d5bf42391" class="">It is a sports application that enables users to locate the top trainers, diet plans, and coaches.</p><p id="092f4a8d-81fe-4d6d-9684-dd1347851a45" class=""><strong>GitHub:</strong> <a href="https://github.com/ayman-elslamony/coachstation">https://github.com/ayman-elslamony/coachstation</a></p><h3 id="ecafd2e2-31a5-4388-97b7-bf0afc5093f1" class="">Es3fni (Flutter Application)</h3><p id="ae899ef0-a88a-44ae-9604-72b93d955473" class="">It is a medical application that enables users to ask for assistance, such as asking a nurse to administer an injection and draw blood or to schedule physiotherapy sessions.</p><p id="8dd3b074-555a-491b-8c20-7ace740b9754" class=""><strong>GitHub:</strong> <a href="https://github.com/ayman-elslamony/Es3fni">https://github.com/ayman-elslamony/Es3fni</a></p><h3 id="06606b23-5c7e-4ee2-92dd-5fde14edd845" class="">Health Book (Flutter Application)</h3><p id="2b50b325-e153-4e3c-a21a-dc3fe39cf124" class="">It is a medical application that aids the patient to keep their personal medical records in one place and communicate with the doctors using video chats.</p><p id="751983df-1b0f-4e7d-bf78-97b5cffd3e4e" class=""><strong>GitHub:</strong> <a href="https://github.com/ayman-elslamony/HealthBookApp">https://github.com/ayman-elslamony/HealthBookApp</a></p><h3 id="666d837e-71df-40a3-8e72-b3876756c2a4" class="">Check And Chat (Flutter Application)</h3><p id="68ff11c1-7a75-4313-a0e2-a7c0cac65415" class="">An e-commerce application that helps users find nearby services, rate them, add friends, chat with them, follow public groups, and add their own store.</p><p id="f074c3bb-f180-4c58-9a32-76aab84518eb" class=""><strong>GitHub:</strong> <a href="https://github.com/ayman-elslamony/checkAndChat">https://github.com/ayman-elslamony/checkAndChat</a></p><div id="4fad0d21-1568-47ad-8353-491e82be93b8" class="column-list"><div id="c1591342-bad5-444e-90f3-31bdd97f392f" style="width:50.000000000000014%" class="column"><h2 id="04c46f91-1bd9-4eef-880e-157c64519651" class="">Education</h2><hr id="1e2e2378-6a98-4e52-b5b8-4d6e6f68161b"/><p id="6567ef61-1651-45ca-8eac-5d6f4010d1af" class=""><strong>Bachelor’s Degree in computer science (BCS)</strong></p><p id="bf82df69-ecd6-4e0e-b2d1-625770bf530c" class=""><em>Suez Canal University (Aug. 2016 - Jul. 2020)</em></p><ul id="106f040a-7057-4622-a355-1b1d7b59ac56" class="bulleted-list"><li style="list-style-type:disc"><strong>Grade:</strong> Very Good</li></ul><ul id="cd5e0669-a80c-407c-81b6-13e89314f50c" class="bulleted-list"><li style="list-style-type:disc"><strong>Graduation Project:</strong> Excellent</li></ul></div><div id="e5f514a7-3abb-4f7d-9e44-7304222c38df" style="width:50%" class="column"><h2 id="692fd6a3-344c-4ffc-ae5d-5062c927eb24" class="">Training &amp; Internships</h2><hr id="9fd58b75-40d9-4a0d-bc8c-51a94563d3c5"/><p id="91eee70c-2155-4ec7-942a-bdfcea141f76" class=""><strong>Flutter Mobile Development Internship</strong></p><p id="b2f6aba7-a0d3-4691-9bf8-84c33f1e8301" class=""><em>Information Technology Institute (Jun. 2019 – Aug. 2019)</em></p><p id="75ac4eeb-5e8d-469d-8e94-dd626061d221" class="">
-</p></div></div><h2 id="f0457cdb-1ceb-44c5-a4f5-56f39a0030ad" class=""><strong>Technical skills</strong></h2><hr id="ee95f68b-843b-433d-ae03-9bf2ee36edae"/><table id="b0567e96-9d37-41f5-864c-78467fa4b2d6" class="simple-table"><tbody><tr id="db6f7edc-359f-4c6b-a019-878deedc53c1"><th id="w\N_" class="simple-table-header-color simple-table-header" style="width:253.25px"><strong>Programming Languages:</strong></th><td id="GZCY" class="" style="width:677.25px">C++, Python, Dart, swift.</td></tr><tr id="d2e4a848-dee2-44c4-9e2b-6acd3587f925"><th id="w\N_" class="simple-table-header-color simple-table-header" style="width:253.25px"><strong>Conceptual Knowledge:</strong></th><td id="GZCY" class="" style="width:677.25px">OOP, Data Structures, Algorithms, Problem Solving, Clean Code, SDLC, Agile Methodology, (MVVM, MVC) Architecture pattern, SW Testing.</td></tr><tr id="0d8634f4-f7c2-4387-9b8b-200284a5dc9c"><th id="w\N_" class="simple-table-header-color simple-table-header" style="width:253.25px"><strong>Mobile Development:</strong></th><td id="GZCY" class="" style="width:677.25px">Flutter (Android, IOS), State Management (Provider, Bloc, GetX).</td></tr><tr id="8ee96a0d-0394-472f-9ee8-596a6f2f0e4e"><th id="w\N_" class="simple-table-header-color simple-table-header" style="width:253.25px"><strong>Server Side:</strong></th><td id="GZCY" class="" style="width:677.25px">RESTful APIs, Google Maps, Firebase, Agora, HyperPay, OneSignal.</td></tr><tr id="101d04aa-4598-4ef7-8c26-9b1f9540947a"><th id="w\N_" class="simple-table-header-color simple-table-header" style="width:253.25px"><strong>IDEs and Tools:</strong></th><td id="GZCY" class="" style="width:677.25px">Android Studio, VS Code, XCode, Trello, Postman, Git (GitHub, GitLab), Azure DevOps, Notion.</td></tr><tr id="f7ddcbf0-c2a3-473a-b753-1f3f0a929ce7"><th id="w\N_" class="simple-table-header-color simple-table-header" style="width:253.25px"><strong>Platforms:</strong></th><td id="GZCY" class="" style="width:677.25px">Windows and MacOS.</td></tr></tbody></table><h2 id="c269dc62-cfec-49a5-a4ed-d0b3bc6a876a" class="">Courses</h2><hr id="ed5988ee-1b42-4c9a-8ee1-cbd73ae5ecbd"/><ul id="0b268477-690d-4033-b05d-95289ef81784" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.udemy.com/course/clean-architecture-in-flutter-arabic/">Clean Architecture In Flutter 3 (Arabic).</a></li></ul><ul id="71857e22-a9bd-49e3-a62d-af20b456c2c1" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.udemy.com/course/complete-flutter-arabic/">The Complete 2022 Flutter &amp; Dart Development Course [Arabic].</a></li></ul><ul id="7ca7de2b-230c-4ac2-b3f9-c30b74808730" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/">Flutter &amp; Dart - The Complete Guide [2022 Edition].</a></li></ul><ul id="739aa68b-f295-474e-8a8c-43e873198649" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.udemy.com/course/flutter-bootcamp-with-dart/">The Complete 2021 Flutter Development Bootcamp with Dart.</a></li></ul><div id="70f193d0-3ab7-4b07-8a8f-f119707b1693" class="column-list"><div id="e829bd38-a930-4123-94b6-12c2ba17ba53" style="width:50%" class="column"><h2 id="03933094-46c3-46dd-95c2-ffc2f91b067c" class=""><strong>Soft Skills</strong></h2><hr id="ce106e13-94d5-4b73-b721-7eb89911f2a7"/><ul id="6effe982-e559-499a-a1d5-b9ee05a946c6" class="bulleted-list"><li style="list-style-type:disc">Teamwork, Cooperative, Adaptability.</li></ul><ul id="42c343a9-bc84-4da4-a0c9-648ebc603b31" class="bulleted-list"><li style="list-style-type:disc">Excellent communication and self-learning.</li></ul><ul id="e3c2dbcb-85e6-4e55-9547-b72bf11278e6" class="bulleted-list"><li style="list-style-type:disc">Time Management, and presentation skills. </li></ul><h2 id="b3422a4e-afbe-4d9b-8954-5deeda225d16" class="">Personal Information</h2><hr id="cdb1c2b9-7aaf-450e-a86c-75a53cfbd146"/><ul id="09a5bb08-c73b-4740-bf4b-22391266517a" class="bulleted-list"><li style="list-style-type:disc">Date of Birth: 7 Mar 1998</li></ul><ul id="d25dd309-8f13-424b-b8f6-e9654d145545" class="bulleted-list"><li style="list-style-type:disc">Marital Status: Married</li></ul><ul id="38693c58-18d4-4bc2-a6d5-6782b71a63a6" class="bulleted-list"><li style="list-style-type:disc">Military Service: Completed as a soldier</li></ul></div><div id="f4420e6b-9cca-4e76-8c0b-fb442053091e" style="width:50%" class="column"><h2 id="04112dfa-849b-4095-b7bd-744f696bb92d" class="">Languages</h2><hr id="aa2eaf1e-5f01-4411-ba19-f95af06bf8ac"/><ul id="c6394456-7fd7-4c66-946e-9133f84bf68b" class="bulleted-list"><li style="list-style-type:disc">Mother tongue: Arabic</li></ul><ul id="b895565d-a424-40fc-bf61-9be8d01eb9af" class="bulleted-list"><li style="list-style-type:disc">Other language: English</li></ul><p id="637040f6-ea12-40d2-8536-d83755c6cc35" class="">
-</p><p id="63077f37-9847-4225-8ea5-d1d051a26776" class="">
-</p><p id="7a1dc9ff-4a1f-44bc-b8ee-61aa57988f4f" class="">
-</p><figure id="c4d44b97-b955-4804-9c28-153328a504d6" class="image" style="text-align:right"><a href="images/qr-code.svg"><img style="width:120px" src="images/qr-code.svg"/></a></figure><p id="13da1a4c-8336-4ab8-868e-ebf62ffeef13" class="">
-</p></div></div><p id="02b17599-6eca-4e8c-b03b-c6d5686b1025" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+<!DOCTYPE html><html><head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Ayman Elslamony Flutter Developer">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="portfolio">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <title>Ayman Elslamony</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = "389593246";
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer=""></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+<!--  <style id="splash-screen-style">-->
+<!--    .flutter-loader {-->
+<!--      z-index: 999999;-->
+<!--    }-->
+<!--    -->
+<!--    #splash {-->
+<!--        position: fixed;-->
+<!--        width: 100%;-->
+<!--        height: 100%;-->
+<!--        top: 0px;-->
+<!--        left: 0px;-->
+<!--        z-index: 999998;-->
+<!--        opacity: 1;-->
+<!--        /* animation type and duration */-->
+<!--        transition: opacity 0.25s;-->
+<!--        background-color: #FFFFFF;-->
+<!--              -moz-osx-font-smoothing: grayscale;-->
+<!--        -webkit-font-smoothing: antialiased;-->
+<!--    }-->
+<!--    -->
+<!--    #splash.remove {-->
+<!--      /* enable click through when run animation */-->
+<!--      pointer-events: none;-->
+<!--      /* start animation */-->
+<!--      opacity: 0;-->
+<!--    }-->
+
+<!--    #splash .center {-->
+<!--      margin: 0;-->
+<!--      position: absolute;-->
+<!--      top: 50%;-->
+<!--      left: 50%;-->
+<!--      -ms-transform: translate(-50%, -50%);-->
+<!--      transform: translate(-50%, -50%);-->
+<!--    }-->
+
+<!--    #splash .contain {-->
+<!--      display:block;-->
+<!--      width:100%; height:100%;-->
+<!--      object-fit: contain;-->
+<!--    }-->
+
+<!--    #splash .stretch {-->
+<!--      display:block;-->
+<!--      width:100%; height:100%;-->
+<!--    }-->
+
+<!--    #splash .cover {-->
+<!--      display:block;-->
+<!--      width:100%; height:100%;-->
+<!--      object-fit: cover;-->
+<!--    }-->
+
+<!--    #splash .bottom {-->
+<!--      position: absolute;-->
+<!--      bottom: 0;-->
+<!--      left: 50%;-->
+<!--      -ms-transform: translate(-50%, 0);-->
+<!--      transform: translate(-50%, 0);-->
+<!--    }-->
+
+<!--    #splash .bottomLeft {-->
+<!--      position: absolute;-->
+<!--      bottom: 0;-->
+<!--      left: 0;-->
+<!--    }-->
+
+<!--    #splash .bottomRight {-->
+<!--      position: absolute;-->
+<!--      bottom: 0;-->
+<!--      right: 0;-->
+<!--    }-->
+
+<!--    @media (prefers-color-scheme: dark) {-->
+<!--      #splash {-->
+<!--        background-color: #303944;-->
+<!--          }-->
+<!--    }-->
+<!--  </style>-->
+<!--  <script id="splash-screen-script">-->
+<!--    function removeSplashFromWeb() {-->
+<!--      document.getElementById("splash")?.remove();-->
+<!--      document.getElementById("splash-branding")?.remove();-->
+<!--      document.body.style.background = "transparent";-->
+<!--    }-->
+<!--  </script>-->
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+
+
+</body></html>
