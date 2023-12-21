@@ -146,7 +146,7 @@
     },
     {
       "name": "REFD (Flutter Application)",
-      "description": "Application provides expertly trained professionals for comprehensive household services, including cleaning, cooking, elderly care, and more, available through various hourly or flexible packages.",
+      "description": "The application provides expertly trained professionals for comprehensive household services, including cleaning, cooking, elderly care, and more, available through various hourly or flexible packages.",
       "url": "https://play.google.com/store/apps/details?id=com.excprotection.refd",
       "iconCodePoint": "0xf09b",
       "iconFontFamily": "FontAwesomeBrands",
@@ -243,6 +243,13 @@
         {
           "url": "https://play.google.com/store/apps/details?id=com.excprotection.jehan_driver",
           "display": "Jehan Driver",
+          "iconCodePoint": "0xf3ab",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.rafahdriverapp",
+          "display": "Rafah Driver",
           "iconCodePoint": "0xf3ab",
           "iconFontFamily": "FontAwesomeBrands",
           "iconFontPackage": "font_awesome_flutter"

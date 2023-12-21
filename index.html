@@ -1,17 +1,5 @@
-<!DOCTYPE html><html><head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
+<!DOCTYPE html><html>
+<head>
   <base href="/">
 
   <meta charset="UTF-8">
@@ -32,214 +20,30 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "389593246";
+    const serviceWorkerVersion = "324466377";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer=""></script>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-<!--  <style id="splash-screen-style">-->
-<!--    .flutter-loader {-->
-<!--      z-index: 999999;-->
-<!--    }-->
-<!--    -->
-<!--    #splash {-->
-<!--        position: fixed;-->
-<!--        width: 100%;-->
-<!--        height: 100%;-->
-<!--        top: 0px;-->
-<!--        left: 0px;-->
-<!--        z-index: 999998;-->
-<!--        opacity: 1;-->
-<!--        /* animation type and duration */-->
-<!--        transition: opacity 0.25s;-->
-<!--        background-color: #FFFFFF;-->
-<!--              -moz-osx-font-smoothing: grayscale;-->
-<!--        -webkit-font-smoothing: antialiased;-->
-<!--    }-->
-<!--    -->
-<!--    #splash.remove {-->
-<!--      /* enable click through when run animation */-->
-<!--      pointer-events: none;-->
-<!--      /* start animation */-->
-<!--      opacity: 0;-->
-<!--    }-->
 
-<!--    #splash .center {-->
-<!--      margin: 0;-->
-<!--      position: absolute;-->
-<!--      top: 50%;-->
-<!--      left: 50%;-->
-<!--      -ms-transform: translate(-50%, -50%);-->
-<!--      transform: translate(-50%, -50%);-->
-<!--    }-->
-
-<!--    #splash .contain {-->
-<!--      display:block;-->
-<!--      width:100%; height:100%;-->
-<!--      object-fit: contain;-->
-<!--    }-->
-
-<!--    #splash .stretch {-->
-<!--      display:block;-->
-<!--      width:100%; height:100%;-->
-<!--    }-->
-
-<!--    #splash .cover {-->
-<!--      display:block;-->
-<!--      width:100%; height:100%;-->
-<!--      object-fit: cover;-->
-<!--    }-->
-
-<!--    #splash .bottom {-->
-<!--      position: absolute;-->
-<!--      bottom: 0;-->
-<!--      left: 50%;-->
-<!--      -ms-transform: translate(-50%, 0);-->
-<!--      transform: translate(-50%, 0);-->
-<!--    }-->
-
-<!--    #splash .bottomLeft {-->
-<!--      position: absolute;-->
-<!--      bottom: 0;-->
-<!--      left: 0;-->
-<!--    }-->
-
-<!--    #splash .bottomRight {-->
-<!--      position: absolute;-->
-<!--      bottom: 0;-->
-<!--      right: 0;-->
-<!--    }-->
-
-<!--    @media (prefers-color-scheme: dark) {-->
-<!--      #splash {-->
-<!--        background-color: #303944;-->
-<!--          }-->
-<!--    }-->
-<!--  </style>-->
-<!--  <script id="splash-screen-script">-->
-<!--    function removeSplashFromWeb() {-->
-<!--      document.getElementById("splash")?.remove();-->
-<!--      document.getElementById("splash-branding")?.remove();-->
-<!--      document.body.style.background = "transparent";-->
-<!--    }-->
-<!--  </script>-->
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            appRunner.runApp();
-          });
-        }
-      });
-    });
-  </script>
+  <link rel="stylesheet" type="text/css" href="web/styles.css">
 </head>
 <body>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            appRunner.runApp();
-          });
+<div class="loader" style="">
+  <div class="loader-square"></div>
+  <div class="loader-square"></div>
+  <div class="loader-square"></div>
+  <div class="loader-square"></div>
+  <div class="loader-square"></div>
+  <div class="loader-square"></div>
+  <div class="loader-square"></div>
+</div>
+<script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('flutter_service_worker.js?v=324466377');
+            });
         }
-      });
-    });
-  </script>
-
+    </script>
+<script src="main.dart.js" type="application/javascript"></script>
 
 </body></html>
