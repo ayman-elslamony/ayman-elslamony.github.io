@@ -38,12 +38,12 @@
       "url": "https://www.notion.so/aymanelslamony/ffb40e02728d4a08b2b4b9f90ebb977f?pvs=4#c4d44b97b95548049c28153328a504d6"
     }
   ],
-  "aboutDescription": "️Hello 🖐️, I am a mobile developer with a bachelor's degree in computer science, showcasing a profound passion for continuous learning and the perpetual expansion of my knowledge and technical skills. In pursuit of a new professional journey as a mobile developer, I am eager to collaborate with an expert team where I can apply and enhance my skills.\n\nSince January 2020, I have been actively engaged in developing Flutter applications, and my expertise encompasses the following areas:\n\n- App lifecycle\n- Dart\n- State management (Provider - Bloc - GetX)\n- Architecture Patterns (MVVM, MVC)\n- RESTful APIs\n- Third-party libraries (Social authentication libraries)\n- Firebase (Authentication – Messaging - Firestore – Notifications)\n- Location services (Google Maps - Google Places)\n- Offline storage (SqfLite - Shared preference)\n- External SDK Integration (Agora SDK, OneSignal SDK, HyperPay SDK)\n- Responsive design skills\n- UI (Unit testing – Widget testing)\n\nI am excited about the prospect of contributing my skills to a dynamic and challenging work environment.",
+  "aboutDescription": "️Hello 🖐️, I am a Flutter developer with over 3 years of experience and a bachelor's degree in computer science, showcasing a profound passion for continuous learning and the perpetual expansion of my knowledge and technical skills. In pursuit of a new professional journey as a mobile developer, I am eager to collaborate with an expert team where I can apply and enhance my skills.\n\nSince March 2020, I have been actively engaged in developing Flutter applications, and my expertise encompasses the following areas:\n\n- App lifecycle\n- Dart\n- State management (Provider - Bloc - GetX - Riverpod)\n- Architecture Patterns (MVVM, MVC)\n- RESTful APIs\n- Third-party libraries (Social authentication libraries)\n- Firebase (Authentication – Firebase Cloud Messaging - Cloud Firestore)\n- Location services (Google Maps - Google Places)\n- Offline storage (SqfLite - Shared preference)\n- External SDK Integration (Agora SDK, OneSignal SDK, HyperPay SDK)\n- CI/CD (Github Actions, Fastlane, Firebase Distribution, Azure Pipelines)\n- Responsive design skills\n- UI (Unit testing – Widget testing)\n\nI am excited about the prospect of contributing my skills to a dynamic and challenging work environment.",
   "experiences": [
     {
       "job": "Flutter Developer",
       "company": "Excellent Protection",
-      "description": "- Developed and maintained mobile applications using Flutter framework.\n- Collaborated with cross-functional teams to deliver high-quality software products.\n- Implemented UI/UX designs and ensured smooth integration with backend services.\n- Conducted code reviews and provided constructive feedback to team members.",
+      "description": "- Developed and launched 11+ mobile applications for various clients using Flutter.\n- Collaborated effectively with cross-functional teams (design, backend, QA) to deliver high-quality software.\n- Implemented complex UI/UX designs, ensuring seamless integrations with backend services.\n- Conducted thorough code reviews, leading to 30% reduction in post-release bugs.\n- Introduced and applied best practices, resulting in 15% faster development cycles.",
       "isPresent": true,
       "startYear": 2022,
       "startMonth": 3,
@@ -51,10 +51,11 @@
       "technologies": [
         "Flutter",
         "Dart",
-        "State Management (Bloc - GetX)",
+        "State Management (Provider - Bloc - GetX - Riverpod)",
         "GitHub",
         "Cloud Firestore",
         "RESTful APIs",
+        "CI/CD (Github Actions, Fastlane, Firebase Distribution, Azure Pipelines)",
         "SQLite",
         "Google Maps",
         "HyperPay SDK",
@@ -71,11 +72,11 @@
     {
       "job": "Flutter Developer",
       "company": "Freelancer, Remote",
-      "description": "",
-      "startYear": 2019,
-      "startMonth": 12,
+      "description": "- Developed and launched 6+ mobile applications for various clients using Flutter.\n- Gained experience working in fast-paced freelance environments and adapting to diverse project requirements.",
+      "startYear": 2020,
+      "startMonth": 3,
       "endYear": 2020,
-      "endMonth": 10,
+      "endMonth": 9,
       "technologies": [
         "Flutter",
         "Dart",
@@ -93,6 +94,68 @@
   ],
   "present": "Present",
   "projects": [
+    {
+      "name": "Awon (Flutter Application)",
+      "description": "Developed a household services application allowing users to book cleaning, laundry via scheduled visits.",
+      "url": "https://play.google.com/store/apps/details?id=com.excprotection.ircmobile",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/awon.png",
+      "technologies": [
+        "Bloc State Management",
+        "Getx State Management",
+        "HyperPay SDK",
+        "OneSignal SDK",
+        "Firebase Cloud Messaging"
+      ],
+      "links": [
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.ircmobile",
+          "display": "Google Play",
+          "iconCodePoint": "0xf3ab",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/awon/id1483782795",
+          "display": "App Store",
+          "iconCodePoint": "0xf370",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
+    {
+      "name": "Rafah (Flutter Application)",
+      "description": "Developed a household services application allowing users to book cleaning, laundry via scheduled visits.",
+      "url": "https://play.google.com/store/apps/details?id=com.hrbs.rafahapp",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/rafah_app.png",
+      "technologies": [
+        "Bloc State Management",
+        "HyperPay SDK",
+        "Firebase Cloud Messaging"
+      ],
+      "links": [
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.hrbs.rafahapp",
+          "display": "Google Play",
+          "iconCodePoint": "0xf3ab",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/rafah/id6476551030",
+          "display": "App Store",
+          "iconCodePoint": "0xf370",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
     {
       "name": "HyperPay (Flutter Plugin)",
       "description": "A platform that seamlessly integrates with HyperPay SDK, an end-to-end payment gateway for mobile apps.",
