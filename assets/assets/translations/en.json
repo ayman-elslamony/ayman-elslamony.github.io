@@ -42,6 +42,30 @@
   "experiences": [
     {
       "job": "Flutter Developer",
+      "company": "Meta Shops",
+      "description": "- Built and deployed 3+ Flutter apps for clients.\n- Gathered client requirements and turned them into features.\n- Added and improved app features for better performance.",
+      "isPresent": true,
+      "startYear": 2025,
+      "startMonth": 1,
+      "endYear": 2025,
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "State Management (Provider - Bloc - GetX)",
+        "GitHub",
+        "Cloud Firestore",
+        "RESTful APIs",
+        "CI/CD (Github Actions, Firebase Distribution)"
+      ],
+      "links": [
+        {
+          "url": "https://www.metashops.com.sa/",
+          "display": "Meta Shops Site"
+        }
+      ]
+    },
+    {
+      "job": "Flutter Developer",
       "company": "Excellent Protection",
       "description": "- Developed and launched 11+ mobile applications for various clients using Flutter.\n- Collaborated effectively with cross-functional teams (design, backend, QA) to deliver high-quality software.\n- Implemented complex UI/UX designs, ensuring seamless integrations with backend services.\n- Conducted thorough code reviews, leading to 30% reduction in post-release bugs.\n- Introduced and applied best practices, resulting in 15% faster development cycles.",
       "isPresent": true,
@@ -94,6 +118,47 @@
   ],
   "present": "Present",
   "projects": [
+    {
+      "name": "Educational Management Apps (Flutter Applications)",
+      "description": "A digital platform for schools to manage administration, academics, and communication efficiently.",
+      "url": "https://apps.apple.com/us/app/learn-n-play/id6741928295",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter",
+      "screenshotPath": "assets/images/educational_management.jpg",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "State Management (Provider - Bloc - GetX)",
+        "GitHub",
+        "Cloud Firestore",
+        "RESTful APIs",
+        "CI/CD (Github Actions, Firebase Distribution)"
+      ],
+      "links": [
+        {
+          "url": "https://apps.apple.com/us/app/learn-n-play/id6741928295",
+          "display": "App Store",
+          "iconCodePoint": "0xf370",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/multiple-intelligences-center/id6741929928",
+          "display": "App Store",
+          "iconCodePoint": "0xf370",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/smart-first-step-center/id6741872005",
+          "display": "App Store",
+          "iconCodePoint": "0xf370",
+          "iconFontFamily": "FontAwesomeBrands",
+          "iconFontPackage": "font_awesome_flutter"
+        }
+      ]
+    },
     {
       "name": "Awon (Flutter Application)",
       "description": "Developed a household services application allowing users to book cleaning, laundry via scheduled visits.",
@@ -210,7 +275,7 @@
     {
       "name": "REFD (Flutter Application)",
       "description": "The application provides expertly trained professionals for comprehensive household services, including cleaning, cooking, elderly care, and more, available through various hourly or flexible packages.",
-      "url": "https://play.google.com/store/apps/details?id=com.excprotection.refd",
+      "url": "https://apps.apple.com/us/app/refd/id1665842433",
       "iconCodePoint": "0xf09b",
       "iconFontFamily": "FontAwesomeBrands",
       "iconFontPackage": "font_awesome_flutter",
@@ -223,13 +288,6 @@
         "OneSignal SDK"
       ],
       "links": [
-        {
-          "url": "https://play.google.com/store/apps/details?id=com.excprotection.refd",
-          "display": "Google Play",
-          "iconCodePoint": "0xf3ab",
-          "iconFontFamily": "FontAwesomeBrands",
-          "iconFontPackage": "font_awesome_flutter"
-        },
         {
           "url": "https://apps.apple.com/us/app/refd/id1665842433",
           "display": "App Store",
@@ -290,8 +348,8 @@
           "iconFontPackage": "font_awesome_flutter"
         },
         {
-          "url": "https://play.google.com/store/apps/details?id=com.excprotection.enayadriverapp",
-          "display": "Enaya Driver",
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.sraco_drivers",
+          "display": "Sraco Driver",
           "iconCodePoint": "0xf3ab",
           "iconFontFamily": "FontAwesomeBrands",
           "iconFontPackage": "font_awesome_flutter"
@@ -299,13 +357,6 @@
         {
           "url": "https://play.google.com/store/apps/details?id=com.excprotection.irc_drivers",
           "display": "Awon Driver",
-          "iconCodePoint": "0xf3ab",
-          "iconFontFamily": "FontAwesomeBrands",
-          "iconFontPackage": "font_awesome_flutter"
-        },
-        {
-          "url": "https://play.google.com/store/apps/details?id=com.excprotection.jehan_driver",
-          "display": "Jehan Driver",
           "iconCodePoint": "0xf3ab",
           "iconFontFamily": "FontAwesomeBrands",
           "iconFontPackage": "font_awesome_flutter"
@@ -354,7 +405,7 @@
     {
       "name": "Enaya (Flutter Application)",
       "description": "An e-commerce application that allows users to book cleaning workers.",
-      "url": "https://play.google.com/store/apps/details?id=com.excprotection.EnayaMobile",
+      "url": "https://apps.apple.com/us/app/enaya/id1491310421",
       "iconCodePoint": "0xf09b",
       "iconFontFamily": "FontAwesomeBrands",
       "iconFontPackage": "font_awesome_flutter",
@@ -367,13 +418,6 @@
       ],
       "links": [
         {
-          "url": "https://play.google.com/store/apps/details?id=com.excprotection.EnayaMobile",
-          "display": "Google Play",
-          "iconCodePoint": "0xf3ab",
-          "iconFontFamily": "FontAwesomeBrands",
-          "iconFontPackage": "font_awesome_flutter"
-        },
-        {
           "url": "https://apps.apple.com/us/app/enaya/id1491310421",
           "display": "App Store",
           "iconCodePoint": "0xf370",
@@ -385,7 +429,7 @@
     {
       "name": "Tanmya (Flutter Application)",
       "description": "An e-commerce application that allows users to book baby care and maintenance services.",
-      "url": "https://play.google.com/store/apps/details?id=com.excprotection.eltanmia",
+      "url": "https://apps.apple.com/uy/app/etanmia/id1599240880",
       "iconCodePoint": "0xf09b",
       "iconFontFamily": "FontAwesomeBrands",
       "iconFontPackage": "font_awesome_flutter",
@@ -397,13 +441,6 @@
         "Bloc State Management"
       ],
       "links": [
-        {
-          "url": "https://play.google.com/store/apps/details?id=com.excprotection.eltanmia",
-          "display": "Google Play",
-          "iconCodePoint": "0xf3ab",
-          "iconFontFamily": "FontAwesomeBrands",
-          "iconFontPackage": "font_awesome_flutter"
-        },
         {
           "url": "https://apps.apple.com/uy/app/etanmia/id1599240880",
           "display": "App Store",
