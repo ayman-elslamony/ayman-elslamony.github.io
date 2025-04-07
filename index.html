@@ -8,7 +8,7 @@
   <meta name="description" content="Ayman Elslamony Flutter Developer">
 
   <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="portfolio">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
@@ -18,17 +18,17 @@
   <title>Ayman Elslamony</title>
   <link rel="manifest" href="manifest.json">
 
-  <!-- Flutter will handle service worker bootstrapping automatically -->
   <script>
-    const serviceWorkerVersion = ""1131335780"";
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = ""1761382648"";
   </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter_bootstrap.js" defer></script>
 
-  <script src="flutter.js" defer></script>
-  <link rel="stylesheet" type="text/css" href="web/styles.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-
-<div class="loader">
+<div class="loader" style="">
   <div class="loader-square"></div>
   <div class="loader-square"></div>
   <div class="loader-square"></div>
@@ -38,8 +38,15 @@
   <div class="loader-square"></div>
 </div>
 
-<!-- No need for manual service worker registration or extra flutter.js import -->
-<!-- flutter.js will handle everything automatically -->
-
+<script>
+  window.addEventListener('load', function(ev) {
+    _flutter.loader.load({
+      serviceWorker: {
+        serviceWorkerVersion: serviceWorkerVersion,
+        serviceWorkerUrl: 'flutter_service_worker.js'
+      }
+    });
+  });
+</script>
 </body>
 </html>
