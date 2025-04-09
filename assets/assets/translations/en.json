@@ -127,10 +127,7 @@
       "iconFontPackage": "font_awesome_flutter",
       "screenshotPath": "assets/images/educational_management.jpg",
       "technologies": [
-        "Flutter",
-        "Dart",
         "State Management (Provider - Bloc - GetX)",
-        "GitHub",
         "Cloud Firestore",
         "RESTful APIs",
         "CI/CD (Github Actions, Firebase Distribution)"
