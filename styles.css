@@ -8,9 +8,9 @@ display:flex;
 
 :root {
   --light-background: #faf9fd;
-  --dark-background: #191e21;
+  --dark-background: #faf9fd;
   --loader-square-light: #96bfc7;
-  --loader-square-dark: #44656f;
+  --loader-square-dark: #96bfc7;
 }
 
 @media (prefers-color-scheme: light) {
