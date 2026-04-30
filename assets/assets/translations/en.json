@@ -1,7 +1,7 @@
 {
   "name": "Ayman Elslamony",
-  "description": "Mobile App Developer",
-  "subDescription": "Software Engineer | Senior Flutter Developer",
+  "description": "Senior Flutter Engineer",
+  "subDescription": "Mobile Platform & CI/CD Automation | White-Label SDK",
   "contacts": [
     { "tooltip": "LinkedIn", "url": "https://www.linkedin.com/in/ayman-elslamony", "iconCodePoint": "0xf08c", "iconFontFamily": "FontAwesomeBrands", "iconFontPackage": "font_awesome_flutter" },
     { "tooltip": "Github", "url": "https://github.com/ayman-elslamony", "iconCodePoint": "0xf09b", "iconFontFamily": "FontAwesomeBrands", "iconFontPackage": "font_awesome_flutter" },
@@ -11,16 +11,16 @@
   "resumes": [
     { "languageCode": "en", "url": "https://www.notion.so/aymanelslamony/ffb40e02728d4a08b2b4b9f90ebb977f?pvs=4#c4d44b97b95548049c28153328a504d6" }
   ],
-  "aboutDescription": "Senior Flutter Developer with over 4 years of experience specializing in architecting scalable, high-performance mobile applications. Proven track record of delivering 18+ applications across e-commerce, healthcare, and service domains. My expertise lies in leading development initiatives, transforming complex business requirements into robust technical solutions, and mentoring engineers to elevate team-wide code quality.",
+  "aboutDescription": "Senior Flutter Engineer with 4+ years of production experience, specializing in mobile platform architecture and release automation.\n\nWhat makes my profile different:\n\n→ Built a multi-tenant White-Label SDK — one Flutter codebase serving multiple enterprise clients, each with their own branding, backend, and store listing. Zero code duplication.\n\n→ Published a native iOS/Android Flutter Plugin on Pub.dev (HyperPay payment bridge via Platform Channels) — proving deep understanding of Flutter's native interop layer.\n\n→ Architected a full CI/CD release pipeline (Azure DevOps + GitHub Actions + Fastlane + Firebase Distribution) — cut release cycles by 15%.\n\n→ Built an internal API Inspector tool giving QA and backend teams real-time API visibility — eliminated false escalations between teams.\n\n→ Delivered 18+ production applications across e-commerce, healthcare, and logistics.\n\nOpen to: Remote opportunities | Gulf relocation | Europe relocation",
   "experiences": [
     {
-      "job": "Senior Flutter Developer",
+      "job": "Senior Flutter Engineer — Mobile Platform & CI/CD",
       "company": "Excellent Protection",
-      "description": "- Mentored 2 junior developers, improving team-wide code quality and best practices.\n- Led the initiative to establish new coding standards and conduct rigorous code reviews, cutting post-release bugs by 30%.\n- Architected and implemented CI/CD pipelines (GitHub Actions), accelerating development and release cycles by 15%.\n- Engineered a points-based customer loyalty system to drive user retention.",
+      "description": "- Designed and shipped a multi-tenant White-Label SDK: one Flutter codebase serving multiple enterprise clients with per-client branding, backend, and store listing — eliminated duplicate codebases.\n- Built an internal API Inspector tool for real-time API debugging, reducing false escalations between mobile and backend teams.\n- Architected full CI/CD pipeline: Azure DevOps + GitHub Actions + Fastlane + Firebase Distribution with SDK caching — release cycles ↓ 15%.\n- Led coding standards initiative and code reviews — post-release bugs ↓ 30%.\n- Mentored 2 junior developers.",
       "isPresent": true,
       "startYear": 2023,
       "startMonth": 1,
-      "technologies": ["Flutter", "Dart", "CI/CD", "GitHub Actions", "SOLID", "Sentry", "Firebase Crashlytics"]
+      "technologies": ["Flutter", "Dart", "CI/CD", "GitHub Actions", "Azure DevOps", "Fastlane", "White-Label SDK", "Platform Channels", "SOLID", "Sentry", "Firebase Crashlytics"]
     },
     {
       "job": "Flutter Developer (Contract)",
@@ -90,10 +90,10 @@
     },
     {
       "name": "HyperPay (Flutter Plugin)",
-      "description": "An open-source plugin for the Flutter community. \nKey Achievement: Published on Pub.dev by bridging native iOS/Android HyperPay SDKs to simplify payment integration.",
+      "description": "An open-source plugin for the Flutter community. \nKey Achievement: Published on Pub.dev by bridging native iOS/Android HyperPay SDKs via Platform Channels — proving deep native interop knowledge.",
       "url": "https://pub.dev/packages/hyperpay_plugin",
       "screenshotPath": "assets/images/hyper_pay.png",
-      "technologies": ["Open Source", "SDK Integration", "Swift", "Kotlin"],
+      "technologies": ["Open Source", "Platform Channels", "Native Bridge", "Swift", "Kotlin"],
       "links": [
         {"url": "https://pub.dev/packages/hyperpay_plugin", "display": "Pub.dev"}
       ]
@@ -131,11 +131,11 @@
       ]
     },
     {
-      "name": "Driver Package (Reusable Solution)",
-      "description": "A reusable core package for driver apps. \nKey Achievement: Engineered to slash new project development time and provide a real-time admin panel for fleet tracking.",
+      "name": "Driver Package (White-Label SDK)",
+      "description": "A reusable White-Label SDK for driver apps — one codebase, multiple enterprise clients. Each client gets their own branding, backend, and store listing.\nKey Achievement: Eliminated duplicate codebases across clients and enabled real-time fleet tracking.",
       "url": "https://github.com/ayman-elslamony/driver_package",
       "screenshotPath": "assets/images/rafah.png",
-      "technologies": ["Real-time Tracking", "Geofencing", "Google Maps", "OneSignal SDK", "Bloc"],
+      "technologies": ["White-Label Architecture", "Real-time Tracking", "Geofencing", "Google Maps", "OneSignal SDK", "Bloc"],
       "links": [
         {"url": "https://play.google.com/store/apps/details?id=com.excprotection.sraco_drivers", "display": "Sraco Driver"},
         {"url": "https://play.google.com/store/apps/details?id=com.excprotection.irc_drivers", "display": "Awon Driver"}
