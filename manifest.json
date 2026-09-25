@@ -1,18 +1,40 @@
 {
-    "name": "portfolio",
-    "short_name": "portfolio",
+    "name": "Ayman Elslamony — Senior Flutter Developer",
+    "short_name": "Ayman Elslamony",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#303944",
-    "theme_color": "#303944",
-    "description": "A new Flutter project.",
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "description": "Portfolio of Ayman Elslamony, Senior Flutter Developer — Android & iOS, Clean Architecture, CI/CD.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
-        { "src": "icons/favicon.ico", "type": "image/x-icon", "sizes": "16x16 32x32" },
-        { "src": "icons/icon-192.png", "type": "image/png", "sizes": "192x192" },
-        { "src": "icons/icon-512.png", "type": "image/png", "sizes": "512x512" },
-        { "src": "icons/icon-192-maskable.png", "type": "image/png", "sizes": "192x192", "purpose": "maskable" },
-        { "src": "icons/icon-512-maskable.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+        {
+            "src": "icons/favicon.ico",
+            "type": "image/x-icon",
+            "sizes": "16x16 32x32"
+        },
+        {
+            "src": "icons/icon-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "icons/icon-192-maskable.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/icon-512-maskable.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "maskable"
+        }
     ]
 }

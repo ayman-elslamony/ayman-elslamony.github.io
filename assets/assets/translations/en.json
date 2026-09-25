@@ -1,46 +1,107 @@
 {
   "name": "Ayman Elslamony",
-  "description": "Senior Flutter Engineer",
-  "subDescription": "Mobile Platform & CI/CD Automation | White-Label SDK",
+  "description": "Senior Flutter Developer",
+  "subDescription": "Android & iOS · Clean Architecture · CI/CD",
   "contacts": [
-    { "tooltip": "LinkedIn", "url": "https://www.linkedin.com/in/ayman-elslamony", "iconCodePoint": "0xf08c", "iconFontFamily": "FontAwesomeBrands", "iconFontPackage": "font_awesome_flutter" },
-    { "tooltip": "Github", "url": "https://github.com/ayman-elslamony", "iconCodePoint": "0xf09b", "iconFontFamily": "FontAwesomeBrands", "iconFontPackage": "font_awesome_flutter" },
-    { "tooltip": "aymanelslamony17@gmail.com", "url": "mailto:aymanelslamony17@gmail.com", "iconCodePoint": "0xf0e0", "iconFontFamily": "FontAwesomeSolid", "iconFontPackage": "font_awesome_flutter" },
-    { "tooltip": "(+20) 155 284 4195", "url": "tel://+201552844195/", "iconCodePoint": "0xf095", "iconFontFamily": "FontAwesomeSolid", "iconFontPackage": "font_awesome_flutter" }
+    {
+      "tooltip": "LinkedIn",
+      "url": "https://www.linkedin.com/in/ayman-elslamony",
+      "iconCodePoint": "0xf08c",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter"
+    },
+    {
+      "tooltip": "Github",
+      "url": "https://github.com/ayman-elslamony",
+      "iconCodePoint": "0xf09b",
+      "iconFontFamily": "FontAwesomeBrands",
+      "iconFontPackage": "font_awesome_flutter"
+    },
+    {
+      "tooltip": "aymanelslamony17@gmail.com",
+      "url": "mailto:aymanelslamony17@gmail.com",
+      "iconCodePoint": "0xf0e0",
+      "iconFontFamily": "FontAwesomeSolid",
+      "iconFontPackage": "font_awesome_flutter"
+    },
+    {
+      "tooltip": "(+20) 155 284 4195",
+      "url": "tel://+201552844195/",
+      "iconCodePoint": "0xf095",
+      "iconFontFamily": "FontAwesomeSolid",
+      "iconFontPackage": "font_awesome_flutter"
+    }
   ],
   "resumes": [
-    { "languageCode": "en", "url": "https://www.notion.so/aymanelslamony/ffb40e02728d4a08b2b4b9f90ebb977f?pvs=4#c4d44b97b95548049c28153328a504d6" }
+    {
+      "languageCode": "en",
+      "url": "https://www.notion.so/aymanelslamony/ffb40e02728d4a08b2b4b9f90ebb977f?pvs=4"
+    }
   ],
-  "aboutDescription": "Senior Flutter Engineer with 4+ years of production experience, specializing in mobile platform architecture and release automation.\n\nWhat makes my profile different:\n\n→ Built a multi-tenant White-Label SDK — one Flutter codebase serving multiple enterprise clients, each with their own branding, backend, and store listing. Zero code duplication.\n\n→ Published a native iOS/Android Flutter Plugin on Pub.dev (HyperPay payment bridge via Platform Channels) — proving deep understanding of Flutter's native interop layer.\n\n→ Architected a full CI/CD release pipeline (Azure DevOps + GitHub Actions + Fastlane + Firebase Distribution) — cut release cycles by 15%.\n\n→ Built an internal API Inspector tool giving QA and backend teams real-time API visibility — eliminated false escalations between teams.\n\n→ Delivered 18+ production applications across e-commerce, healthcare, and logistics.\n\nOpen to: Remote opportunities | Gulf relocation | Europe relocation",
+  "aboutDescription": "Senior Flutter Developer with 4+ years of production experience building Android and iOS apps — and the shared architecture, automated checks, and release pipelines the team's apps are built on.\n\nWhat makes my profile different:\n\n→ Designed the shared architecture two apps now run on — navigation, network and state code live in one versioned package instead of being copied into each app, so one fix reaches every app through a reviewed upgrade.\n\n→ Extended it into an internal developer toolchain — automated code-quality checks enforced before every commit, plus a checker that verifies what the app expects from the API against what the backend actually returns.\n\n→ Built a Figma-to-code design pipeline — colours, spacing, typography and icons are regenerated from the design file, so a design change reaches the app as generated code instead of values re-typed by hand.\n\n→ Created the team's AI engineering workflow — reusable AI skills, agent definitions and a plan-review-execute process, with the same automated checks holding every change, agent-written included, to the architecture rules.\n\n→ Built a multi-tenant White-Label SDK — one Flutter codebase serving multiple enterprise clients, each with their own branding, backend, and store listing. Zero code duplication.\n\n→ Published a native iOS/Android Flutter Plugin on Pub.dev (HyperPay payment bridge via Platform Channels).\n\n→ Architected a full CI/CD release pipeline (Azure DevOps + GitHub Actions + Fastlane + Firebase Distribution) — cut release cycles by 15%.\n\n→ Built an internal Network Inspector tool giving QA and backend teams real-time API visibility — eliminated false escalations between teams.\n\n→ Delivered 18+ production applications across e-commerce, healthcare, and logistics.",
   "experiences": [
     {
-      "job": "Senior Flutter Engineer — Mobile Platform & CI/CD",
+      "job": "Senior Flutter Developer",
       "company": "Excellent Protection",
-      "description": "- Designed and shipped a multi-tenant White-Label SDK: one Flutter codebase serving multiple enterprise clients with per-client branding, backend, and store listing — eliminated duplicate codebases.\n- Built an internal API Inspector tool for real-time API debugging, reducing false escalations between mobile and backend teams.\n- Architected full CI/CD pipeline: Azure DevOps + GitHub Actions + Fastlane + Firebase Distribution with SDK caching — release cycles ↓ 15%.\n- Led coding standards initiative and code reviews — post-release bugs ↓ 30%.\n- Mentored 2 junior developers.",
+      "description": "- Designed the shared architecture two apps now run on: navigation, network and state code in one versioned package instead of copied per app — one fix reaches every app through a reviewed upgrade.\n- Extended it into an internal developer toolchain: automated code-quality checks enforced before every commit, plus a checker that verifies what the app expects from the API against what the backend returns.\n- Built a Figma-to-code design pipeline — colours, spacing, typography and icons regenerated from the design file instead of re-typed by hand.\n- Introduced automated testing across the app and shared packages: unit, widget and cubit-state tests plus mock repositories.\n- Created the team's AI engineering workflow: reusable AI skills, agent definitions and a plan-review-execute process, with the same automated checks holding every change — agent-written included — to the architecture rules.\n- Designed and shipped a multi-tenant White-Label SDK: one Flutter codebase serving multiple enterprise clients with per-client branding, backend, and store listing — eliminated duplicate codebases.\n- Built an internal Network Inspector tool for real-time API debugging, reducing false escalations between mobile and backend teams.\n- Architected full CI/CD pipeline: Azure DevOps + GitHub Actions + Fastlane + Firebase Distribution with SDK caching — release cycles ↓ 15%.\n- Established coding standards and code-review discipline — blocking defects separated from suggestions on every pull request; post-release bugs ↓ 30%.\n- Mentored 2 junior developers.\n- Shipped customer-facing features across the company's booking and services apps — hourly and package-based booking, order tracking, payments, and a loyalty programme — including a payment-gateway migration (HyperPay → Paymob) that replaced three duplicated card-payment flows with one.",
       "isPresent": true,
       "startYear": 2023,
       "startMonth": 1,
-      "technologies": ["Flutter", "Dart", "CI/CD", "GitHub Actions", "Azure DevOps", "Fastlane", "White-Label SDK", "Platform Channels", "SOLID", "Sentry", "Firebase Crashlytics"]
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "CI/CD",
+        "GitHub Actions",
+        "Azure DevOps",
+        "Fastlane",
+        "White-Label SDK",
+        "Platform Channels",
+        "SOLID",
+        "Sentry",
+        "Firebase Crashlytics",
+        "Melos",
+        "go_router",
+        "Design Tokens",
+        "Testing",
+        "Biometric Auth",
+        "Claude Code",
+        "Paymob"
+      ]
     },
     {
       "job": "Flutter Developer (Contract)",
       "company": "Meta Shops",
-      "description": "- Refactored a legacy codebase using Clean Architecture, significantly improving maintainability.\n- Engineered and delivered a key geo-fenced student attendance feature.\n- Successfully delivered 2 production-ready iOS applications under a tight deadline.",
+      "description": "- Refactored a legacy codebase using Clean Architecture, improving maintainability.\n- Engineered and delivered a key geo-fenced student attendance feature.\n- Delivered 2 production-ready iOS applications under a tight deadline.",
       "startYear": 2025,
       "startMonth": 1,
       "endYear": 2025,
       "endMonth": 5,
-      "technologies": ["Flutter", "Dart", "Clean Architecture", "Geofencing", "Google Maps API", "iOS Development"]
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Clean Architecture",
+        "Geofencing",
+        "Google Maps API",
+        "iOS Development"
+      ]
     },
     {
       "job": "Mid-level Flutter Developer",
       "company": "Excellent Protection",
-      "description": "- Developed and launched over 8 of the company's 11+ mobile applications.\n- Translated complex Figma prototypes into pixel-perfect, responsive, and high-performance UIs.\n- Collaborated with backend teams to design and integrate critical RESTful APIs.",
+      "description": "- Developed and launched over 8 of the company's 11+ mobile applications.\n- Translated Figma prototypes into responsive, high-performance UIs.\n- Collaborated with backend teams to design and integrate critical RESTful APIs.",
       "startYear": 2022,
       "startMonth": 3,
       "endYear": 2022,
       "endMonth": 12,
-      "technologies": ["Flutter", "Dart", "Bloc", "Provider", "GetX", "RESTful APIs", "Firebase Analytics"]
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Bloc",
+        "Provider",
+        "GetX",
+        "RESTful APIs",
+        "Firebase Analytics"
+      ]
     },
     {
       "job": "Flutter Developer (Freelancer)",
@@ -50,146 +111,289 @@
       "startMonth": 3,
       "endYear": 2020,
       "endMonth": 9,
-      "technologies": ["Flutter", "Dart", "Firebase", "Google Maps", "RESTful APIs", "State Management"]
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Firebase",
+        "Google Maps",
+        "RESTful APIs",
+        "State Management"
+      ]
     }
   ],
   "present": "Present",
   "projects": [
     {
+      "name": "Shared Flutter Architecture & Internal Toolchain",
+      "description": "A versioned core package and a copy-in scaffold two apps are built on, plus the toolchain around them: a Figma-to-code design pipeline and automated code-quality checks enforced before every commit.",
+      "screenshotPath": "assets/images/shared_architecture.png",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Melos",
+        "Monorepo",
+        "Design Tokens",
+        "Code Review",
+        "Testing",
+        "CI/CD"
+      ]
+    },
+    {
+      "name": "Network Inspector & Runtime Config Editor",
+      "description": "A QA-facing debugging package: separates backend from frontend failures, exports cURL and session bundles into bug reports, and switches base URL, tenant, and payment mode at runtime.",
+      "screenshotPath": "assets/images/network_inspector.png",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Dio",
+        "HTTP",
+        "Debugging Tools",
+        "QA Tooling",
+        "Runtime Configuration"
+      ]
+    },
+    {
       "name": "Educational Management Apps",
-      "description": "A comprehensive platform for school administration, academics, and parent-teacher communication.",
-      "url": "https://apps.apple.com/us/app/learn-n-play/id6741928295",
+      "description": "A platform for school administration, academics, and parent-teacher communication.",
       "screenshotPath": "assets/images/educational_management.jpg",
-      "technologies": ["Provider", "Bloc", "GetX", "Cloud Firestore", "RESTful APIs", "CI/CD"],
-      "links": [
-        {"url": "https://apps.apple.com/us/app/learn-n-play/id6741928295", "display": "Learn & Play (iOS)"},
-        {"url": "https://apps.apple.com/us/app/multiple-intelligences-center/id6741929928", "display": "MIC (iOS)"}
+      "technologies": [
+        "Provider",
+        "Bloc",
+        "GetX",
+        "Cloud Firestore",
+        "RESTful APIs",
+        "CI/CD"
       ]
     },
     {
       "name": "Awon (Flutter Application)",
-      "description": "An e-commerce app for booking hourly domestic services. \nKey Achievement: Architected a complex booking engine with multi-tier services (hourly/packages) & HyperPay/Tabby integration.",
+      "description": "An app for booking domestic services by the hour or in packages.\nArchitected the booking engine behind hourly and package-based services, with HyperPay and Tabby payments.",
       "url": "https://play.google.com/store/apps/details?id=com.excprotection.ircmobile",
       "screenshotPath": "assets/images/awon.png",
-      "technologies": ["Bloc", "Getx", "HyperPay SDK", "Tabby", "OneSignal", "Firebase"],
+      "technologies": [
+        "Bloc",
+        "GetX",
+        "HyperPay SDK",
+        "Tabby",
+        "OneSignal SDK",
+        "Firebase"
+      ],
       "links": [
-        {"url": "https://play.google.com/store/apps/details?id=com.excprotection.ircmobile", "display": "Google Play"},
-        {"url": "https://apps.apple.com/us/app/awon/id1483782795", "display": "App Store"}
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.ircmobile",
+          "display": "Google Play"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/awon/id1483782795",
+          "display": "App Store"
+        }
       ]
     },
     {
       "name": "Rafah (Flutter Application)",
-      "description": "A full-featured application for booking and scheduling recurring household services like cleaning and laundry.",
+      "description": "An app for booking and scheduling recurring household services like cleaning and laundry.",
       "url": "https://play.google.com/store/apps/details?id=com.hrbs.rafahapp",
       "screenshotPath": "assets/images/rafah_app.png",
-      "technologies": ["Bloc", "HyperPay SDK", "Firebase"],
+      "technologies": [
+        "Bloc",
+        "HyperPay SDK",
+        "Firebase"
+      ],
       "links": [
-        {"url": "https://play.google.com/store/apps/details?id=com.hrbs.rafahapp", "display": "Google Play"},
-        {"url": "https://apps.apple.com/us/app/rafah/id6476551030", "display": "App Store"}
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.hrbs.rafahapp",
+          "display": "Google Play"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/rafah/id6476551030",
+          "display": "App Store"
+        }
       ]
     },
     {
       "name": "HyperPay (Flutter Plugin)",
-      "description": "An open-source plugin for the Flutter community. \nKey Achievement: Published on Pub.dev by bridging native iOS/Android HyperPay SDKs via Platform Channels — proving deep native interop knowledge.",
+      "description": "An open-source plugin for the Flutter community.\nPublished on Pub.dev by bridging the native iOS and Android HyperPay SDKs through Platform Channels.",
       "url": "https://pub.dev/packages/hyperpay_plugin",
       "screenshotPath": "assets/images/hyper_pay.png",
-      "technologies": ["Open Source", "Platform Channels", "Native Bridge", "Swift", "Kotlin"],
+      "technologies": [
+        "Open Source",
+        "Platform Channels",
+        "Native Bridge",
+        "Swift",
+        "Kotlin"
+      ],
       "links": [
-        {"url": "https://pub.dev/packages/hyperpay_plugin", "display": "Pub.dev"}
+        {
+          "url": "https://pub.dev/packages/hyperpay_plugin",
+          "display": "Pub.dev"
+        }
       ]
     },
     {
       "name": "Sraco (Flutter Application)",
-      "description": "A targeted e-commerce platform for booking specialized cleaning professionals for corporate and residential clients.",
+      "description": "A platform for booking cleaning professionals for corporate and residential clients.",
       "url": "https://play.google.com/store/apps/details?id=com.excprotection.sracohrapp",
       "screenshotPath": "assets/images/sraco.jpg",
-      "technologies": ["Bloc", "HyperPay SDK", "OneSignal SDK", "Cloud Firestore"],
+      "technologies": [
+        "Bloc",
+        "HyperPay SDK",
+        "OneSignal SDK",
+        "Cloud Firestore"
+      ],
       "links": [
-        {"url": "https://play.google.com/store/apps/details?id=com.excprotection.sracohrapp", "display": "Google Play"},
-        {"url": "https://apps.apple.com/us/app/sracohr/id6443454083", "display": "App Store"}
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.sracohrapp",
+          "display": "Google Play"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/sracohr/id6443454083",
+          "display": "App Store"
+        }
       ]
     },
     {
       "name": "REFD (Flutter Application)",
-      "description": "A comprehensive household services platform offering cleaning, cooking, and elderly care via flexible package-based bookings.",
+      "description": "A household services platform offering cleaning, cooking, and elderly care through package-based bookings.",
       "url": "https://apps.apple.com/us/app/refd/id1665842433",
       "screenshotPath": "assets/images/refd.png",
-      "technologies": ["Bloc", "Google Maps", "Cloud Firestore", "HyperPay SDK", "OneSignal SDK"],
+      "technologies": [
+        "Bloc",
+        "Google Maps",
+        "Cloud Firestore",
+        "HyperPay SDK",
+        "OneSignal SDK"
+      ],
       "links": [
-        {"url": "https://apps.apple.com/us/app/refd/id1665842433", "display": "App Store"}
+        {
+          "url": "https://apps.apple.com/us/app/refd/id1665842433",
+          "display": "App Store"
+        }
       ]
     },
     {
       "name": "Handaza (Flutter Application)",
-      "description": "An AI-powered content delivery platform providing tailored engineering resources and materials.",
-      "url": "https://play.google.com/store/apps/details?id=com.Handaza.academy_app",
+      "description": "A content delivery platform providing engineering resources and course materials.",
       "screenshotPath": "assets/images/handaza.png",
-      "technologies": ["Provider", "Video Player SDK", "AI Content Curation"],
-      "links": [
-        {"url": "https://play.google.com/store/apps/details?id=com.Handaza.academy_app", "display": "Google Play"},
-        {"url": "https://apps.apple.com/us/app/handaza/id1579236532", "display": "App Store"}
+      "technologies": [
+        "Provider",
+        "Video Player SDK"
       ]
     },
     {
       "name": "Driver Package (White-Label SDK)",
-      "description": "A reusable White-Label SDK for driver apps — one codebase, multiple enterprise clients. Each client gets their own branding, backend, and store listing.\nKey Achievement: Eliminated duplicate codebases across clients and enabled real-time fleet tracking.",
+      "description": "A reusable White-Label SDK for driver apps — one codebase, multiple enterprise clients. Each client gets their own branding, backend, and store listing.\nEliminated duplicate codebases across clients and enabled real-time fleet tracking.",
       "url": "https://github.com/ayman-elslamony/driver_package",
       "screenshotPath": "assets/images/rafah.png",
-      "technologies": ["White-Label Architecture", "Real-time Tracking", "Geofencing", "Google Maps", "OneSignal SDK", "Bloc"],
+      "technologies": [
+        "White-Label SDK",
+        "Real-time Tracking",
+        "Geofencing",
+        "Google Maps",
+        "OneSignal SDK",
+        "Bloc"
+      ],
       "links": [
-        {"url": "https://play.google.com/store/apps/details?id=com.excprotection.sraco_drivers", "display": "Sraco Driver"},
-        {"url": "https://play.google.com/store/apps/details?id=com.excprotection.irc_drivers", "display": "Awon Driver"}
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.sraco_drivers",
+          "display": "Sraco Driver"
+        },
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.irc_drivers",
+          "display": "Awon Driver"
+        }
       ]
     },
     {
       "name": "Tadbeer (Flutter Application)",
-      "description": "A dedicated e-commerce application for booking household cleaning services and professionals.",
+      "description": "An app for booking household cleaning services and professionals.",
       "url": "https://play.google.com/store/apps/details?id=com.excprotection.tadbeermobile",
       "screenshotPath": "assets/images/tadbeer.jpg",
-      "technologies": ["Bloc", "Google Maps", "Cloud Firestore", "HyperPay SDK", "OneSignal SDK"],
+      "technologies": [
+        "Bloc",
+        "Google Maps",
+        "Cloud Firestore",
+        "HyperPay SDK",
+        "OneSignal SDK"
+      ],
       "links": [
-        {"url": "https://play.google.com/store/apps/details?id=com.excprotection.tadbeermobile", "display": "Google Play"},
-        {"url": "https://apps.apple.com/us/app/tadbeer/id1531299885", "display": "App Store"}
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.excprotection.tadbeermobile",
+          "display": "Google Play"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/tadbeer/id1531299885",
+          "display": "App Store"
+        }
       ]
     },
     {
       "name": "Enaya (Flutter Application)",
-      "description": "A specialized e-commerce app focused on booking cleaning professionals for residential clients.",
+      "description": "An app for booking cleaning professionals for residential clients.",
       "url": "https://apps.apple.com/us/app/enaya/id1491310421",
       "screenshotPath": "assets/images/enaya.jpg",
-      "technologies": ["Bloc", "HyperPay SDK", "OneSignal SDK", "Cloud Firestore"],
+      "technologies": [
+        "Bloc",
+        "HyperPay SDK",
+        "OneSignal SDK",
+        "Cloud Firestore"
+      ],
       "links": [
-        {"url": "https://apps.apple.com/us/app/enaya/id1491310421", "display": "App Store"}
+        {
+          "url": "https://apps.apple.com/us/app/enaya/id1491310421",
+          "display": "App Store"
+        }
       ]
     },
     {
       "name": "Tanmya (Flutter Application)",
-      "description": "An e-commerce platform specializing in booking baby care and home maintenance services.",
+      "description": "A platform for booking baby care and home maintenance services.",
       "url": "https://apps.apple.com/uy/app/etanmia/id1599240880",
       "screenshotPath": "assets/images/tanmya.jpg",
-      "technologies": ["HyperPay SDK", "OneSignal SDK", "Cloud Firestore", "Bloc"],
+      "technologies": [
+        "HyperPay SDK",
+        "OneSignal SDK",
+        "Cloud Firestore",
+        "Bloc"
+      ],
       "links": [
-        {"url": "https://apps.apple.com/uy/app/etanmia/id1599240880", "display": "App Store"}
+        {
+          "url": "https://apps.apple.com/uy/app/etanmia/id1599240880",
+          "display": "App Store"
+        }
       ]
     },
     {
       "name": "Eau de Milano (E-commerce UI)",
-      "description": "A clean, functional e-commerce store template enabling users to browse products and manage a shopping cart.",
+      "description": "An e-commerce store template for browsing products and managing a shopping cart.",
       "url": "https://github.com/ayman-elslamony/eaudemilano",
       "screenshotPath": "assets/images/eaudemilano.png",
-      "technologies": ["Provider", "RESTful APIs", "UI/UX"],
+      "technologies": [
+        "Provider",
+        "RESTful APIs",
+        "UI/UX"
+      ],
       "links": [
-        {"url": "https://github.com/ayman-elslamony/eaudemilano", "display": "GitHub"}
+        {
+          "url": "https://github.com/ayman-elslamony/eaudemilano",
+          "display": "GitHub"
+        }
       ]
     },
     {
       "name": "Coach Station (Fitness App Concept)",
-      "description": "A sports-focused application concept for locating trainers, creating diet plans, and connecting with coaches.",
+      "description": "A sports app concept for finding trainers, building diet plans, and connecting with coaches.",
       "url": "https://github.com/ayman-elslamony/coachstation",
       "screenshotPath": "assets/images/coach_station.png",
-      "technologies": ["Provider", "RESTful APIs", "Fitness"],
+      "technologies": [
+        "Provider",
+        "RESTful APIs",
+        "Fitness"
+      ],
       "links": [
-        {"url": "https://github.com/ayman-elslamony/coachstation", "display": "GitHub"}
+        {
+          "url": "https://github.com/ayman-elslamony/coachstation",
+          "display": "GitHub"
+        }
       ]
     },
     {
@@ -197,9 +401,17 @@
       "description": "An on-demand healthcare platform for coordinating and scheduling home-care services like nursing and physiotherapy.",
       "url": "https://github.com/ayman-elslamony/Es3fni",
       "screenshotPath": "assets/images/es3fni.png",
-      "technologies": ["Provider", "Google Maps", "Cloud Firestore", "HealthTech"],
+      "technologies": [
+        "Provider",
+        "Google Maps",
+        "Cloud Firestore",
+        "HealthTech"
+      ],
       "links": [
-        {"url": "https://github.com/ayman-elslamony/Es3fni", "display": "GitHub"}
+        {
+          "url": "https://github.com/ayman-elslamony/Es3fni",
+          "display": "GitHub"
+        }
       ]
     },
     {
@@ -207,9 +419,18 @@
       "description": "A secure Personal Health Record (PHR) app enabling patients to manage medical data and conduct video consultations.",
       "url": "https://github.com/ayman-elslamony/HealthBookApp",
       "screenshotPath": "assets/images/health_book.png",
-      "technologies": ["Provider", "Agora SDK", "Cloud Firestore", "PHR", "Telemedicine"],
+      "technologies": [
+        "Provider",
+        "Agora SDK",
+        "Cloud Firestore",
+        "PHR",
+        "Telemedicine"
+      ],
       "links": [
-        {"url": "https://github.com/ayman-elslamony/HealthBookApp", "display": "GitHub"}
+        {
+          "url": "https://github.com/ayman-elslamony/HealthBookApp",
+          "display": "GitHub"
+        }
       ]
     },
     {
@@ -217,9 +438,18 @@
       "description": "A location-based social e-commerce application with user ratings, chat, and community features.",
       "url": "https://github.com/ayman-elslamony/checkAndChat",
       "screenshotPath": "assets/images/check_and_chat.png",
-      "technologies": ["Provider", "Google Maps", "Google Places", "Cloud Firestore", "Social Commerce"],
+      "technologies": [
+        "Provider",
+        "Google Maps",
+        "Google Places",
+        "Cloud Firestore",
+        "Social Commerce"
+      ],
       "links": [
-        {"url": "https://github.com/ayman-elslamony/checkAndChat", "display": "GitHub"}
+        {
+          "url": "https://github.com/ayman-elslamony/checkAndChat",
+          "display": "GitHub"
+        }
       ]
     }
   ],

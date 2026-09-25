@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7CSVPF51ER"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7CSVPF51ER');
+  </script>
+
   <!--    <base href="/">-->
 <!--  <base href="/Family-Store/">-->
   <base href="/">
 
+  <!-- Google Search Console ownership proof. Google fetches this page and looks for the tag,
+       so it has to stay in the published HTML - do not remove it after verification. -->
+  <meta name="google-site-verification" content="31h5WdL74oJmVcENNFtGQNM0EbmRDzaozwPp3a7CgvU" />
+
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Ayman Elslamony Senior Flutter Developer">
+  <meta name="description" content="Senior Flutter Developer with 4+ years of production experience building Android and iOS apps, and the shared architecture and release pipelines behind them.">
+
+  <!-- Open Graph / Twitter Card: what a pasted link renders as in LinkedIn, WhatsApp and email.
+       Link unfurlers read this raw HTML and never run the Flutter app, so these tags are the
+       only thing they ever see. -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ayman-elslamony.github.io/">
+  <meta property="og:title" content="Ayman Elslamony — Senior Flutter Developer">
+  <meta property="og:description" content="Android & iOS · Clean Architecture · CI/CD. 18+ shipped Flutter apps, a shared architecture two apps run on, and the release pipelines behind them.">
+  <meta property="og:image" content="https://ayman-elslamony.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Ayman Elslamony">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ayman Elslamony — Senior Flutter Developer">
+  <meta name="twitter:description" content="Android & iOS · Clean Architecture · CI/CD. 18+ shipped Flutter apps.">
+  <meta name="twitter:image" content="https://ayman-elslamony.github.io/og-image.png">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -17,12 +46,12 @@
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <title>Ayman Elslamony</title>
+  <title>Ayman Elslamony — Senior Flutter Developer</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = ""1226399659"";
+    const serviceWorkerVersion = ""3807902501"";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter_bootstrap.js" defer></script>
@@ -30,14 +59,17 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<div class="loader" style="">
-  <div class="loader-square"></div>
-  <div class="loader-square"></div>
-  <div class="loader-square"></div>
-  <div class="loader-square"></div>
-  <div class="loader-square"></div>
-  <div class="loader-square"></div>
-  <div class="loader-square"></div>
+<!-- Pre-boot loader. It is the site's own icon (the same laptop-and-code mark as
+     web/icons/) drawn INLINE as SVG rather than loaded from icons/icon-192.png: that PNG
+     is a solid black glyph, which disappears on the dark background. Inline, it takes its
+     colour from CSS, so it follows the light/dark scheme like everything else. -->
+<div class="loader" role="status" aria-label="Loading">
+  <svg class="loader-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+    <rect class="loader-mark" x="14" y="18" width="36" height="24" rx="4" stroke-width="3.5"/>
+    <path class="loader-mark" d="M28 27l-5 5 5 5M36 27l5 5-5 5" stroke-width="3.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="loader-mark" d="M8 48h48" stroke-width="5" stroke-linecap="round"/>
+  </svg>
 </div>
 
 <script>
