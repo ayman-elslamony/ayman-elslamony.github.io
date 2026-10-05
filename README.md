@@ -62,6 +62,15 @@ text you changed. When running with `flutter run`, do a full restart, not a hot 
 | Colours | `lib/src/constants/themes.dart` — then the three places no Dart theme reaches, below |
 | Project screenshots | `assets/images/` + the project's `screenshotPath` in `en.json` |
 | Analytics / Search Console | `web/index.html` — the `gtag` block and the `google-site-verification` tag |
+| The CV (PDF) | **Not by hand.** `web/cv/` is written by the vault's `career_facts.py sync` — see below |
+
+**The CV link.** `https://ayman-elslamony.github.io/cv` is the link to send, and it never changes.
+`web/cv/index.html` redirects it to `web/cv/<file>.pdf`, and the Resume button downloads the same
+file (`lib/src/utils/file_download.dart`). The PDF is built in the vault; `career_facts.py sync`
+copies it here, rewrites `index.html` and the button's URL in `en.json`, and regenerates the
+localization. A renamed file is added beside the old one, which is kept so a direct link sent
+earlier still opens. The service worker caches the PDF, so a returning visitor may get the
+previous version once after an update; a first-time visitor always gets the current one.
 
 **Colours that do not follow the Dart theme**, because they render before Flutter starts or are
 images:

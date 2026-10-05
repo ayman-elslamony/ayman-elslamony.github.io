@@ -5,7 +5,7 @@ import 'package:portfolio/src/constants/sizes.dart';
 import 'package:portfolio/src/features/personal_info/domain/resume.dart';
 import 'package:portfolio/src/features/personal_info/presentation/widgets/resume_language_dialog.dart';
 import 'package:portfolio/src/localization/generated/locale_keys.g.dart';
-import 'package:portfolio/src/utils/launch_url_helper.dart';
+import 'package:portfolio/src/utils/file_download.dart';
 import 'package:portfolio/src/utils/scaffold_messenger_helper.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -91,7 +91,7 @@ class _ResumeButtonState extends ConsumerState<ResumeButton> {
         ScaffoldMessengerHelper.showLaunchUrlError(context);
       } else {
         try {
-          await LaunchUrlHelper.launchURL(resumeFirstUrl);
+          await FileDownloadHelper.open(resumeFirstUrl);
         } catch (e) {
           if (context.mounted) {
             ScaffoldMessengerHelper.showLaunchUrlError(
