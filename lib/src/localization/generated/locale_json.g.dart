@@ -85,9 +85,9 @@ class CodegenLoader extends AssetLoader{
       ]
     },
     {
-      "job": "Flutter Developer (Contract)",
+      "job": "Senior Flutter Developer (Contract)",
       "company": "Meta Shops",
-      "description": "- Refactored a legacy codebase using Clean Architecture, improving maintainability.\n- Engineered and delivered a key geo-fenced student attendance feature.\n- Delivered 2 production-ready iOS applications under a tight deadline.",
+      "description": "- Built and deployed 3+ Flutter apps for clients, gathering their requirements and turning them into features.\n- Refactored a legacy codebase using Clean Architecture, improving maintainability.\n- Engineered and delivered a key geo-fenced student attendance feature.",
       "startYear": 2025,
       "startMonth": 1,
       "endYear": 2025,
