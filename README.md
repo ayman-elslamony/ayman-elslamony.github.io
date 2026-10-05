@@ -2,7 +2,7 @@
 
 The source of my portfolio site — **https://ayman-elslamony.github.io**.
 
-Senior Flutter Developer · Android & iOS · Clean Architecture · CI/CD.
+Senior Flutter Developer · 18+ Apps Shipped · Clean Architecture · CI/CD.
 
 A Flutter **web** app (Riverpod, freezed, easy_localization). Every push to `main` builds the site
 and publishes it to GitHub Pages — there is no build output in this repository.

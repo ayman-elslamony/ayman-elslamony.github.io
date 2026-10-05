@@ -17,7 +17,7 @@ class CodegenLoader extends AssetLoader{
   static const Map<String,dynamic> _en = {
   "name": "Ayman Elslamony",
   "description": "Senior Flutter Developer",
-  "subDescription": "Android & iOS · Clean Architecture · CI/CD",
+  "subDescription": "18+ Apps Shipped · Clean Architecture · CI/CD",
   "contacts": [
     {
       "tooltip": "LinkedIn",
