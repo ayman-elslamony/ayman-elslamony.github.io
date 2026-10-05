@@ -100,6 +100,6 @@ if __name__ == "__main__":
         OG,
         "Ayman Elslamony",
         "Senior Flutter Developer",
-        "Android & iOS  ·  Clean Architecture  ·  CI/CD",
+        "18+ Apps Shipped  ·  Clean Architecture  ·  CI/CD",
         (66, 32, 26),
     )
