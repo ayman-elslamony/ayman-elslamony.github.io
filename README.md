@@ -82,6 +82,12 @@ images:
   `python3 tools/make_banners.py` (needs Pillow); its colour constants are copied from
   `themes.dart` and must be changed with it.
 
+**The link-preview image (`web/og-image.png`)** is what LinkedIn and WhatsApp show under a pasted
+link, on the home page and on `/cv`. They cache it **by URL**, so after redrawing it, change the
+`?v=` date on its URL in `web/index.html` (the `og:image` and `twitter:image` tags) and in the
+vault's `career_facts.py` (`CV_INDEX`, which writes `web/cv/index.html`). Even then LinkedIn may
+keep its own copy for some days; its Post Inspector shows what it currently has.
+
 ## 4. Publish
 
 1. Run it locally (section 2) and check it.
