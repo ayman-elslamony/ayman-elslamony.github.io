@@ -1,0 +1,70 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Dart generated files
+*.g.dart
+
+# ...except the localization output, which is tracked ON PURPOSE.
+# The project lists (projects, experiences, contacts, resumes, languages) are read by
+# trList() from CodegenLoader.mapLocales in locale_json.g.dart -- NOT from the JSON asset.
+# Editing assets/translations/*.json without re-running the generator therefore changes
+# nothing on screen, and because the output was ignored, git could not report it as stale.
+# Tracking it turns that silent failure into a diff. Regenerate with the two commands in
+# README.md, then commit the result alongside the JSON change.
+!lib/src/localization/generated/locale_json.g.dart
+!lib/src/localization/generated/locale_keys.g.dart
+*.freezed.dart
+
+# Firebase configuration files
+.firebaserc
+lib/firebase_options.dart
+ios/Runner/GoogleService-Info.plist
+ios/firebase_app_id_file.json
+android/app/google-services.json
+macos/Runner/GoogleService-Info.plist
+macos/firebase_app_id_file.json
+
+# Firebase hosting
+.firebase/

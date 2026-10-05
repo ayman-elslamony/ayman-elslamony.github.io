@@ -1,0 +1,50 @@
+# Builds the Flutter web site and publishes it to GitHub Pages.
+# Every push to main is a publish - run the site locally before pushing.
+# Requires: Settings -> Pages -> Source = "GitHub Actions".
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.38.5
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      # *.g.dart and *.freezed.dart are git-ignored, so generate them here. --force-jit: the
+      # default AOT compile fails on a transitive package with build hooks (objective_c).
+      - run: dart run build_runner build --delete-conflicting-outputs --force-jit
+      # --no-tree-shake-icons is required: the contact icons are built at runtime from stored
+      # code points, so tree-shaking would drop their glyphs.
+      - run: flutter build web --release --no-tree-shake-icons
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
