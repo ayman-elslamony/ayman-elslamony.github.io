@@ -169,6 +169,22 @@ class CodegenLoader extends AssetLoader{
       ]
     },
     {
+      "name": "Belkhidmah (Flutter Application)",
+      "description": "A home-services marketplace for Saudi Arabia: compare licensed domestic-labour companies, book hourly or monthly workers, and pay in-app. Arabic-first and right-to-left.\nBuilt end to end on the shared architecture, with Paymob payments, biometric sign-in, and a design system generated from Figma.",
+      "screenshotPath": "assets/images/belkhidmah.png",
+      "technologies": [
+        "Flutter",
+        "Bloc",
+        "Clean Architecture",
+        "go_router",
+        "Paymob",
+        "Biometric Auth",
+        "Google Maps",
+        "Firebase",
+        "Design Tokens"
+      ]
+    },
+    {
       "name": "Educational Management Apps",
       "description": "A platform for school administration, academics, and parent-teacher communication.",
       "screenshotPath": "assets/images/educational_management.jpg",
