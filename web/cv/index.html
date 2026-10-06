@@ -16,8 +16,20 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ayman Elslamony — CV (PDF)">
 <meta name="twitter:image" content="https://ayman-elslamony.github.io/og-image.png?v=2026-10-05">
-<meta http-equiv="refresh" content="0; url=Ayman_Elslamony_Senior_Flutter_Developer_CV.pdf">
-<script>location.replace("Ayman_Elslamony_Senior_Flutter_Developer_CV.pdf");</script>
+<meta http-equiv="refresh" content="2; url=Ayman_Elslamony_Senior_Flutter_Developer_CV.pdf">
+<!-- GA4 counts the visit before the redirect. The redirect waits for GA's callback, but never
+     more than 1 s; with JS or GA blocked, the 2 s refresh above still leaves. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7CSVPF51ER"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7CSVPF51ER', {send_page_view: false});
+var left = false;
+function go() { if (left) return; left = true; location.replace("Ayman_Elslamony_Senior_Flutter_Developer_CV.pdf"); }
+gtag('event', 'page_view', {event_callback: go});
+setTimeout(go, 1000);
+</script>
 </head>
 <body>
 <p><a href="Ayman_Elslamony_Senior_Flutter_Developer_CV.pdf">Download the CV (PDF)</a></p>

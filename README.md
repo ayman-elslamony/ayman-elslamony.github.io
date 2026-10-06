@@ -82,6 +82,18 @@ images:
   `python3 tools/make_banners.py` (needs Pillow); its colour constants are copied from
   `themes.dart` and must be changed with it.
 
+**Analytics on the CV.** Two GA4 signals, both read in Reports → Acquisition → Traffic
+acquisition → *Session campaign*:
+- `/cv` counts its own visit. `web/cv/index.html` sends one `page_view` and redirects on GA's
+  callback, or after 1 s at most; a 2 s meta refresh is the fallback when JS or GA is blocked.
+- The portfolio links inside the PDF carry `utm_source=cv&utm_medium=pdf&utm_campaign=<tag>`
+  (`public` for the published PDF). `web/index.html` passes the full URL to GA as
+  `page_location`, then removes any `utm_` query from the address bar with
+  `history.replaceState`, so a reader never sees the tag. The site reads no query parameter of
+  its own; if it ever does, that line must keep it.
+
+GA shows when, roughly where, the device and the source — never who.
+
 **The link-preview image (`web/og-image.png`)** is what LinkedIn and WhatsApp show under a pasted
 link, on the home page and on `/cv`. They cache it **by URL**, so after redrawing it, change the
 `?v=` date on its URL in `web/index.html` (the `og:image` and `twitter:image` tags) and in the

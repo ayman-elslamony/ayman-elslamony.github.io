@@ -7,7 +7,12 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-7CSVPF51ER');
+    // page_location is passed explicitly so GA4 keeps a CV link's utm_* tags; the address
+    // bar is then cleaned, so a reader never sees which company's copy they opened.
+    gtag('config', 'G-7CSVPF51ER', {page_location: location.href});
+    if (/[?&]utm_/.test(location.search)) {
+      history.replaceState(null, '', location.pathname + location.hash);
+    }
   </script>
 
   <!--    <base href="$FLUTTER_BASE_HREF">-->
