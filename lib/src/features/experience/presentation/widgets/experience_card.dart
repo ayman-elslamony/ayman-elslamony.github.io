@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio/src/common/widgets/responsive.dart';
+import 'package:portfolio/src/common/widgets/surface_card.dart';
 import 'package:portfolio/src/common/widgets/technology_wrap_chips.dart';
 import 'package:portfolio/src/common/widgets/wrap_links.dart';
 import 'package:portfolio/src/constants/sizes.dart';
@@ -23,84 +24,75 @@ class ExperienceCard extends ConsumerWidget {
     // part of the palette - which is why light mode read as a set of unrelated colours.
     // A card is a surface: it takes `surface`, and the page behind it is `scaffoldBackground`.
     // The separation comes from the border, not from a tint.
-    return Material(
-      color: theme.colorScheme.surface,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: BorderSide(color: theme.colorScheme.outlineVariant),
-      ),
-      child: InkWell(
-        mouseCursor: MaterialStateMouseCursor.textable,
-        onTap: () => _onTap(context),
-        borderRadius: BorderRadius.circular(20),
-        hoverColor: theme.colorScheme.primary.withValues(alpha: 0.06),
-        splashColor: theme.colorScheme.primary.withValues(alpha: 0.10),
-        highlightColor: theme.colorScheme.primary.withValues(alpha: 0.05),
-        child: MouseRegion(
-          cursor: SystemMouseCursors.basic,
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Flexible(
-                      child: Text(
-                        experience.job ?? "",
-                        style: theme.textTheme.titleMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
+    return SurfaceCard(
+      mouseCursor: MaterialStateMouseCursor.textable,
+      onTap: () => _onTap(context),
+      padding: EdgeInsets.zero,
+      child: MouseRegion(
+        cursor: SystemMouseCursors.basic,
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Text(
+                      experience.job ?? "",
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    gapW24,
-                    if (!Responsive.isMobile(context))
-                      ExperienceDateText(experience: experience),
-                  ],
-                ),
-                if (Responsive.isMobile(context))
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        experience.company ?? "",
-                        style: theme.textTheme.titleMedium,
-                      ),
-                      gapH4,
-                      ExperienceDateText(experience: experience),
-                    ],
-                  )
-                else
-                  Text(
-                    experience.company ?? "",
-                    style: theme.textTheme.titleMedium,
                   ),
-                gapH8,
-                experience.description == null || experience.description == ''
-                    ? const SizedBox()
-                    : Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              experience.description ?? "",
-                              style: theme.textTheme.bodyMedium,
-                            ),
-                          ),
-                        ],
-                      ),
-                experience.description == null || experience.description == ''
-                    ? const SizedBox()
-                    : gapH12,
+                  gapW24,
+                  if (!Responsive.isMobile(context))
+                    ExperienceDateText(experience: experience),
+                ],
+              ),
+              if (Responsive.isMobile(context))
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildLinks(),
-                    if (experience.links?.isNotEmpty == true) gapH12 else gapH4,
-                    _buildChips(),
+                    Text(
+                      experience.company ?? "",
+                      style: theme.textTheme.titleMedium,
+                    ),
+                    gapH4,
+                    ExperienceDateText(experience: experience),
                   ],
+                )
+              else
+                Text(
+                  experience.company ?? "",
+                  style: theme.textTheme.titleMedium,
                 ),
-              ],
-            ),
+              gapH8,
+              experience.description == null || experience.description == ''
+                  ? const SizedBox()
+                  : Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            experience.description ?? "",
+                            style: theme.textTheme.bodyMedium,
+                          ),
+                        ),
+                      ],
+                    ),
+              experience.description == null || experience.description == ''
+                  ? const SizedBox()
+                  : gapH12,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildLinks(),
+                  if (experience.links?.isNotEmpty == true) gapH12 else gapH4,
+                  _buildChips(),
+                ],
+              ),
+            ],
           ),
         ),
       ),

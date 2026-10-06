@@ -18,6 +18,10 @@ void main() {
       'https://play.google.com/store/apps/details?id=x': 'click_google_play',
       'https://apps.apple.com/us/app/awon/id1483782795': 'click_app_store',
       'https://pub.dev/packages/hyperpay_plugin': 'click_pub_dev',
+      'https://calendly.com/ayman/30min': 'click_book_call',
+      'https://cal.com/ayman': 'click_book_call',
+      'https://calendar.app.google/abc': 'click_book_call',
+      'https://calendar.google.com/calendar/appointments/x': 'click_book_call',
       'https://example.com': 'click_other_link',
     };
     cases.forEach((url, name) {

@@ -535,7 +535,245 @@ class CodegenLoader extends AssetLoader{
   "caseStudyProblem": "The problem",
   "caseStudyBuilt": "What I built",
   "caseStudyResult": "The result",
-  "caseStudyNotFound": "This page does not exist."
+  "caseStudyNotFound": "This page does not exist.",
+  "openToWork": "Open to Senior Flutter roles · Remote or relocation",
+  "bookCallUrl": "",
+  "bookCall": "Book a call",
+  "testimonials": [],
+  "testimonialsSectionTitle": "What people say",
+  "skills": [
+    {
+      "title": "Mobile Development",
+      "items": [
+        {
+          "name": "Flutter",
+          "icon": "flutter"
+        },
+        {
+          "name": "Android",
+          "icon": "android"
+        },
+        {
+          "name": "iOS",
+          "icon": "apple"
+        },
+        {
+          "name": "Bloc"
+        },
+        {
+          "name": "Provider"
+        },
+        {
+          "name": "GetX"
+        },
+        {
+          "name": "Riverpod"
+        },
+        {
+          "name": "go_router"
+        },
+        {
+          "name": "get_it"
+        },
+        {
+          "name": "Code Generation"
+        }
+      ]
+    },
+    {
+      "title": "Architecture & Practices",
+      "items": [
+        {
+          "name": "Clean Architecture"
+        },
+        {
+          "name": "SOLID"
+        },
+        {
+          "name": "MVVM / MVC"
+        },
+        {
+          "name": "Feature-First Modularization"
+        },
+        {
+          "name": "Architecture Decision Records"
+        },
+        {
+          "name": "Code Review"
+        },
+        {
+          "name": "Monorepo (Melos)"
+        },
+        {
+          "name": "Agile / Scrum"
+        }
+      ]
+    },
+    {
+      "title": "Testing",
+      "items": [
+        {
+          "name": "Unit Testing"
+        },
+        {
+          "name": "Widget Testing"
+        },
+        {
+          "name": "Cubit/Bloc State Testing"
+        },
+        {
+          "name": "Mock Repositories"
+        }
+      ]
+    },
+    {
+      "title": "APIs & Integrations",
+      "items": [
+        {
+          "name": "RESTful APIs"
+        },
+        {
+          "name": "Firebase (Analytics, Firestore, Remote Config)",
+          "icon": "firebase"
+        },
+        {
+          "name": "Google Maps & Geofencing",
+          "icon": "googlemaps"
+        },
+        {
+          "name": "Sqflite",
+          "icon": "sqlite"
+        },
+        {
+          "name": "Shared Preferences"
+        },
+        {
+          "name": "Push Notifications (FCM, OneSignal)"
+        },
+        {
+          "name": "Agora"
+        }
+      ]
+    },
+    {
+      "title": "Payments",
+      "items": [
+        {
+          "name": "HyperPay (Plugin Author)"
+        },
+        {
+          "name": "Paymob"
+        },
+        {
+          "name": "Tabby"
+        }
+      ]
+    },
+    {
+      "title": "Security",
+      "items": [
+        {
+          "name": "Biometric Authentication"
+        },
+        {
+          "name": "Secure Key & Token Storage"
+        },
+        {
+          "name": "Session & Token Refresh"
+        }
+      ]
+    },
+    {
+      "title": "CI/CD & Release",
+      "items": [
+        {
+          "name": "GitHub Actions",
+          "icon": "githubactions"
+        },
+        {
+          "name": "Azure Pipelines"
+        },
+        {
+          "name": "Fastlane",
+          "icon": "fastlane"
+        },
+        {
+          "name": "Firebase App Distribution",
+          "icon": "firebase"
+        },
+        {
+          "name": "App Store",
+          "icon": "appstore"
+        },
+        {
+          "name": "Google Play",
+          "icon": "googleplay"
+        }
+      ]
+    },
+    {
+      "title": "Design Systems",
+      "items": [
+        {
+          "name": "Design Tokens"
+        },
+        {
+          "name": "Theming (Light & Dark)"
+        },
+        {
+          "name": "Responsive Scaling"
+        },
+        {
+          "name": "Figma-to-Code Pipeline",
+          "icon": "figma"
+        }
+      ]
+    },
+    {
+      "title": "AI-Assisted Engineering",
+      "items": [
+        {
+          "name": "Claude Code",
+          "icon": "claude"
+        },
+        {
+          "name": "Cursor",
+          "icon": "cursor"
+        },
+        {
+          "name": "ChatGPT"
+        },
+        {
+          "name": "Gemini",
+          "icon": "googlegemini"
+        }
+      ]
+    },
+    {
+      "title": "Programming Languages",
+      "items": [
+        {
+          "name": "Dart",
+          "icon": "dart"
+        },
+        {
+          "name": "Swift",
+          "icon": "swift"
+        },
+        {
+          "name": "Python",
+          "icon": "python"
+        }
+      ]
+    }
+  ],
+  "skillsSectionTitle": "Skills",
+  "filterAll": "All",
+  "welcomeCompany": "Hi {} team — thanks for taking a look.",
+  "caseStudyLabel": "Case study",
+  "caseStudyCopyLink": "Copy link",
+  "caseStudyLinkCopied": "Link copied",
+  "backToTop": "Back to top"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en};
 }

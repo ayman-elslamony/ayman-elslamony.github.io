@@ -4,7 +4,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio/src/constants/sizes.dart';
 import 'package:portfolio/src/features/personal_info/data/personal_info_repository.dart';
 import 'package:portfolio/src/features/personal_info/domain/resume.dart';
+import 'package:portfolio/src/features/personal_info/presentation/widgets/book_call_button.dart';
 import 'package:portfolio/src/features/personal_info/presentation/widgets/contact_bar.dart';
+import 'package:portfolio/src/features/personal_info/presentation/widgets/open_to_work_badge.dart';
 import 'package:portfolio/src/features/personal_info/presentation/widgets/resume_button.dart';
 import 'package:portfolio/src/localization/generated/locale_keys.g.dart';
 
@@ -33,6 +35,7 @@ class PersonalInfoTablet extends ConsumerWidget {
           tr(LocaleKeys.subDescription),
           style: Theme.of(context).textTheme.bodyLarge,
         ),
+        const OpenToWorkBadge(),
         _buildResumeButton(ref, resumes: resumes.toList()),
         gapH8,
         ContactBar(contacts: contacts.toList()),
@@ -44,7 +47,15 @@ class PersonalInfoTablet extends ConsumerWidget {
     if (resumes.isEmpty) return const SizedBox.shrink();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 36),
-      child: ResumeButton(resumes: resumes),
+      child: Wrap(
+        spacing: 12,
+        runSpacing: 12,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: [
+          ResumeButton(resumes: resumes),
+          const BookCallButton(),
+        ],
+      ),
     );
   }
 }

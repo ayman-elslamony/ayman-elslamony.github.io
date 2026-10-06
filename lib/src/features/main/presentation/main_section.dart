@@ -14,8 +14,17 @@ class MainSection extends ConsumerStatefulWidget {
 }
 
 class _MainSectionState extends ConsumerState<MainSection> {
+  /// Whether the portfolio has been on screen yet. On a direct visit to a case study it
+  /// is built under that page without ever being laid out, and its selection regions
+  /// then measure texts that have no size ("RenderBox was not laid out"). So until it is
+  /// first shown it builds nothing; the first time its route is current, it builds as
+  /// usual. A visit that starts here is shown at once, so nothing changes for it.
+  bool _shown = false;
+
   @override
   Widget build(BuildContext context) {
+    _shown = _shown || (ModalRoute.of(context)?.isCurrent ?? true);
+    if (!_shown) return const Scaffold();
     return const Scaffold(
       //Theme.of(context).colorScheme.secondary,
       endDrawer: MySafeArea(

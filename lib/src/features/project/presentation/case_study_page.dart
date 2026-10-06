@@ -1,15 +1,25 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:portfolio/src/common/widgets/animated_fade_slide.dart';
+import 'package:portfolio/src/common/widgets/scroll_extras.dart';
+import 'package:portfolio/src/common/widgets/selection_area.dart';
+import 'package:portfolio/src/common/widgets/surface_card.dart';
 import 'package:portfolio/src/common/widgets/technology_wrap_chips.dart';
 import 'package:portfolio/src/constants/sizes.dart';
 import 'package:portfolio/src/features/main/presentation/main_section.dart';
+import 'package:portfolio/src/features/main/presentation/widgets/app_bar.dart';
+import 'package:portfolio/src/features/main/presentation/widgets/end_drawer.dart';
+import 'package:portfolio/src/features/main/presentation/widgets/safe_area.dart';
 import 'package:portfolio/src/features/personal_info/data/personal_info_repository.dart';
+import 'package:portfolio/src/features/personal_info/presentation/widgets/book_call_button.dart';
 import 'package:portfolio/src/features/personal_info/presentation/widgets/contact_bar.dart';
 import 'package:portfolio/src/features/personal_info/presentation/widgets/resume_button.dart';
 import 'package:portfolio/src/features/project/data/project_repository.dart';
 import 'package:portfolio/src/features/project/domain/case_study.dart';
 import 'package:portfolio/src/features/project/domain/project.dart';
+import 'package:portfolio/src/features/project/presentation/widgets/project_image.dart';
 import 'package:portfolio/src/localization/generated/locale_keys.g.dart';
 import 'package:portfolio/src/utils/analytics.dart';
 
@@ -32,9 +42,9 @@ class CaseStudyPage extends ConsumerStatefulWidget {
   }
 
   static Route<void> route(String slug) => MaterialPageRoute(
-        settings: RouteSettings(name: path(slug)),
-        builder: (_) => CaseStudyPage(slug: slug),
-      );
+    settings: RouteSettings(name: path(slug)),
+    builder: (_) => CaseStudyPage(slug: slug),
+  );
 
   /// The routes for a first visit to [initialRoute]: the portfolio, plus the case study when
   /// the path names one that [exists]. Back from a case study therefore stays on the site.
@@ -64,10 +74,36 @@ class CaseStudyPage extends ConsumerStatefulWidget {
 }
 
 class _CaseStudyPageState extends ConsumerState<CaseStudyPage> {
+  final _scrollController = ScrollController();
+
   @override
   void initState() {
     super.initState();
     Analytics.event('open_case_study', {'project': widget.slug});
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    // `Title` writes the tab title only when it builds, and the portfolio under this page is
+    // not rebuilt when it comes back - so the tab would keep this project's title.
+    SystemChrome.setApplicationSwitcherDescription(
+      ApplicationSwitcherDescription(label: tr(LocaleKeys.name)),
+    );
+    super.dispose();
+  }
+
+  Future<void> _copyLink(BuildContext context) async {
+    final link = Uri.base
+        .resolve('${CaseStudyPage.path(widget.slug)}/')
+        .toString();
+    Analytics.event('share_case_study', {'project': widget.slug});
+    await Clipboard.setData(ClipboardData(text: link));
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(tr(LocaleKeys.caseStudyLinkCopied))),
+      );
+    }
   }
 
   @override
@@ -78,68 +114,167 @@ class _CaseStudyPageState extends ConsumerState<CaseStudyPage> {
     final caseStudy = project?.caseStudy;
     final info = ref.watch(personalInfoRepositoryProvider);
 
-    return Scaffold(
-      appBar: AppBar(
-        leading: BackButton(
-          onPressed: () {
-            final navigator = Navigator.of(context);
-            if (navigator.canPop()) {
-              navigator.pop();
-            } else {
-              navigator.pushReplacementNamed('/');
-            }
-          },
-        ),
-        title: Text(tr(LocaleKeys.name)),
+    final page = Scaffold(
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: MyAppBar(showBack: true),
       ),
-      body: SelectionArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 760),
-            child: ListView(
-              padding: const EdgeInsets.all(Sizes.p24),
-              children: project == null || caseStudy == null
-                  ? [Text(tr(LocaleKeys.caseStudyNotFound), style: theme.textTheme.titleMedium)]
-                  : [
-                      Text(
-                        project.name ?? '',
-                        style: theme.textTheme.headlineSmall
-                            ?.copyWith(fontWeight: FontWeight.bold),
+      endDrawer: const MySafeArea(child: EndDrawer()),
+      body: MySafeArea(
+        child: Column(
+          children: [
+            ReadingProgress(controller: _scrollController),
+            Expanded(
+              child: Stack(
+                children: [
+                  MySelectionArea(
+                    child: Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 760),
+                        child: ListView(
+                          controller: _scrollController,
+                          padding: const EdgeInsets.fromLTRB(
+                            Sizes.p24,
+                            Sizes.p24,
+                            Sizes.p24,
+                            88,
+                          ),
+                          children: project == null || caseStudy == null
+                              ? [
+                                  Text(
+                                    tr(LocaleKeys.caseStudyNotFound),
+                                    style: theme.textTheme.titleMedium,
+                                  ),
+                                ]
+                              : [
+                                  // Outside the fade: a Hero's target has to be in place
+                                  // for the flight from the card to land on it.
+                                  Center(
+                                    child: ProjectImage(
+                                      project: project,
+                                      isHovered: false,
+                                    ),
+                                  ),
+                                  gapH24,
+                                  AnimatedFadeSlide(
+                                    offset: const Offset(0, 64),
+                                    child: _Body(
+                                      project: project,
+                                      caseStudy: caseStudy,
+                                      info: info,
+                                      onCopyLink: () => _copyLink(context),
+                                    ),
+                                  ),
+                                ],
+                        ),
                       ),
-                      gapH12,
-                      Text(project.description ?? '', style: theme.textTheme.bodyLarge),
-                      gapH32,
-                      _Section(title: tr(LocaleKeys.caseStudyProblem), text: caseStudy.problem),
-                      gapH24,
-                      Text(
-                        tr(LocaleKeys.caseStudyBuilt),
-                        style: theme.textTheme.titleLarge
-                            ?.copyWith(fontWeight: FontWeight.bold),
-                      ),
-                      gapH12,
-                      for (final part in caseStudy.built) ...[
-                        _Part(part: part),
-                        gapH12,
-                      ],
-                      gapH12,
-                      _Section(title: tr(LocaleKeys.caseStudyResult), text: caseStudy.result),
-                      gapH24,
-                      TechnologyWrapChips(titles: project.technologies ?? const []),
-                      gapH32,
-                      Wrap(
-                        spacing: Sizes.p16,
-                        runSpacing: Sizes.p16,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          ResumeButton(resumes: info.getResumes()),
-                          ContactBar(contacts: info.getContacts()),
-                        ],
-                      ),
-                    ],
+                    ),
+                  ),
+                  Positioned(
+                    right: 24,
+                    bottom: 24,
+                    child: BackToTopButton(controller: _scrollController),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    if (project == null) return page;
+    return Title(
+      title: '${project.name} · ${tr(LocaleKeys.name)}',
+      color: theme.colorScheme.primary,
+      child: page,
+    );
+  }
+}
+
+class _Body extends StatelessWidget {
+  const _Body({
+    required this.project,
+    required this.caseStudy,
+    required this.info,
+    required this.onCopyLink,
+  });
+
+  final Project project;
+  final CaseStudy caseStudy;
+  final PersonalInfoRepository info;
+  final VoidCallback onCopyLink;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Text(
+                project.name ?? '',
+                style: theme.textTheme.headlineSmall,
+              ),
+            ),
+            IconButton(
+              tooltip: tr(LocaleKeys.caseStudyCopyLink),
+              color: theme.colorScheme.primary,
+              icon: const Icon(Icons.link),
+              onPressed: onCopyLink,
+            ),
+          ],
+        ),
+        gapH12,
+        Text(project.description ?? '', style: theme.textTheme.bodyLarge),
+        gapH32,
+        _Section(
+          title: tr(LocaleKeys.caseStudyProblem),
+          text: caseStudy.problem,
+        ),
+        gapH24,
+        Text(tr(LocaleKeys.caseStudyBuilt), style: theme.textTheme.titleLarge),
+        gapH12,
+        for (final part in caseStudy.built) ...[
+          SurfaceCard(
+            child: SizedBox(
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    part.title ?? '',
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  gapH8,
+                  Text(part.text ?? '', style: theme.textTheme.bodyMedium),
+                ],
+              ),
             ),
           ),
+          gapH12,
+        ],
+        gapH12,
+        _Section(title: tr(LocaleKeys.caseStudyResult), text: caseStudy.result),
+        gapH24,
+        TechnologyWrapChips(titles: project.technologies ?? const []),
+        gapH32,
+        Wrap(
+          spacing: Sizes.p16,
+          runSpacing: Sizes.p16,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            ResumeButton(resumes: info.getResumes()),
+            const BookCallButton(),
+            ContactBar(contacts: info.getContacts()),
+          ],
         ),
-      ),
+      ],
     );
   }
 }
@@ -156,39 +291,10 @@ class _Section extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
+        Text(title, style: theme.textTheme.titleLarge),
         gapH8,
         Text(text ?? '', style: theme.textTheme.bodyLarge),
       ],
-    );
-  }
-}
-
-class _Part extends StatelessWidget {
-  const _Part({required this.part});
-
-  final CaseStudyPart part;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(Sizes.p16),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: theme.colorScheme.outlineVariant),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(part.title ?? '',
-              style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
-          gapH8,
-          Text(part.text ?? '', style: theme.textTheme.bodyMedium),
-        ],
-      ),
     );
   }
 }

@@ -2,14 +2,18 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio/src/common/widgets/animated_fade_slide.dart';
+import 'package:portfolio/src/common/widgets/scroll_extras.dart';
 import 'package:portfolio/src/common/widgets/selection_area.dart';
 import 'package:portfolio/src/features/about/presentation/about_section.dart';
 import 'package:portfolio/src/features/experience/presentation/experience_section.dart';
 import 'package:portfolio/src/features/main/presentation/widgets/app_bar.dart';
+import 'package:portfolio/src/features/main/presentation/widgets/welcome_banner.dart';
 import 'package:portfolio/src/features/main/provider/scroll_controller.dart';
 import 'package:portfolio/src/features/main/provider/section_key_provider.dart';
 import 'package:portfolio/src/features/personal_info/presentation/personal_info_section.dart';
 import 'package:portfolio/src/features/project/presentation/project_section.dart';
+import 'package:portfolio/src/features/skills/presentation/skills_section.dart';
+import 'package:portfolio/src/features/testimonials/presentation/testimonials_section.dart';
 
 class MainDesktop extends ConsumerWidget {
   const MainDesktop({super.key});
@@ -21,6 +25,8 @@ class MainDesktop extends ConsumerWidget {
     return Column(
       children: [
         const MyAppBar(),
+        const WelcomeBanner(),
+        ReadingProgress(controller: scrollController),
         Expanded(
           // This stack avoid pixel issue where a line is drawn between the two expanded
           child: Stack(
@@ -93,9 +99,14 @@ class MainDesktop extends ConsumerWidget {
                                           .watch(experienceSectionKeyProvider),
                                     ),
                                     const SizedBox(height: 120),
+                                    SkillsSection(
+                                      key: ref.watch(skillsSectionKeyProvider),
+                                    ),
+                                    const SizedBox(height: 120),
                                     ProjectSection(
                                       key: ref.watch(projectSectionKeyProvider),
                                     ),
+                                    const TestimonialsSection(),
                                   ],
                                 ),
                               ),
@@ -106,6 +117,11 @@ class MainDesktop extends ConsumerWidget {
                     ),
                   ),
                 ],
+              ),
+              Positioned(
+                right: 24,
+                bottom: 24,
+                child: BackToTopButton(controller: scrollController),
               ),
             ],
           ),

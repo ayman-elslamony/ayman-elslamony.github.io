@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio/src/common/widgets/technology_wrap_chips.dart';
 import 'package:portfolio/src/common/widgets/wrap_links.dart';
 import 'package:portfolio/src/constants/sizes.dart';
 import 'package:portfolio/src/features/project/domain/project.dart';
+import 'package:portfolio/src/localization/generated/locale_keys.g.dart';
 
 class ProjectDescription extends ConsumerWidget {
   const ProjectDescription({super.key, required this.project});
@@ -28,7 +30,18 @@ class ProjectDescription extends ConsumerWidget {
                 maxLines: 2,
               ),
             ),
-            const Icon(Icons.open_in_new),
+            // A project with a case study opens a page on this site, not an external one,
+            // so it does not wear the "opens elsewhere" icon.
+            if (project.caseStudy != null) ...[
+              Text(
+                tr(LocaleKeys.caseStudyLabel),
+                style: theme.textTheme.labelLarge
+                    ?.copyWith(color: theme.colorScheme.primary),
+              ),
+              gapW4,
+              Icon(Icons.arrow_forward, color: theme.colorScheme.primary),
+            ] else
+              const Icon(Icons.open_in_new),
           ],
         ),
         gapH8,

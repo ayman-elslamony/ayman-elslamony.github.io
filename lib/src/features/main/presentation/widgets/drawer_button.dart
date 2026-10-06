@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:portfolio/src/features/main/presentation/section_navigation.dart';
 import 'package:portfolio/src/utils/analytics.dart';
 
 class MyDrawerButton extends StatefulHookConsumerWidget {
@@ -70,14 +71,9 @@ class _MyDrawerButtonState extends ConsumerState<MyDrawerButton> {
 
   void _onTap(BuildContext context) {
     Analytics.event('nav_click', {'section': widget.section});
-    final sectionKeyCurrentContext = widget.sectionKey.currentContext;
-    if (sectionKeyCurrentContext != null) {
-      Scrollable.ensureVisible(
-        sectionKeyCurrentContext,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.decelerate,
-      );
-    }
+    // Close the drawer first, then go - goToSection pops back to the portfolio first when
+    // the drawer was opened on a case study.
     Navigator.of(context).pop();
+    goToSection(context, widget.sectionKey);
   }
 }

@@ -1,76 +1,53 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:portfolio/src/common/data/language_repository.dart';
-import 'package:portfolio/src/common/domain/language.dart';
 import 'package:portfolio/src/features/main/presentation/widgets/app_bar.dart';
 import 'package:portfolio/src/features/main/presentation/widgets/whatsapp_button.dart';
 import 'package:portfolio/src/features/personal_info/data/personal_info_repository.dart';
-import 'package:portfolio/src/features/personal_info/domain/contact.dart';
 
-final _data = jsonDecode(File('assets/translations/en.json').readAsStringSync())
-    as Map<String, dynamic>;
-
-class _Info extends PersonalInfoRepository {
-  _Info(super.ref);
-  @override
-  List<Contact> getContacts() => (_data['contacts'] as List)
-      .map((c) => Contact.fromJson(c as Map<String, dynamic>))
-      .toList();
-}
-
-class _OneLanguage extends LanguageRepository {
-  _OneLanguage(super.ref);
-  @override
-  List<Language> getLanguages() => const [];
-}
+import '../helpers/test_app.dart';
 
 final _whatsAppIcon = find.descendant(
   of: find.byType(WhatsAppButton),
   matching: find.byType(FaIcon),
 );
 
-Future<void> _pump(WidgetTester tester, Size size) async {
-  tester.view.physicalSize = size;
-  tester.view.devicePixelRatio = 1;
-  addTearDown(tester.view.reset);
-  await tester.pumpWidget(ProviderScope(
-    overrides: [
-      personalInfoRepositoryProvider.overrideWith((ref) => _Info(ref)),
-      languageRepositoryProvider.overrideWith((ref) => _OneLanguage(ref)),
-    ],
-    child: const MaterialApp(
-      home: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(kToolbarHeight),
-          child: MyAppBar(),
-        ),
-        endDrawer: Drawer(),
+Future<void> _pump(WidgetTester tester, Size size, {bool showBack = false}) async {
+  setSize(tester, size);
+  await tester.pumpWidget(siteApp(
+    overrides: siteOverrides(),
+    home: Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: MyAppBar(showBack: showBack),
       ),
+      endDrawer: const Drawer(),
     ),
   ));
   await tester.pumpAndSettle();
 }
 
 void main() {
+  setUpAll(setUpSite);
+
   test('the WhatsApp contact is found by its wa.me link', () {
-    final container = ProviderContainer(overrides: [
-      personalInfoRepositoryProvider.overrideWith((ref) => _Info(ref)),
-    ]);
+    final container = ProviderContainer(overrides: siteOverrides());
     addTearDown(container.dispose);
     final url = container.read(personalInfoRepositoryProvider).getWhatsApp()?.url;
     expect(url, startsWith('https://wa.me/'));
   });
 
-  testWidgets('desktop app bar shows the WhatsApp button with its label', (tester) async {
-    await _pump(tester, const Size(1920, 900));
+  // 1024 is the narrowest width that gets the desktop bar (Responsive.isDesktop).
+  testWidgets('desktop app bar fits at 1024 px, with WhatsApp labelled and Skills listed',
+      (tester) async {
+    await _pump(tester, const Size(1024, 800));
+    expect(tester.takeException(), isNull);
     expect(_whatsAppIcon, findsOneWidget);
     expect(find.text('WhatsApp'), findsOneWidget);
+    expect(find.text('Skills'), findsOneWidget);
     expect(find.byType(EndDrawerButton), findsNothing);
+    expect(find.byType(BackButton), findsNothing);
   });
 
   testWidgets('phone app bar shows the WhatsApp icon and keeps the drawer button', (tester) async {
@@ -78,5 +55,11 @@ void main() {
     expect(_whatsAppIcon, findsOneWidget);
     expect(find.text('WhatsApp'), findsNothing);
     expect(find.byType(EndDrawerButton), findsOneWidget);
+  });
+
+  testWidgets('showBack adds a back arrow, and only then', (tester) async {
+    await _pump(tester, const Size(1024, 800), showBack: true);
+    expect(tester.takeException(), isNull);
+    expect(find.byType(BackButton), findsOneWidget);
   });
 }

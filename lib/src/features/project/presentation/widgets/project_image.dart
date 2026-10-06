@@ -14,54 +14,65 @@ class ProjectImage extends ConsumerWidget {
   final Project project;
   final bool isHovered;
 
+  /// The Hero tag shared by a project's card and its case-study page, so the image flies
+  /// from one to the other. Project names are unique in `en.json`.
+  static String heroTag(Project project) => 'project-image-${project.name}';
+
+  /// Marks the framed image, so a test can follow it through the Hero flight.
+  static const frameKey = ValueKey('project-image-frame');
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Stack(
       children: [
-        Container(
-          constraints: const BoxConstraints(
-            minHeight: 200,
-            minWidth: 520,
-            maxHeight: 400,
-            maxWidth: 600,
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              width: 4,
-              color: Theme.of(context).colorScheme.tertiary.withAlpha(100),
+        Hero(
+          tag: heroTag(project),
+          child: Container(
+            key: frameKey,
+            constraints: const BoxConstraints(
+              minHeight: 200,
+              minWidth: 520,
+              maxHeight: 400,
+              maxWidth: 600,
             ),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                final width = constraints.maxWidth;
-                return AnimatedContainer(
-                  foregroundDecoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      tileMode: TileMode.decal,
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.transparent,
-                        isHovered ? Colors.black12 : Colors.transparent,
-                        isHovered ? Colors.black26 : Colors.transparent,
-                        isHovered ? Colors.black54 : Colors.transparent,
-                      ],
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                width: 4,
+                color: Theme.of(context).colorScheme.tertiary.withAlpha(100),
+              ),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final width = constraints.maxWidth;
+                  return AnimatedContainer(
+                    foregroundDecoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        tileMode: TileMode.decal,
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.transparent,
+                          isHovered ? Colors.black12 : Colors.transparent,
+                          isHovered ? Colors.black26 : Colors.transparent,
+                          isHovered ? Colors.black54 : Colors.transparent,
+                        ],
+                      ),
                     ),
-                  ),
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.decelerate,
-                  transform: isHovered
-                      ? (Matrix4.identity()
-                        ..translate(0.5 * width, 0.5 * width)
-                        ..scale(1.2)
-                        ..translate(0.5 * -width, 0.5 * -width))
-                      : Matrix4.identity(),
-                  child: _buildScreenshotImage(context),
-                );
-              },
+                    duration: const Duration(seconds: 1),
+                    curve: Curves.decelerate,
+                    transform: isHovered
+                        ? (Matrix4.identity()
+                            ..translate(0.5 * width, 0.5 * width)
+                            ..scale(1.2)
+                            ..translate(0.5 * -width, 0.5 * -width))
+                        : Matrix4.identity(),
+                    child: _buildScreenshotImage(context),
+                  );
+                },
+              ),
             ),
           ),
         ),
@@ -115,11 +126,7 @@ class ProjectImage extends ConsumerWidget {
           projectIconFontFamily,
           projectIconFontPackage,
         );
-        return Icon(
-          color: Colors.white,
-          size: 32,
-          iconData,
-        );
+        return Icon(color: Colors.white, size: 32, iconData);
       }
     }
     return const SizedBox.shrink();

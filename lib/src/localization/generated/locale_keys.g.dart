@@ -27,5 +27,18 @@ abstract class  LocaleKeys {
   static const caseStudyBuilt = 'caseStudyBuilt';
   static const caseStudyResult = 'caseStudyResult';
   static const caseStudyNotFound = 'caseStudyNotFound';
+  static const openToWork = 'openToWork';
+  static const bookCallUrl = 'bookCallUrl';
+  static const bookCall = 'bookCall';
+  static const testimonials = 'testimonials';
+  static const testimonialsSectionTitle = 'testimonialsSectionTitle';
+  static const skills = 'skills';
+  static const skillsSectionTitle = 'skillsSectionTitle';
+  static const filterAll = 'filterAll';
+  static const welcomeCompany = 'welcomeCompany';
+  static const caseStudyLabel = 'caseStudyLabel';
+  static const caseStudyCopyLink = 'caseStudyCopyLink';
+  static const caseStudyLinkCopied = 'caseStudyLinkCopied';
+  static const backToTop = 'backToTop';
 
 }

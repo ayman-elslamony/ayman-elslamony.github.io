@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio/src/common/widgets/animated_fade_slide.dart';
 import 'package:portfolio/src/common/widgets/responsive.dart';
+import 'package:portfolio/src/common/widgets/scroll_extras.dart';
 import 'package:portfolio/src/common/widgets/selection_area.dart';
 import 'package:portfolio/src/constants/sizes.dart';
 import 'package:portfolio/src/features/about/presentation/about_section.dart';
 import 'package:portfolio/src/features/experience/presentation/experience_section.dart';
 import 'package:portfolio/src/features/main/presentation/widgets/sliver_app_bar.dart';
+import 'package:portfolio/src/features/main/presentation/widgets/welcome_banner.dart';
 import 'package:portfolio/src/features/main/provider/scroll_controller.dart';
 import 'package:portfolio/src/features/main/provider/section_key_provider.dart';
 import 'package:portfolio/src/features/personal_info/presentation/personal_info_section.dart';
 import 'package:portfolio/src/features/project/presentation/project_section.dart';
+import 'package:portfolio/src/features/skills/presentation/skills_section.dart';
+import 'package:portfolio/src/features/testimonials/presentation/testimonials_section.dart';
 
 class MainTablet extends ConsumerStatefulWidget {
   const MainTablet({super.key});
@@ -24,9 +28,11 @@ class _MainTabletState extends ConsumerState<MainTablet> {
   Widget build(BuildContext context) {
     final scrollController = ref.watch(scrollControllerProvider);
 
-    return Column(
+    // The app bar here is a floating sliver, so nothing can stay pinned under it: the
+    // reading-progress line sits on the top edge of the screen instead.
+    return Stack(
       children: [
-        Expanded(
+        Positioned.fill(
           child: MySelectionArea(
             child: Container(
               // color: Theme.of(context).colorScheme.primary,
@@ -36,6 +42,7 @@ class _MainTabletState extends ConsumerState<MainTablet> {
                   const MySliverAppBar(),
                   SliverList.list(
                     children: [
+                      const WelcomeBanner(),
                       Padding(
                         padding: _buildResponsivePadding(),
                         child: Align(
@@ -67,9 +74,14 @@ class _MainTabletState extends ConsumerState<MainTablet> {
                                   key: ref.watch(experienceSectionKeyProvider),
                                 ),
                                 gapH100,
+                                SkillsSection(
+                                  key: ref.watch(skillsSectionKeyProvider),
+                                ),
+                                gapH100,
                                 ProjectSection(
                                   key: ref.watch(projectSectionKeyProvider),
                                 ),
+                                const TestimonialsSection(),
                               ],
                             ),
                           ),
@@ -81,6 +93,17 @@ class _MainTabletState extends ConsumerState<MainTablet> {
               ),
             ),
           ),
+        ),
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          child: ReadingProgress(controller: scrollController),
+        ),
+        Positioned(
+          right: 16,
+          bottom: 16,
+          child: BackToTopButton(controller: scrollController),
         ),
       ],
     );

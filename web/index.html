@@ -11,6 +11,8 @@
     // bar is then cleaned, so a reader never sees which company's copy they opened.
     gtag('config', 'G-7CSVPF51ER', {page_location: location.href});
     if (/[?&]utm_/.test(location.search)) {
+      // The app greets a company by its campaign tag, and cannot read it once it is gone.
+      try { sessionStorage.setItem('utm_campaign', new URLSearchParams(location.search).get('utm_campaign') || ''); } catch (e) {}
       history.replaceState(null, '', location.pathname + location.hash);
     }
   </script>

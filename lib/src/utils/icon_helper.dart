@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:simple_icons/simple_icons.dart';
 
 class IconHelper {
   static const Map<int, IconData> _usedIcons = {
@@ -20,4 +21,32 @@ class IconHelper {
     final IconData Function(int, {String? fontFamily, String? fontPackage, bool matchTextDirection}) builder = IconData.new;
     return builder(codePoint, fontFamily: fontFamily, fontPackage: fontPackage);
   }
+
+  /// The brand icons the skills section names in `en.json` (`skills[].items[].icon`).
+  /// `test/data_test.dart` fails if `en.json` names one that is not here.
+  static const Map<String, IconData> _brandIcons = {
+    'android': SimpleIcons.android,
+    'apple': SimpleIcons.apple,
+    'appstore': SimpleIcons.appstore,
+    'claude': SimpleIcons.claude,
+    'cursor': SimpleIcons.cursor,
+    'dart': SimpleIcons.dart,
+    'fastlane': SimpleIcons.fastlane,
+    'figma': SimpleIcons.figma,
+    'firebase': SimpleIcons.firebase,
+    'flutter': SimpleIcons.flutter,
+    'githubactions': SimpleIcons.githubactions,
+    'googlegemini': SimpleIcons.googlegemini,
+    'googlemaps': SimpleIcons.googlemaps,
+    'googleplay': SimpleIcons.googleplay,
+    'python': SimpleIcons.python,
+    'sqlite': SimpleIcons.sqlite,
+    'swift': SimpleIcons.swift,
+  };
+
+  static bool hasBrandIcon(String name) => _brandIcons.containsKey(name);
+
+  /// The brand icon named [name], or null for no name or an unknown one.
+  static IconData? brandIcon(String? name) =>
+      name == null ? null : _brandIcons[name];
 }

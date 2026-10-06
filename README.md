@@ -115,10 +115,31 @@ the project's card. Adding one to another project is data only. A direct visit o
 from showing a preview). The copies are outside the service-worker manifest, so they are never
 served stale. Opening one sends `open_case_study`, and GA4 also counts the route change as a
 `page_view` of `/projects/<slug>`.
+The page is built from the portfolio's own parts: `MyAppBar(showBack: true)` (its section buttons
+go through `goToSection`, which pops back to the portfolio and scrolls once the transition ends),
+`SurfaceCard` (the one card of the site), and `ProjectImage`, whose frame is a `Hero` so the image
+flies from the card. A 🔗 button copies the link (`share_case_study`), and a `Title` names the tab
+— reset in `dispose`, because the portfolio underneath is not rebuilt on Back. On a direct visit
+`MainSection` builds nothing until it is first shown: built offstage and never laid out, its
+selection regions would measure texts that have no size.
+
+**Switches and slots.** `lib/src/constants/site_settings.dart` holds `showOpenToWork` (the badge;
+its text is `openToWork` in `en.json`). `bookCallUrl`, `testimonials` and `skills` are data in
+`en.json`; the first two draw nothing while empty. `bookCallUrl` is read with `trValue`, not
+`tr()`, because `tr()` answers an empty value with the key itself. `trList` survives an empty
+list. Skill icons are `simple_icons` names (CC0), each listed in `IconHelper._brandIcons`. A CV copy
+opened with `utm_campaign=<company>` shows a welcome: `web/index.html` stores the tag in
+`sessionStorage` before it cleans the address bar, and `Campaign` reads it (`public`, `test` and
+`readme` greet nobody). The project filter offers every technology used by two or more projects
+(`filter_projects`).
 
 **Tests.** `test/data_test.dart` guards `en.json`: link schemes, every icon code point bundled in
-`IconHelper`, and complete case studies. `test/features/case_study_test.dart` covers the route, the
-page at phone and desktop width, and the address bar. `test/utils/analytics_test.dart` runs with
+`IconHelper`, complete case studies, skill icons, testimonials and the booking link.
+`test/features/case_study_test.dart` covers the route, the page at phone and desktop width, the
+address bar, the bar and Back to a section (pushed and direct visit), the Hero flight, the hover
+on a card with no action, copy link, the tab title, the badge, the welcome name, empty slots, the
+filter and back to top. `test/helpers/test_app.dart` loads the site's Nunito and its real texts, so
+widths in tests are the site's. `test/utils/analytics_test.dart` runs with
 `--platform chrome`.
 
 **The link-preview image (`web/og-image.png`)** is what LinkedIn and WhatsApp show under a pasted

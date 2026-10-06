@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio/src/common/widgets/responsive.dart';
+import 'package:portfolio/src/common/widgets/surface_card.dart';
 import 'package:portfolio/src/constants/sizes.dart';
 import 'package:portfolio/src/features/project/domain/project.dart';
 import 'package:portfolio/src/features/project/presentation/case_study_page.dart';
@@ -30,28 +31,11 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
       child: GestureDetector(
         onLongPress: _scaleUp,
         onLongPressUp: _scaleDown,
-        // Same change as ExperienceCard, and for the same reason: a tint of the steel blue
+        // Same card as ExperienceCard, and for the same reason: a tint of the steel blue
         // over a white page is a colour that appears nowhere else in the palette.
-        child: Material(
-          color: Theme.of(context).colorScheme.surface,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-            side: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
-          ),
-          child: InkWell(
-            onTap: _onTap,
-            borderRadius: BorderRadius.circular(20),
-            hoverColor:
-                Theme.of(context).colorScheme.primary.withValues(alpha: 0.06),
-            splashColor:
-                Theme.of(context).colorScheme.primary.withValues(alpha: 0.10),
-            highlightColor:
-                Theme.of(context).colorScheme.primary.withValues(alpha: 0.05),
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: _buildResponsiveProjectCardContent(context),
-            ),
-          ),
+        child: SurfaceCard(
+          onTap: _onTap,
+          child: _buildResponsiveProjectCardContent(context),
         ),
       ),
     );

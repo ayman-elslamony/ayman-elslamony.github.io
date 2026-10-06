@@ -62,4 +62,27 @@ void main() {
       }
     }
   });
+
+  test('every skill icon in en.json resolves to a brand icon', () {
+    final names = [
+      for (final g in (data['skills'] as List).cast<Map<String, dynamic>>())
+        for (final i in (g['items'] as List).cast<Map<String, dynamic>>())
+          if (i['icon'] != null) i['icon'] as String,
+    ];
+    expect(names, isNotEmpty);
+    expect(
+      names.where((n) => !IconHelper.hasBrandIcon(n)),
+      isEmpty,
+      reason: 'add the name to IconHelper._brandIcons',
+    );
+  });
+
+  test('testimonials are complete, and a booking link, once set, is https', () {
+    for (final t in (data['testimonials'] as List).cast<Map<String, dynamic>>()) {
+      expect((t['quote'] as String?)?.trim(), isNotEmpty);
+      expect((t['name'] as String?)?.trim(), isNotEmpty);
+    }
+    final booking = (data['bookCallUrl'] as String).trim();
+    if (booking.isNotEmpty) expect(Uri.parse(booking).scheme, 'https');
+  });
 }

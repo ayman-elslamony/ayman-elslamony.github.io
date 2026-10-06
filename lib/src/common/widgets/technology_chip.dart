@@ -8,9 +8,12 @@ import 'package:flutter/material.dart';
 /// an accent border and accent text - so the chip reads as a deliberate element instead of
 /// a faint outline, and the accent stays at full strength rather than being blended away.
 class TechnologyChip extends StatelessWidget {
-  const TechnologyChip({super.key, required this.name});
+  const TechnologyChip({super.key, required this.name, this.icon});
 
   final String name;
+
+  /// An optional brand icon before the name (the skills section uses it).
+  final IconData? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +29,23 @@ class TechnologyChip extends StatelessWidget {
           color: colors.primary.withValues(alpha: isDark ? 0.55 : 0.35),
         ),
       ),
-      child: Text(
-        name,
-        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: isDark ? colors.primary : colors.onSurface,
-              fontWeight: FontWeight.w600,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (icon != null) ...[
+            Icon(icon, size: 14, color: colors.primary),
+            const SizedBox(width: 6),
+          ],
+          Flexible(
+            child: Text(
+              name,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: isDark ? colors.primary : colors.onSurface,
+                    fontWeight: FontWeight.w600,
+                  ),
             ),
+          ),
+        ],
       ),
     );
   }

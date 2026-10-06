@@ -8,6 +8,7 @@ import 'package:portfolio/src/common/widgets/animated_fade_slide.dart';
 import 'package:portfolio/src/common/widgets/responsive.dart';
 import 'package:portfolio/src/common/widgets/selection_area.dart';
 import 'package:portfolio/src/constants/sizes.dart';
+import 'package:portfolio/src/features/main/presentation/section_navigation.dart';
 import 'package:portfolio/src/features/main/presentation/widgets/app_bar_button.dart';
 import 'package:portfolio/src/features/main/presentation/widgets/dark_mode_switch.dart';
 import 'package:portfolio/src/features/main/presentation/widgets/locale_button.dart';
@@ -16,7 +17,11 @@ import 'package:portfolio/src/features/main/provider/section_key_provider.dart';
 import 'package:portfolio/src/localization/generated/locale_keys.g.dart';
 
 class MyAppBar extends ConsumerWidget {
-  const MyAppBar({super.key});
+  const MyAppBar({super.key, this.showBack = false});
+
+  /// A back arrow before the logo, for a page above the portfolio (a case study). Back
+  /// pops; on a direct visit with nothing to pop it opens the portfolio instead.
+  final bool showBack;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -38,6 +43,19 @@ class MyAppBar extends ConsumerWidget {
         shape: Border(
           bottom: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
         ),
+        automaticallyImplyLeading: false,
+        leading: showBack
+            ? BackButton(
+                onPressed: () {
+                  final navigator = Navigator.of(context);
+                  if (navigator.canPop()) {
+                    navigator.pop();
+                  } else {
+                    navigator.pushReplacementNamed('/');
+                  }
+                },
+              )
+            : null,
         centerTitle: false,
         titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
@@ -77,6 +95,7 @@ class MyAppBar extends ConsumerWidget {
                     title: tr(LocaleKeys.aboutSectionTitle),
                     onPressed: () {
                       _onAppBarButtonTap(
+                        context,
                         ref.watch(aboutSectionKeyProvider),
                         section: 'about',
                       );
@@ -86,8 +105,19 @@ class MyAppBar extends ConsumerWidget {
                     title: tr(LocaleKeys.experienceSectionTitle),
                     onPressed: () {
                       _onAppBarButtonTap(
+                        context,
                         ref.watch(experienceSectionKeyProvider),
                         section: 'experience',
+                      );
+                    },
+                  ),
+                  AppBarButton(
+                    title: tr(LocaleKeys.skillsSectionTitle),
+                    onPressed: () {
+                      _onAppBarButtonTap(
+                        context,
+                        ref.watch(skillsSectionKeyProvider),
+                        section: 'skills',
                       );
                     },
                   ),
@@ -95,6 +125,7 @@ class MyAppBar extends ConsumerWidget {
                     title: tr(LocaleKeys.projectsSectionTitle),
                     onPressed: () {
                       _onAppBarButtonTap(
+                        context,
                         ref.watch(projectSectionKeyProvider),
                         section: 'projects',
                       );
@@ -123,24 +154,21 @@ class MyAppBar extends ConsumerWidget {
 
   void _scrollToTop(BuildContext context, WidgetRef ref) {
     if (Responsive.isDesktop(context)) {
-      _onAppBarButtonTap(ref.watch(aboutSectionKeyProvider));
+      _onAppBarButtonTap(context, ref.watch(aboutSectionKeyProvider));
     } else {
-      _onAppBarButtonTap(ref.watch(homeSectionKeyProvider));
+      _onAppBarButtonTap(context, ref.watch(homeSectionKeyProvider));
     }
   }
 
-  void _onAppBarButtonTap(GlobalKey sectionKey, {String? section}) {
+  void _onAppBarButtonTap(
+    BuildContext context,
+    GlobalKey sectionKey, {
+    String? section,
+  }) {
     if (section != null) {
       Analytics.event('nav_click', {'section': section});
     }
-    final sectionKeyCurrentContext = sectionKey.currentContext;
-    if (sectionKeyCurrentContext != null) {
-      Scrollable.ensureVisible(
-        sectionKeyCurrentContext,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.decelerate,
-      );
-    }
+    goToSection(context, sectionKey);
   }
 
   Widget _buildLocaleButton(BuildContext context, WidgetRef ref) {

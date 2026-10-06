@@ -36,6 +36,13 @@ class PersonalInfoRepository {
     return contacts;
   }
 
+  /// The booking link (`bookCallUrl` in `en.json`), or '' while none is set. Read with
+  /// `trValue`, never `tr()`, which would answer an empty value with the key's own text.
+  String getBookCallUrl() {
+    final locale = _ref.watch(localeControllerProvider).locale;
+    return trValue(locale, LocaleKeys.bookCallUrl).trim();
+  }
+
   /// The WhatsApp contact, read from the same `contacts` list the contact bar draws, so the
   /// number and the prefilled message have one home. Null when no contact opens wa.me.
   Contact? getWhatsApp() {

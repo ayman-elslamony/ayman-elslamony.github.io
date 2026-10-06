@@ -23,6 +23,14 @@ class Analytics {
     });
   }
 
+  /// The scheduling services a "Book a call" link may point to.
+  static const _bookingHosts = {
+    'calendly.com',
+    'cal.com',
+    'calendar.app.google',
+    'calendar.google.com',
+  };
+
   static String linkEventName(String url) {
     final uri = Uri.tryParse(url);
     final host = (uri?.host ?? '').toLowerCase();
@@ -36,6 +44,7 @@ class Analytics {
       _ when host == 'play.google.com' => 'click_google_play',
       _ when host == 'apps.apple.com' => 'click_app_store',
       _ when host == 'pub.dev' => 'click_pub_dev',
+      _ when _bookingHosts.contains(host) => 'click_book_call',
       _ => 'click_other_link',
     };
   }
