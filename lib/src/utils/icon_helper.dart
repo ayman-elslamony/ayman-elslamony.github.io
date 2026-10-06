@@ -9,6 +9,10 @@ class IconHelper {
     0xf232: IconData(0xf232, fontFamily: 'FontAwesomeBrands', fontPackage: 'font_awesome_flutter'),
   };
 
+  /// Whether [codePoint] has a const [IconData] here. A code point that is not here still
+  /// builds an icon, but its glyph may be missing from the shipped font.
+  static bool isBundled(int codePoint) => _usedIcons.containsKey(codePoint);
+
   static IconData createIconData(int codePoint, String? fontFamily, String? fontPackage) {
     if (_usedIcons.containsKey(codePoint)) {
       return _usedIcons[codePoint]!;

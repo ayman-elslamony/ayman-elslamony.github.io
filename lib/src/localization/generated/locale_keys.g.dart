@@ -23,5 +23,9 @@ abstract class  LocaleKeys {
   static const downloadResume = 'downloadResume';
   static const openUrlError = 'openUrlError';
   static const unknownLanguageError = 'unknownLanguageError';
+  static const caseStudyProblem = 'caseStudyProblem';
+  static const caseStudyBuilt = 'caseStudyBuilt';
+  static const caseStudyResult = 'caseStudyResult';
+  static const caseStudyNotFound = 'caseStudyNotFound';
 
 }

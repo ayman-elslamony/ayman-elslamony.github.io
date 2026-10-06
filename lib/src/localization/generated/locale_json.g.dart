@@ -159,7 +159,30 @@ class CodegenLoader extends AssetLoader{
         "Code Review",
         "Testing",
         "CI/CD"
-      ]
+      ],
+      "caseStudy": {
+        "slug": "shared-architecture",
+        "problem": "Each app carried its own copy of the same infrastructure: navigation, the network layer, error handling, the state base classes. The copies drifted apart. None of them was wrong, and no two were the same. A fix in one app reached no other app, and a developer who found a real bug had nowhere to put the fix except a local workaround.",
+        "built": [
+          {
+            "title": "One versioned core package",
+            "text": "The code every app needs and none should own a private copy of lives in one package: navigation, network, errors, state base classes, the responsive layer, the auth session and internationalisation. Each app pins it by release tag, so adopting a new version is a one-line edit that lands in a reviewed diff instead of arriving silently."
+          },
+          {
+            "title": "A clear dividing rule",
+            "text": "Pure, brand-free code is shared. Anything that touches an app's generated design tokens is not, because a package cannot import its consumer's generated code, so widgets stay owned by each app in a copy-in scaffold. Heavy native SDKs such as Firebase and biometrics get packages of their own, so an app that does not use them does not ship them."
+          },
+          {
+            "title": "An internal developer toolchain",
+            "text": "A command-line tool, pinned like any other dependency, groups the work into design, quality, backend and release commands. It runs 11 automated code-quality checks before every commit, and verifies what the app expects from the API against what the backend actually returns."
+          },
+          {
+            "title": "A Figma-to-code design pipeline",
+            "text": "Colours, spacing, typography and icons are regenerated from the design file, so a design change reaches the app as generated code instead of values re-typed by hand and drifting."
+          }
+        ],
+        "result": "Two apps now run on the shared architecture. A fix is written once and reaches every app through a reviewed upgrade, and the architecture rules are checked at commit time instead of in review."
+      }
     },
     {
       "name": "Network Inspector & Runtime Config Editor",
@@ -508,7 +531,11 @@ class CodegenLoader extends AssetLoader{
   "resume": "Resume",
   "downloadResume": "Download resume",
   "openUrlError": "Could not open the url",
-  "unknownLanguageError": "Language unknown"
+  "unknownLanguageError": "Language unknown",
+  "caseStudyProblem": "The problem",
+  "caseStudyBuilt": "What I built",
+  "caseStudyResult": "The result",
+  "caseStudyNotFound": "This page does not exist."
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en};
 }

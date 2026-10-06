@@ -34,6 +34,8 @@ jobs:
       # --no-tree-shake-icons is required: the contact icons are built at runtime from stored
       # code points, so tree-shaking would drop their glyphs.
       - run: flutter build web --release --no-tree-shake-icons
+      # Case studies are app routes; give each one a real folder so its link answers 200.
+      - run: python3 tools/case_study_pages.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

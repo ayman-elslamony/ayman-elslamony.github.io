@@ -102,6 +102,21 @@ A new link needs no code: `LaunchUrlHelper.launchURL` reports every URL it opens
 
 GA shows when, roughly where, the device and the source — never who.
 
+**Case studies.** A project with a `caseStudy` in `en.json` (`slug`, `problem`, `built[]`,
+`result`) gets its own page at `/projects/<slug>/`, a Flutter route (`CaseStudyPage`), opened from
+the project's card. Adding one to another project is data only. A direct visit opens
+`[portfolio, case study]`, so Back stays on the site. GitHub Pages serves files, so the deploy runs
+`tools/case_study_pages.py` after the build: it copies `build/web/index.html` into
+`build/web/projects/<slug>/`, which makes the link answer 200 (a 404 can stop LinkedIn and WhatsApp
+from showing a preview). The copies are outside the service-worker manifest, so they are never
+served stale. Opening one sends `open_case_study`, and GA4 also counts the route change as a
+`page_view` of `/projects/<slug>`.
+
+**Tests.** `test/data_test.dart` guards `en.json`: link schemes, every icon code point bundled in
+`IconHelper`, and complete case studies. `test/features/case_study_test.dart` covers the route, the
+page at phone and desktop width, and the address bar. `test/utils/analytics_test.dart` runs with
+`--platform chrome`.
+
 **The link-preview image (`web/og-image.png`)** is what LinkedIn and WhatsApp show under a pasted
 link, on the home page and on `/cv`. They cache it **by URL**, so after redrawing it, change the
 `?v=` date on its URL in `web/index.html` (the `og:image` and `twitter:image` tags) and in the

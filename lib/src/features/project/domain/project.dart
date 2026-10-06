@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:portfolio/src/common/domain/link.dart';
+import 'package:portfolio/src/features/project/domain/case_study.dart';
 
 part 'project.freezed.dart';
 part 'project.g.dart';
@@ -16,6 +17,7 @@ abstract class Project with _$Project {
     String? screenshotPath,
     List<String>? technologies,
     List<Link>? links,
+    CaseStudy? caseStudy,
   }) = _Project;
 
   factory Project.fromJson(Map<String, dynamic> json) =>

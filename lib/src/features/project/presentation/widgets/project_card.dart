@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio/src/common/widgets/responsive.dart';
 import 'package:portfolio/src/constants/sizes.dart';
 import 'package:portfolio/src/features/project/domain/project.dart';
+import 'package:portfolio/src/features/project/presentation/case_study_page.dart';
 import 'package:portfolio/src/features/project/presentation/widgets/project_description.dart';
 import 'package:portfolio/src/features/project/presentation/widgets/project_image.dart';
 import 'package:portfolio/src/utils/launch_url_helper.dart';
@@ -57,6 +58,11 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
   }
 
   void _onTap() async {
+    final caseStudy = widget.project.caseStudy;
+    if (caseStudy != null) {
+      Navigator.of(context).pushNamed(CaseStudyPage.path(caseStudy.slug));
+      return;
+    }
     final url = widget.project.url;
     if (url == null) return;
     try {
