@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:portfolio/src/utils/analytics.dart';
 import 'package:portfolio/src/common/data/language_repository.dart';
 import 'package:portfolio/src/constants/sizes.dart';
 import 'package:portfolio/src/localization/generated/locale_keys.g.dart';
@@ -45,6 +46,7 @@ class LocaleButton extends ConsumerWidget {
     required Locale? locale,
   }) async {
     if (locale != null) {
+      Analytics.event('language_change', {'language': locale.languageCode});
       await context.setLocale(locale);
       await ref.read(localeControllerProvider).setLocale(locale);
     }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:portfolio/src/utils/analytics.dart';
 
 class MyDrawerButton extends StatefulHookConsumerWidget {
   const MyDrawerButton({
@@ -64,6 +65,7 @@ class _MyDrawerButtonState extends ConsumerState<MyDrawerButton> {
   }
 
   void _onTap(BuildContext context) {
+    Analytics.event('nav_click', {'section': widget.title});
     final sectionKeyCurrentContext = widget.sectionKey.currentContext;
     if (sectionKeyCurrentContext != null) {
       Scrollable.ensureVisible(

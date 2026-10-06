@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio/src/features/main/provider/dark_mode_controller.dart';
+import 'package:portfolio/src/utils/analytics.dart';
 
 class DarkModeSwitch extends ConsumerWidget {
   const DarkModeSwitch({super.key});
@@ -13,7 +14,8 @@ class DarkModeSwitch extends ConsumerWidget {
         const Icon(Icons.wb_sunny_outlined),
         Switch(
           value: _getDarkMode(ref),
-          onChanged: (_) {
+          onChanged: (on) {
+            Analytics.event('theme_toggle', {'mode': on ? 'dark' : 'light'});
             ref.read(darkModeProvider.notifier).updateTheme();
           },
         ),

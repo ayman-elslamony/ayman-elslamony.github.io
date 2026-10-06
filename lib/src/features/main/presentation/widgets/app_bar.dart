@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:portfolio/src/utils/analytics.dart';
 import 'package:portfolio/src/common/data/language_repository.dart';
 import 'package:portfolio/src/common/widgets/animated_fade_slide.dart';
 import 'package:portfolio/src/common/widgets/responsive.dart';
@@ -74,7 +75,10 @@ class MyAppBar extends ConsumerWidget {
                   AppBarButton(
                     title: tr(LocaleKeys.aboutSectionTitle),
                     onPressed: () {
-                      _onAppBarButtonTap(ref.watch(aboutSectionKeyProvider));
+                      _onAppBarButtonTap(
+                        ref.watch(aboutSectionKeyProvider),
+                        section: 'about',
+                      );
                     },
                   ),
                   AppBarButton(
@@ -82,13 +86,17 @@ class MyAppBar extends ConsumerWidget {
                     onPressed: () {
                       _onAppBarButtonTap(
                         ref.watch(experienceSectionKeyProvider),
+                        section: 'experience',
                       );
                     },
                   ),
                   AppBarButton(
                     title: tr(LocaleKeys.projectsSectionTitle),
                     onPressed: () {
-                      _onAppBarButtonTap(ref.watch(projectSectionKeyProvider));
+                      _onAppBarButtonTap(
+                        ref.watch(projectSectionKeyProvider),
+                        section: 'projects',
+                      );
                     },
                   ),
                   _buildLocaleButton(context, ref),
@@ -111,7 +119,10 @@ class MyAppBar extends ConsumerWidget {
     }
   }
 
-  void _onAppBarButtonTap(GlobalKey sectionKey) {
+  void _onAppBarButtonTap(GlobalKey sectionKey, {String? section}) {
+    if (section != null) {
+      Analytics.event('nav_click', {'section': section});
+    }
     final sectionKeyCurrentContext = sectionKey.currentContext;
     if (sectionKeyCurrentContext != null) {
       Scrollable.ensureVisible(

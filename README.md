@@ -92,6 +92,14 @@ acquisition → *Session campaign*:
   `history.replaceState`, so a reader never sees the tag. The site reads no query parameter of
   its own; if it ever does, that line must keep it.
 
+**Clicks.** The site is drawn on a canvas, so GA4's own click tracking never sees a link. Every
+click is sent from Dart instead (`lib/src/utils/analytics.dart`, through the `gtag` that
+`web/index.html` defines): outbound links as `click_whatsapp`, `click_email`, `click_phone`,
+`click_linkedin`, `click_github`, `click_google_play`, `click_app_store`, `click_pub_dev` or
+`click_other_link` with `link_url`; the CV download as `file_download`; the section buttons as
+`nav_click`; `theme_toggle` and `language_change`. Read them in Reports → Engagement → Events.
+A new link needs no code: `LaunchUrlHelper.launchURL` reports every URL it opens.
+
 GA shows when, roughly where, the device and the source — never who.
 
 **The link-preview image (`web/og-image.png`)** is what LinkedIn and WhatsApp show under a pasted
