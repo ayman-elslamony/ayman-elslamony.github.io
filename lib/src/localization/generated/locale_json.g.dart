@@ -539,7 +539,14 @@ class CodegenLoader extends AssetLoader{
   "openToWork": "Open to Senior Flutter roles · Remote or relocation",
   "bookCallUrl": "",
   "bookCall": "Book a call",
-  "testimonials": [],
+  "testimonials": [
+    {
+      "quote": "I had the pleasure of directly managing Ayman Elslamony, and I can confidently say he is an exceptionally skilled Flutter developer with a remarkable dedication to quality and efficiency. Ayman consistently demonstrated a strong technical aptitude, a collaborative spirit, and an eagerness to tackle complex challenges head-on.",
+      "name": "Ahmed Elkhyary",
+      "role": "Mobile Engineer | Native Android | cross platform",
+      "url": "https://www.linkedin.com/in/ayman-elslamony/details/recommendations/"
+    }
+  ],
   "testimonialsSectionTitle": "What people say",
   "skills": [
     {
@@ -773,7 +780,8 @@ class CodegenLoader extends AssetLoader{
   "caseStudyLabel": "Case study",
   "caseStudyCopyLink": "Copy link",
   "caseStudyLinkCopied": "Link copied",
-  "backToTop": "Back to top"
+  "backToTop": "Back to top",
+  "testimonialReadFull": "Read the full recommendation on LinkedIn"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en};
 }

@@ -177,6 +177,21 @@ void main() {
       expect(homeOffset(tester), greaterThan(0));
     });
 
+    testWidgets('2c. on a phone, the drawer on the page returns to the portfolio and scrolls',
+        (tester) async {
+      setSize(tester, const Size(390, 844));
+      await tester.pumpWidget(_site());
+      await tester.pumpAndSettle();
+      await _openPage(tester);
+      final page = find.byType(CaseStudyPage);
+      await tester.tap(find.descendant(of: page, matching: find.byType(EndDrawerButton)));
+      await tester.pumpAndSettle();
+      await tester.tap(find.descendant(of: page, matching: find.text('Projects')).last);
+      await tester.pumpAndSettle();
+      expect(find.byType(CaseStudyPage), findsNothing);
+      expect(homeOffset(tester), greaterThan(0));
+    });
+
     testWidgets('3. the image flies from the card to the page (Hero)', (tester) async {
       setSize(tester, const Size(1280, 900));
       await tester.pumpWidget(_site());
@@ -306,9 +321,12 @@ void main() {
       }
     });
 
-    test('11a. the real readers survive an empty list and an empty link', () {
-      expect(trList(const Locale('en'), 'testimonials'), isEmpty);
+    test('11a. the readers survive an empty list, a missing key and an empty link', () {
+      // An empty list in the generated const map is a List<dynamic>; a plain downcast throws.
+      const Object emptyFromConstMap = <dynamic>[];
+      expect(listOfMaps(emptyFromConstMap), isEmpty);
       expect(trList(const Locale('en'), 'no-such-key'), isEmpty);
+      expect(trList(const Locale('en'), 'testimonials'), isNotEmpty);
       expect(trValue(const Locale('en'), 'bookCallUrl'), '');
       expect(trValue(const Locale('en'), 'no-such-key'), '');
     });
@@ -336,11 +354,15 @@ void main() {
         tester,
         siteOverrides(
           bookCallUrl: 'https://calendly.com/x',
-          testimonials: const [Testimonial(quote: 'Q', name: 'N', role: 'R')],
+          testimonials: const [
+            Testimonial(quote: 'Q', name: 'N', role: 'R', url: 'https://www.linkedin.com/x'),
+          ],
         ),
       );
       expect(find.text('What people say'), findsOneWidget);
       expect(find.text('Q'), findsOneWidget);
+      expect(find.text('Read the full recommendation on LinkedIn'), findsOneWidget);
+      expect(tester.takeException(), isNull);
       expect(find.text('Book a call'), findsOneWidget);
     });
 

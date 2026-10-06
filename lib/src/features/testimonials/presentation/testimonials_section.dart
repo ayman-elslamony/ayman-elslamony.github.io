@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:portfolio/src/common/widgets/link.dart';
 import 'package:portfolio/src/common/widgets/surface_card.dart';
 import 'package:portfolio/src/constants/sizes.dart';
 import 'package:portfolio/src/features/testimonials/data/testimonial_repository.dart';
@@ -45,6 +46,14 @@ class TestimonialsSection extends ConsumerWidget {
                   ),
                   if (t.role != null && t.role!.isNotEmpty)
                     Text(t.role!, style: theme.textTheme.bodySmall),
+                  if (t.url != null && t.url!.isNotEmpty) ...[
+                    gapH8,
+                    LinkWidget(
+                      url: t.url!,
+                      displayLink: tr(LocaleKeys.testimonialReadFull),
+                      iconData: Icons.open_in_new,
+                    ),
+                  ],
                 ],
               ),
             ),

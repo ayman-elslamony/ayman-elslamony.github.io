@@ -40,5 +40,6 @@ abstract class  LocaleKeys {
   static const caseStudyCopyLink = 'caseStudyCopyLink';
   static const caseStudyLinkCopied = 'caseStudyLinkCopied';
   static const backToTop = 'backToTop';
+  static const testimonialReadFull = 'testimonialReadFull';
 
 }

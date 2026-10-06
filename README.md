@@ -124,8 +124,8 @@ flies from the card. A 🔗 button copies the link (`share_case_study`), and a `
 selection regions would measure texts that have no size.
 
 **Switches and slots.** `lib/src/constants/site_settings.dart` holds `showOpenToWork` (the badge;
-its text is `openToWork` in `en.json`). `bookCallUrl`, `testimonials` and `skills` are data in
-`en.json`; the first two draw nothing while empty. `bookCallUrl` is read with `trValue`, not
+its text is `openToWork` in `en.json`). `bookCallUrl`, `testimonials` (`quote`, `name`, `role`, `url` — quoted word for word) and
+`skills` are data in `en.json`; the first two draw nothing while empty. `bookCallUrl` is read with `trValue`, not
 `tr()`, because `tr()` answers an empty value with the key itself. `trList` survives an empty
 list. Skill icons are `simple_icons` names (CC0), each listed in `IconHelper._brandIcons`. A CV copy
 opened with `utm_campaign=<company>` shows a welcome: `web/index.html` stores the tag in
@@ -136,7 +136,7 @@ opened with `utm_campaign=<company>` shows a welcome: `web/index.html` stores th
 **Tests.** `test/data_test.dart` guards `en.json`: link schemes, every icon code point bundled in
 `IconHelper`, complete case studies, skill icons, testimonials and the booking link.
 `test/features/case_study_test.dart` covers the route, the page at phone and desktop width, the
-address bar, the bar and Back to a section (pushed and direct visit), the Hero flight, the hover
+address bar, the bar and Back to a section (pushed, direct visit, and the phone drawer), the Hero flight, the hover
 on a card with no action, copy link, the tab title, the badge, the welcome name, empty slots, the
 filter and back to top. `test/helpers/test_app.dart` loads the site's Nunito and its real texts, so
 widths in tests are the site's. `test/utils/analytics_test.dart` runs with

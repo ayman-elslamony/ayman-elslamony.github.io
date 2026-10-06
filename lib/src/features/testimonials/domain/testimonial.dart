@@ -10,6 +10,9 @@ abstract class Testimonial with _$Testimonial {
     required String quote,
     required String name,
     String? role,
+
+    /// Where the full text can be read (the LinkedIn recommendation).
+    String? url,
   }) = _Testimonial;
 
   factory Testimonial.fromJson(Map<String, dynamic> json) =>

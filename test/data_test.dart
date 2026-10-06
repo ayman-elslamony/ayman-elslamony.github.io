@@ -81,6 +81,8 @@ void main() {
     for (final t in (data['testimonials'] as List).cast<Map<String, dynamic>>()) {
       expect((t['quote'] as String?)?.trim(), isNotEmpty);
       expect((t['name'] as String?)?.trim(), isNotEmpty);
+      final url = t['url'] as String?;
+      if (url != null) expect(Uri.parse(url).scheme, 'https');
     }
     final booking = (data['bookCallUrl'] as String).trim();
     if (booking.isNotEmpty) expect(Uri.parse(booking).scheme, 'https');

@@ -7,10 +7,12 @@ import 'package:portfolio/src/localization/generated/locale_json.g.dart';
 /// The map is `const Map<String, dynamic>`, so an empty `[]` there is a `List<dynamic>`; a
 /// plain implicit downcast to `List<Map<String, dynamic>>` throws on it. `cast` does not,
 /// and a missing key reads as an empty list.
-List<Map<String, dynamic>> trList(Locale locale, String key) {
-  final mapValue = CodegenLoader.mapLocales[locale.languageCode]?[key];
-  return (mapValue as List?)?.cast<Map<String, dynamic>>().toList() ?? const [];
-}
+List<Map<String, dynamic>> trList(Locale locale, String key) =>
+    listOfMaps(CodegenLoader.mapLocales[locale.languageCode]?[key]);
+
+/// [value] as a list of maps; an empty `List<dynamic>` or a missing value reads as `[]`.
+List<Map<String, dynamic>> listOfMaps(Object? value) =>
+    (value as List?)?.cast<Map<String, dynamic>>().toList() ?? const [];
 
 /// A plain string value from `en.json` that may be empty on purpose, such as a link that is
 /// not set yet. Read from the generated map rather than with `tr()`, because `tr()` answers
