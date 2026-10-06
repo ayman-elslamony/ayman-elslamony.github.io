@@ -58,6 +58,7 @@ class EndDrawer extends ConsumerWidget {
                         child: MyDrawerButton(
                           title: tr(LocaleKeys.homeSectionTitle),
                           sectionKey: ref.watch(homeSectionKeyProvider),
+                          section: 'home',
                         ),
                       ),
                       gapH40,
@@ -67,6 +68,7 @@ class EndDrawer extends ConsumerWidget {
                         child: MyDrawerButton(
                           title: tr(LocaleKeys.aboutSectionTitle),
                           sectionKey: ref.watch(aboutSectionKeyProvider),
+                          section: 'about',
                         ),
                       ),
                       gapH40,
@@ -76,6 +78,7 @@ class EndDrawer extends ConsumerWidget {
                         child: MyDrawerButton(
                           title: tr(LocaleKeys.experienceSectionTitle),
                           sectionKey: ref.watch(experienceSectionKeyProvider),
+                          section: 'experience',
                         ),
                       ),
                       gapH40,
@@ -85,6 +88,7 @@ class EndDrawer extends ConsumerWidget {
                         child: MyDrawerButton(
                           title: tr(LocaleKeys.projectsSectionTitle),
                           sectionKey: ref.watch(projectSectionKeyProvider),
+                          section: 'projects',
                         ),
                       ),
                       gapH80,

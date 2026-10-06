@@ -8,10 +8,14 @@ class MyDrawerButton extends StatefulHookConsumerWidget {
     super.key,
     required this.title,
     required this.sectionKey,
+    required this.section,
   });
 
   final String title;
   final GlobalKey sectionKey;
+
+  /// A fixed id for analytics, so a section is one GA4 row in every language.
+  final String section;
 
   @override
   ConsumerState<MyDrawerButton> createState() => _MyDrawerButtonState();
@@ -65,7 +69,7 @@ class _MyDrawerButtonState extends ConsumerState<MyDrawerButton> {
   }
 
   void _onTap(BuildContext context) {
-    Analytics.event('nav_click', {'section': widget.title});
+    Analytics.event('nav_click', {'section': widget.section});
     final sectionKeyCurrentContext = widget.sectionKey.currentContext;
     if (sectionKeyCurrentContext != null) {
       Scrollable.ensureVisible(
