@@ -63,18 +63,32 @@ void main() {
     }
   });
 
-  test('every skill icon in en.json resolves to a brand icon', () {
-    final names = [
-      for (final g in (data['skills'] as List).cast<Map<String, dynamic>>())
-        for (final i in (g['items'] as List).cast<Map<String, dynamic>>())
-          if (i['icon'] != null) i['icon'] as String,
-    ];
-    expect(names, isNotEmpty);
-    expect(
-      names.where((n) => !IconHelper.hasBrandIcon(n)),
-      isEmpty,
-      reason: 'add the name to IconHelper._brandIcons',
-    );
+  test('every counted number in aboutStats is one the About text states', () {
+    // The numbers are typed twice - in the text and in the strip - so this keeps them equal.
+    final about = data['aboutDescription'] as String;
+    final stats = (data['aboutStats'] as List).cast<Map<String, dynamic>>();
+    expect(stats, isNotEmpty);
+    for (final s in stats) {
+      final value = s['value'] as String;
+      if (RegExp(r'[+%]').hasMatch(value)) {
+        expect(about, contains(value), reason: 'aboutStats "$value" is not in aboutDescription');
+      }
+    }
+  });
+
+  test('the icons draw the same mark as the pre-boot loader', () {
+    // tools/make_icons.py and the loader in web/index.html each hold the mark's geometry;
+    // this fails when one is changed without the other.
+    final svg = File('web/icons/icon.svg').readAsStringSync();
+    final loader = File('web/index.html').readAsStringSync();
+    final shapes = RegExp(r'(x="[^"]*" y="[^"]*" width="[^"]*" height="[^"]*" rx="[^"]*")|d="([^"]*)"')
+        .allMatches(svg)
+        .map((m) => m.group(0)!)
+        .toList();
+    expect(shapes, hasLength(3));
+    for (final shape in shapes) {
+      expect(loader, contains(shape));
+    }
   });
 
   test('testimonials are complete, and a booking link, once set, is https', () {

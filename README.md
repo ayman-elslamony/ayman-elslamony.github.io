@@ -81,6 +81,10 @@ images:
   `assets/images/network_inspector.png`, `web/og-image.png`. Regenerate them with
   `python3 tools/make_banners.py` (needs Pillow); its colour constants are copied from
   `themes.dart` and must be changed with it.
+- The icons — `web/favicon.ico`, `web/icons/*` (tab, home screen, install splash, iPhone).
+  Regenerate them all with `python3 tools/make_icons.py` (needs Pillow): one drawing of the mark,
+  white on a teal tile in the images, and an `icon.svg` for the tab that follows dark mode. Its
+  geometry is the pre-boot loader's in `web/index.html`, and its teal is `web/styles.css`'s.
 
 **Analytics on the CV.** Two GA4 signals, both read in Reports → Acquisition → Traffic
 acquisition → *Session campaign*:
@@ -97,7 +101,10 @@ click is sent from Dart instead (`lib/src/utils/analytics.dart`, through the `gt
 `web/index.html` defines): outbound links as `click_whatsapp`, `click_email`, `click_phone`,
 `click_linkedin`, `click_github`, `click_google_play`, `click_app_store`, `click_pub_dev` or
 `click_other_link` with `link_url`; the CV download as `file_download`; the section buttons as
-`nav_click`; `theme_toggle` and `language_change`. Read them in Reports → Engagement → Events.
+`nav_click`; `theme_toggle` and `language_change`; how far a page was read as `scroll_depth`
+(`percent` 25, 50 or 75, once each per visit; `page` = `home` or the case study's slug —
+`lib/src/utils/scroll_depth.dart`); "Show all" under Projects as `show_all_projects`. Read them in
+Reports → Engagement → Events.
 
 **WhatsApp** appears twice: in the contact row and in the app bar (`whatsapp_button.dart` —
 labelled on desktop, icon only beside the drawer button on narrower widths). Both read the one
@@ -127,18 +134,40 @@ selection regions would measure texts that have no size.
 its text is `openToWork` in `en.json`). `bookCallUrl`, `testimonials` (`quote`, `name`, `role`, `url` — quoted word for word) and
 `skills` are data in `en.json`; the first two draw nothing while empty. `bookCallUrl` is read with `trValue`, not
 `tr()`, because `tr()` answers an empty value with the key itself. `trList` survives an empty
-list. Skill icons are `simple_icons` names (CC0), each listed in `IconHelper._brandIcons`. A CV copy
+list. Skills carry no icons (only some had a brand logo). A CV copy
 opened with `utm_campaign=<company>` shows a welcome: `web/index.html` stores the tag in
 `sessionStorage` before it cleans the address bar, and `Campaign` reads it (`public`, `test` and
 `readme` greet nobody). The project filter offers every technology used by two or more projects
 (`filter_projects`).
+`aboutStats` in `en.json` is the row of numbers under the About intro (`value`, `label`); a counted
+value (`+` or `%`) must also appear in `aboutDescription`, and a test fails when it does not. In
+`aboutDescription`, the part of each `→` line before " — ", " (" or its full stop is drawn bold.
+
+**Layout.** Desktop: the left column takes 2/5 (name, badge, buttons, a section index, contacts)
+and the content 3/5, as wide as the window allows between 520 and 920 px; text blocks keep to
+680 px (about 70 characters a line), and the grids — Skills, Projects — take the full width, two
+cards a row from 760 px. Two cards in a row share one height (`TwoColumnGrid`). Under "All", Projects
+shows the first 6 in `en.json` order, then "Show all"; a selected technology shows every match.
+A work-experience description folds at the last line break before 420 characters. The section
+index (`section_index.dart`) highlights the last section whose top passed a third of the window,
+and the last one at the very end; it is hidden on windows shorter than 760 px. Tablet and phone
+keep one column.
+
+**Attention motion** (`lib/src/common/widgets/attention.dart`) — every value in one file: the
+open-to-work dot and the active index step pulse (1.6 s), a wave runs through the contact buttons
+and the About numbers (4 s), and a glint crosses Resume and then Book a call (4 s, half a cycle
+apart). All of it loops while the page is open and stops when the system's reduce-motion setting is
+on.
 
 **Tests.** `test/data_test.dart` guards `en.json`: link schemes, every icon code point bundled in
-`IconHelper`, complete case studies, skill icons, testimonials and the booking link.
+`IconHelper`, complete case studies, the About numbers, testimonials and the booking link.
 `test/features/case_study_test.dart` covers the route, the page at phone and desktop width, the
 address bar, the bar and Back to a section (pushed, direct visit, and the phone drawer), the Hero flight, the hover
 on a card with no action, copy link, the tab title, the badge, the welcome name, empty slots, the
-filter and back to top. `test/helpers/test_app.dart` loads the site's Nunito and its real texts, so
+filter and back to top. `test/features/layout_test.dart` measures the layout: the page's scroll
+extent against the pre-change baseline, no overflow from 390 to 1920 px, the 680 px text width, the
+rows of two, Show all, Read more, the section index, the motion, and the scroll-depth events.
+`test/helpers/test_app.dart` turns the attention motion off (`Attention.enabled`) and loads the site's Nunito and its real texts, so
 widths in tests are the site's. `test/utils/analytics_test.dart` runs with
 `--platform chrome`.
 

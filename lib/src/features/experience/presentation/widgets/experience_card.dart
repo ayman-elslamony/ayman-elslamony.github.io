@@ -9,6 +9,16 @@ import 'package:portfolio/src/features/experience/domain/experience.dart';
 import 'package:portfolio/src/features/experience/presentation/widgets/experience_date_text.dart';
 import 'package:portfolio/src/utils/launch_url_helper.dart';
 import 'package:portfolio/src/utils/scaffold_messenger_helper.dart';
+import 'package:readmore/readmore.dart';
+
+/// Where "Read more" cuts [text]: the last line break at or before [limit], so a bullet is
+/// never cut mid-word (the same reason About cuts at its first bullet). A text with no such
+/// break is cut at [limit]; a text no longer than [limit] is shown whole.
+int trimAtLine(String text, {int limit = 420}) {
+  if (text.length <= limit) return text.length;
+  final cut = text.lastIndexOf('\n', limit);
+  return cut > 0 ? cut : limit;
+}
 
 class ExperienceCard extends ConsumerWidget {
   const ExperienceCard({super.key, required this.experience});
@@ -71,15 +81,19 @@ class ExperienceCard extends ConsumerWidget {
               gapH8,
               experience.description == null || experience.description == ''
                   ? const SizedBox()
-                  : Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            experience.description ?? "",
-                            style: theme.textTheme.bodyMedium,
-                          ),
+                  : SizedBox(
+                      width: double.infinity,
+                      child: ReadMoreText(
+                        experience.description!,
+                        trimLength: trimAtLine(experience.description!),
+                        trimMode: TrimMode.Length,
+                        trimCollapsedText: 'Read more',
+                        trimExpandedText: 'Read less',
+                        style: theme.textTheme.bodyMedium,
+                        moreStyle: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.primary,
                         ),
-                      ],
+                      ),
                     ),
               experience.description == null || experience.description == ''
                   ? const SizedBox()

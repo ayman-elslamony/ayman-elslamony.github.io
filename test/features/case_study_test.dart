@@ -309,7 +309,16 @@ void main() {
         ),
       ));
       await tester.pumpAndSettle();
-      expect(find.text('Open to Senior Flutter roles · Remote or relocation'), findsOneWidget);
+      final (headline, detail) = splitBadgeText(enJson['openToWork'] as String);
+      expect(find.text(headline), findsOneWidget);
+      expect(find.text(detail!), findsOneWidget);
+    });
+
+    test('9b. the badge text splits at its first " · "', () {
+      expect(splitBadgeText('Open to roles · Remote, hybrid or relocation'),
+          ('Open to roles', 'Remote, hybrid or relocation'));
+      expect(splitBadgeText('Open to roles'), ('Open to roles', null));
+      expect(splitBadgeText('A · B · C'), ('A', 'B · C'));
     });
 
     test('10. the company name comes from the campaign tag', () {

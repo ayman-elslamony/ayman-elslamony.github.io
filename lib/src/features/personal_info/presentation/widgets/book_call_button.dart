@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/src/common/widgets/attention.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio/src/features/personal_info/data/personal_info_repository.dart';
 import 'package:portfolio/src/localization/generated/locale_keys.g.dart';
@@ -17,26 +18,32 @@ class BookCallButton extends ConsumerWidget {
     final url = ref.watch(personalInfoRepositoryProvider).getBookCallUrl();
     if (url.isEmpty) return const SizedBox.shrink();
     final theme = Theme.of(context);
-    return OutlinedButton.icon(
-      style: OutlinedButton.styleFrom(
-        foregroundColor: theme.colorScheme.primary,
-        side: BorderSide(color: theme.colorScheme.primary),
-        shape: const StadiumBorder(),
-        padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 18),
-        textStyle:
-            theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
-      ),
-      onPressed: () async {
-        try {
-          await LaunchUrlHelper.launchURL(url);
-        } catch (e) {
-          if (context.mounted) {
-            ScaffoldMessengerHelper.showLaunchUrlError(context, url: url);
+    // A glint half a cycle after Resume's, so the two never shine at once (see Attention).
+    return AttentionShine(
+      color: theme.colorScheme.primary.withValues(alpha: 0.18),
+      phase: 0.5,
+      child: OutlinedButton.icon(
+        style: OutlinedButton.styleFrom(
+          foregroundColor: theme.colorScheme.primary,
+          side: BorderSide(color: theme.colorScheme.primary),
+          shape: const StadiumBorder(),
+          padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 18),
+          textStyle: theme.textTheme.titleMedium?.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        onPressed: () async {
+          try {
+            await LaunchUrlHelper.launchURL(url);
+          } catch (e) {
+            if (context.mounted) {
+              ScaffoldMessengerHelper.showLaunchUrlError(context, url: url);
+            }
           }
-        }
-      },
-      icon: const Icon(Icons.event, size: 18),
-      label: Text(tr(LocaleKeys.bookCall)),
+        },
+        icon: const Icon(Icons.event, size: 18),
+        label: Text(tr(LocaleKeys.bookCall)),
+      ),
     );
   }
 }

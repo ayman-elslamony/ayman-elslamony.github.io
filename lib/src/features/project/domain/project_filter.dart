@@ -35,3 +35,32 @@ class ProjectFilter extends Notifier<String?> {
 
 final projectFilterProvider =
     NotifierProvider<ProjectFilter, String?>(ProjectFilter.new);
+
+/// How many projects show under "All" before the "Show all" button.
+const firstProjects = 6;
+
+/// The projects on screen: every match when a technology is selected, otherwise the first
+/// [first] until [showAll]. Progressive disclosure, so the first ones must be the strongest;
+/// their order is the `en.json` order.
+List<Project> visibleProjects(
+  List<Project> projects, {
+  required String? tag,
+  required bool showAll,
+  int first = firstProjects,
+}) {
+  final matches = filterProjects(projects, tag);
+  if (tag != null || showAll || matches.length <= first) return matches;
+  return matches.sublist(0, first);
+}
+
+/// Whether "Show all" was pressed. Kept for the visit; it never closes again.
+class ShowAllProjects extends Notifier<bool> {
+  @override
+  bool build() => false;
+
+  void open() => state = true;
+}
+
+final showAllProjectsProvider = NotifierProvider<ShowAllProjects, bool>(
+  ShowAllProjects.new,
+);

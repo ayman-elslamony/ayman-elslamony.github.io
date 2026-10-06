@@ -27,3 +27,8 @@ GlobalKey projectSectionKey(Ref ref) {
 GlobalKey skillsSectionKey(Ref ref) {
   return GlobalKey();
 }
+
+@riverpod
+GlobalKey testimonialsSectionKey(Ref ref) {
+  return GlobalKey();
+}

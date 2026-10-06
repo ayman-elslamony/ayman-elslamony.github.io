@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:portfolio/src/common/widgets/attention.dart';
 import 'package:portfolio/src/features/personal_info/domain/contact.dart';
 import 'package:portfolio/src/utils/icon_helper.dart';
 import 'package:portfolio/src/utils/launch_url_helper.dart';
@@ -17,9 +18,9 @@ class ContactBar extends ConsumerWidget {
     // The contacts used to be bare IconButtons - four glyphs floating on the page with
     // nothing holding them. They are the only call to action in the left column, so each
     // one now sits in its own outlined circle, in the accent colour, with real spacing.
-    return Wrap(
-      spacing: 12,
-      runSpacing: 12,
+    // A wave runs through them for as long as the page is open, so the eye finds them
+    // (see Attention).
+    return AttentionWave(
       children: contacts.map((contact) {
         final iconData = _getIconData(contact);
         final contactTooltip = contact.tooltip;

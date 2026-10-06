@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio/src/constants/themes.dart' as themes;
-import 'package:portfolio/src/features/main/presentation/main_section.dart';
 import 'package:portfolio/src/features/project/data/project_repository.dart';
 import 'package:portfolio/src/features/project/presentation/case_study_page.dart';
 import 'package:portfolio/src/localization/generated/locale_keys.g.dart';
@@ -27,13 +26,16 @@ class MyApp extends ConsumerWidget {
             data: (darkMode) => darkMode ? ThemeMode.dark : ThemeMode.light,
             orElse: () => ThemeMode.light,
           ),
-      home: const MainSection(),
-      // `/projects/<slug>` opens a case study. A direct visit builds [portfolio, case study],
-      // so Back returns to the portfolio instead of leaving the site; an unknown slug opens
-      // the portfolio.
+      // No `home`: with `onGenerateInitialRoutes` set, Flutter asserts that `home` is null
+      // (a red screen under `flutter run`; release builds skip asserts, so the live site
+      // never showed it). `/projects/<slug>` opens a case study. A direct visit builds
+      // [portfolio, case study], so Back returns to the portfolio instead of leaving the
+      // site; `/` and any unknown path open the portfolio.
       onGenerateRoute: (settings) {
         final slug = CaseStudyPage.slugFrom(settings.name);
-        if (slug == null || !_hasCaseStudy(ref, slug)) return null;
+        if (slug == null || !_hasCaseStudy(ref, slug)) {
+          return CaseStudyPage.homeRoute();
+        }
         return CaseStudyPage.route(slug);
       },
       onGenerateInitialRoutes: (initialRoute) => CaseStudyPage.initialRoutes(

@@ -45,6 +45,12 @@
       "url": "cv/Ayman_Elslamony_Senior_Flutter_Developer_CV.pdf"
     }
   ],
+  "aboutStats": [
+    {"value": "5+", "label": "years of experience"},
+    {"value": "18+", "label": "production apps"},
+    {"value": "1", "label": "plugin on pub.dev"},
+    {"value": "15%", "label": "shorter release cycles"}
+  ],
   "aboutDescription": "Senior Flutter Developer with 5+ years of experience building Android and iOS apps — and the shared architecture, automated checks, and release pipelines the team's apps are built on.\n\nWhat makes my profile different:\n\n→ Designed the shared architecture two apps now run on — navigation, network and state code live in one versioned package instead of being copied into each app, so one fix reaches every app through a reviewed upgrade.\n\n→ Extended it into an internal developer toolchain — automated code-quality checks enforced before every commit, plus a checker that verifies what the app expects from the API against what the backend actually returns.\n\n→ Built a Figma-to-code design pipeline — colours, spacing, typography and icons are regenerated from the design file, so a design change reaches the app as generated code instead of values re-typed by hand.\n\n→ Created the team's AI engineering workflow — reusable AI skills, agent definitions and a plan-review-execute process, with the same automated checks holding every change, agent-written included, to the architecture rules.\n\n→ Built a multi-tenant White-Label SDK — one Flutter codebase serving multiple enterprise clients, each with their own branding, backend, and store listing. Zero code duplication.\n\n→ Published a native iOS/Android Flutter Plugin on Pub.dev (HyperPay payment bridge via Platform Channels).\n\n→ Architected a full CI/CD release pipeline (GitHub Actions + Azure Pipelines + Fastlane + Firebase App Distribution) — cut release cycles by 15%.\n\n→ Built an internal Network Inspector tool giving QA and backend teams real-time API visibility — eliminated false escalations between teams.\n\n→ Delivered 18+ production applications across e-commerce, healthcare, and logistics.",
   "experiences": [
     {
@@ -520,7 +526,7 @@
   "caseStudyBuilt": "What I built",
   "caseStudyResult": "The result",
   "caseStudyNotFound": "This page does not exist.",
-  "openToWork": "Open to Senior Flutter roles · Remote or relocation",
+  "openToWork": "Open to Senior Flutter roles · Remote, hybrid or relocation",
   "bookCallUrl": "https://calendar.app.google/QND5DZbTiYnYNWqi9",
   "bookCall": "Book a call",
   "testimonials": [
@@ -537,16 +543,13 @@
       "title": "Mobile Development",
       "items": [
         {
-          "name": "Flutter",
-          "icon": "flutter"
+          "name": "Flutter"
         },
         {
-          "name": "Android",
-          "icon": "android"
+          "name": "Android"
         },
         {
-          "name": "iOS",
-          "icon": "apple"
+          "name": "iOS"
         },
         {
           "name": "Bloc"
@@ -624,16 +627,13 @@
           "name": "RESTful APIs"
         },
         {
-          "name": "Firebase (Analytics, Firestore, Remote Config)",
-          "icon": "firebase"
+          "name": "Firebase (Analytics, Firestore, Remote Config)"
         },
         {
-          "name": "Google Maps & Geofencing",
-          "icon": "googlemaps"
+          "name": "Google Maps & Geofencing"
         },
         {
-          "name": "Sqflite",
-          "icon": "sqlite"
+          "name": "Sqflite"
         },
         {
           "name": "Shared Preferences"
@@ -678,27 +678,22 @@
       "title": "CI/CD & Release",
       "items": [
         {
-          "name": "GitHub Actions",
-          "icon": "githubactions"
+          "name": "GitHub Actions"
         },
         {
           "name": "Azure Pipelines"
         },
         {
-          "name": "Fastlane",
-          "icon": "fastlane"
+          "name": "Fastlane"
         },
         {
-          "name": "Firebase App Distribution",
-          "icon": "firebase"
+          "name": "Firebase App Distribution"
         },
         {
-          "name": "App Store",
-          "icon": "appstore"
+          "name": "App Store"
         },
         {
-          "name": "Google Play",
-          "icon": "googleplay"
+          "name": "Google Play"
         }
       ]
     },
@@ -715,8 +710,7 @@
           "name": "Responsive Scaling"
         },
         {
-          "name": "Figma-to-Code Pipeline",
-          "icon": "figma"
+          "name": "Figma-to-Code Pipeline"
         }
       ]
     },
@@ -724,19 +718,16 @@
       "title": "AI-Assisted Engineering",
       "items": [
         {
-          "name": "Claude Code",
-          "icon": "claude"
+          "name": "Claude Code"
         },
         {
-          "name": "Cursor",
-          "icon": "cursor"
+          "name": "Cursor"
         },
         {
           "name": "ChatGPT"
         },
         {
-          "name": "Gemini",
-          "icon": "googlegemini"
+          "name": "Gemini"
         }
       ]
     },
@@ -744,22 +735,20 @@
       "title": "Programming Languages",
       "items": [
         {
-          "name": "Dart",
-          "icon": "dart"
+          "name": "Dart"
         },
         {
-          "name": "Swift",
-          "icon": "swift"
+          "name": "Swift"
         },
         {
-          "name": "Python",
-          "icon": "python"
+          "name": "Python"
         }
       ]
     }
   ],
   "skillsSectionTitle": "Skills",
   "filterAll": "All",
+  "showAllProjects": "Show all {} projects",
   "welcomeCompany": "Hi {} team — thanks for taking a look.",
   "caseStudyLabel": "Case study",
   "caseStudyCopyLink": "Copy link",

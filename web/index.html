@@ -48,10 +48,17 @@
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="portfolio">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="Ayman Elslamony">
+  <!-- The browser bar's colour follows the visitor's scheme: the page backgrounds in
+       web/styles.css (--light-background, --dark-background). manifest.json can hold only one
+       theme_color, the light one; these tags win over it where a browser reads them. -->
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f2f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
+  <!-- Icons: all written by tools/make_icons.py from one drawing of the mark. The SVG is
+       the tab icon in current browsers and follows dark mode; the .ico is the fallback. -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <title>Ayman Elslamony — Senior Flutter Developer</title>
   <link rel="manifest" href="manifest.json">
@@ -67,9 +74,9 @@
 </head>
 <body>
 <!-- Pre-boot loader. It is the site's own icon (the same laptop-and-code mark as
-     web/icons/) drawn INLINE as SVG rather than loaded from icons/icon-192.png: that PNG
-     is a solid black glyph, which disappears on the dark background. Inline, it takes its
-     colour from CSS, so it follows the light/dark scheme like everything else. -->
+     web/icons/, whose geometry tools/make_icons.py repeats - change one, change the other)
+     drawn INLINE as SVG rather than loaded from an image: inline, it takes its colour from
+     CSS, so it follows the light/dark scheme like everything else. -->
 <div class="loader" role="status" aria-label="Loading">
   <svg class="loader-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
     <rect class="loader-mark" x="14" y="18" width="36" height="24" rx="4" stroke-width="3.5"/>

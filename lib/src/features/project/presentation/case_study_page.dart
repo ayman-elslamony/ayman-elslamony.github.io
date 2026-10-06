@@ -22,6 +22,7 @@ import 'package:portfolio/src/features/project/domain/project.dart';
 import 'package:portfolio/src/features/project/presentation/widgets/project_image.dart';
 import 'package:portfolio/src/localization/generated/locale_keys.g.dart';
 import 'package:portfolio/src/utils/analytics.dart';
+import 'package:portfolio/src/utils/scroll_depth.dart';
 
 /// One project's case study, at `/projects/<slug>`. The text is the project's `caseStudy`
 /// in `assets/translations/en.json`; adding one to another project needs no code.
@@ -46,16 +47,19 @@ class CaseStudyPage extends ConsumerStatefulWidget {
     builder: (_) => CaseStudyPage(slug: slug),
   );
 
+  /// The portfolio, at `/`.
+  static Route<void> homeRoute() => MaterialPageRoute<void>(
+    settings: const RouteSettings(name: '/'),
+    builder: (_) => const MainSection(),
+  );
+
   /// The routes for a first visit to [initialRoute]: the portfolio, plus the case study when
   /// the path names one that [exists]. Back from a case study therefore stays on the site.
   static List<Route<dynamic>> initialRoutes(
     String initialRoute,
     bool Function(String slug) exists,
   ) {
-    final home = MaterialPageRoute<void>(
-      settings: const RouteSettings(name: '/'),
-      builder: (_) => const MainSection(),
-    );
+    final home = homeRoute();
     final slug = slugFrom(initialRoute);
     if (slug == null || !exists(slug)) return [home];
     return [home, route(slug)];
@@ -125,57 +129,61 @@ class _CaseStudyPageState extends ConsumerState<CaseStudyPage> {
           children: [
             ReadingProgress(controller: _scrollController),
             Expanded(
-              child: Stack(
-                children: [
-                  MySelectionArea(
-                    child: Center(
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 760),
-                        child: ListView(
-                          controller: _scrollController,
-                          padding: const EdgeInsets.fromLTRB(
-                            Sizes.p24,
-                            Sizes.p24,
-                            Sizes.p24,
-                            88,
+              child: ScrollDepthReporter(
+                controller: _scrollController,
+                page: widget.slug,
+                child: Stack(
+                  children: [
+                    MySelectionArea(
+                      child: Center(
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 760),
+                          child: ListView(
+                            controller: _scrollController,
+                            padding: const EdgeInsets.fromLTRB(
+                              Sizes.p24,
+                              Sizes.p24,
+                              Sizes.p24,
+                              88,
+                            ),
+                            children: project == null || caseStudy == null
+                                ? [
+                                    Text(
+                                      tr(LocaleKeys.caseStudyNotFound),
+                                      style: theme.textTheme.titleMedium,
+                                    ),
+                                  ]
+                                : [
+                                    // Outside the fade: a Hero's target has to be in place
+                                    // for the flight from the card to land on it.
+                                    Center(
+                                      child: ProjectImage(
+                                        project: project,
+                                        isHovered: false,
+                                      ),
+                                    ),
+                                    gapH24,
+                                    AnimatedFadeSlide(
+                                      offset: const Offset(0, 64),
+                                      child: _Body(
+                                        project: project,
+                                        caseStudy: caseStudy,
+                                        info: info,
+                                        onCopyLink: () => _copyLink(context),
+                                      ),
+                                    ),
+                                  ],
                           ),
-                          children: project == null || caseStudy == null
-                              ? [
-                                  Text(
-                                    tr(LocaleKeys.caseStudyNotFound),
-                                    style: theme.textTheme.titleMedium,
-                                  ),
-                                ]
-                              : [
-                                  // Outside the fade: a Hero's target has to be in place
-                                  // for the flight from the card to land on it.
-                                  Center(
-                                    child: ProjectImage(
-                                      project: project,
-                                      isHovered: false,
-                                    ),
-                                  ),
-                                  gapH24,
-                                  AnimatedFadeSlide(
-                                    offset: const Offset(0, 64),
-                                    child: _Body(
-                                      project: project,
-                                      caseStudy: caseStudy,
-                                      info: info,
-                                      onCopyLink: () => _copyLink(context),
-                                    ),
-                                  ),
-                                ],
                         ),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    right: 24,
-                    bottom: 24,
-                    child: BackToTopButton(controller: _scrollController),
-                  ),
-                ],
+                    Positioned(
+                      right: 24,
+                      bottom: 24,
+                      child: BackToTopButton(controller: _scrollController),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

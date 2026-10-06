@@ -13,6 +13,7 @@ import 'package:portfolio/src/features/main/provider/scroll_controller.dart';
 import 'package:portfolio/src/features/main/provider/section_key_provider.dart';
 import 'package:portfolio/src/features/personal_info/presentation/personal_info_section.dart';
 import 'package:portfolio/src/features/project/presentation/project_section.dart';
+import 'package:portfolio/src/utils/scroll_depth.dart';
 import 'package:portfolio/src/features/skills/presentation/skills_section.dart';
 import 'package:portfolio/src/features/testimonials/presentation/testimonials_section.dart';
 
@@ -30,82 +31,88 @@ class _MainTabletState extends ConsumerState<MainTablet> {
 
     // The app bar here is a floating sliver, so nothing can stay pinned under it: the
     // reading-progress line sits on the top edge of the screen instead.
-    return Stack(
-      children: [
-        Positioned.fill(
-          child: MySelectionArea(
-            child: Container(
-              // color: Theme.of(context).colorScheme.primary,
-              child: CustomScrollView(
-                controller: scrollController,
-                slivers: [
-                  const MySliverAppBar(),
-                  SliverList.list(
-                    children: [
-                      const WelcomeBanner(),
-                      Padding(
-                        padding: _buildResponsivePadding(),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: AnimatedFadeSlide(
-                            offset: const Offset(-128, 0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
+    return ScrollDepthReporter(
+      controller: scrollController,
+      page: 'home',
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: MySelectionArea(
+              child: Container(
+                // color: Theme.of(context).colorScheme.primary,
+                child: CustomScrollView(
+                  controller: scrollController,
+                  slivers: [
+                    const MySliverAppBar(),
+                    SliverList.list(
+                      children: [
+                        const WelcomeBanner(),
+                        Padding(
+                          padding: _buildResponsivePadding(),
+                          child: Align(
+                            alignment: Alignment.topLeft,
+                            child: AnimatedFadeSlide(
+                              offset: const Offset(-128, 0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 12,
+                                    ),
+                                    child: PersonalInfoSection(
+                                      key: ref.watch(homeSectionKeyProvider),
+                                    ),
                                   ),
-                                  child: PersonalInfoSection(
-                                    key: ref.watch(homeSectionKeyProvider),
+                                  gapH100,
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 12,
+                                    ),
+                                    child: AboutSection(
+                                      key: ref.watch(aboutSectionKeyProvider),
+                                    ),
                                   ),
-                                ),
-                                gapH100,
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
+                                  gapH100,
+                                  ExperienceSection(
+                                    key: ref.watch(
+                                      experienceSectionKeyProvider,
+                                    ),
                                   ),
-                                  child: AboutSection(
-                                    key: ref.watch(aboutSectionKeyProvider),
+                                  gapH100,
+                                  SkillsSection(
+                                    key: ref.watch(skillsSectionKeyProvider),
                                   ),
-                                ),
-                                gapH100,
-                                ExperienceSection(
-                                  key: ref.watch(experienceSectionKeyProvider),
-                                ),
-                                gapH100,
-                                SkillsSection(
-                                  key: ref.watch(skillsSectionKeyProvider),
-                                ),
-                                gapH100,
-                                ProjectSection(
-                                  key: ref.watch(projectSectionKeyProvider),
-                                ),
-                                const TestimonialsSection(),
-                              ],
+                                  gapH100,
+                                  ProjectSection(
+                                    key: ref.watch(projectSectionKeyProvider),
+                                  ),
+                                  const TestimonialsSection(),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  )
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-        Positioned(
-          top: 0,
-          left: 0,
-          right: 0,
-          child: ReadingProgress(controller: scrollController),
-        ),
-        Positioned(
-          right: 16,
-          bottom: 16,
-          child: BackToTopButton(controller: scrollController),
-        ),
-      ],
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: ReadingProgress(controller: scrollController),
+          ),
+          Positioned(
+            right: 16,
+            bottom: 16,
+            child: BackToTopButton(controller: scrollController),
+          ),
+        ],
+      ),
     );
   }
 

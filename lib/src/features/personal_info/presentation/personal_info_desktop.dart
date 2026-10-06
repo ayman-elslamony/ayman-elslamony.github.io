@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio/src/constants/sizes.dart';
+import 'package:portfolio/src/features/main/presentation/widgets/section_index.dart';
 import 'package:portfolio/src/features/personal_info/data/personal_info_repository.dart';
 import 'package:portfolio/src/features/personal_info/domain/resume.dart';
 import 'package:portfolio/src/features/personal_info/presentation/widgets/book_call_button.dart';
@@ -37,7 +38,20 @@ class PersonalInfoDesktop extends ConsumerWidget {
         ),
         const OpenToWorkBadge(),
         _buildResumeButton(ref, resumes: resumes.toList()),
-        const Spacer(),
+        // The room under the buttons holds the section index when the window is tall
+        // enough; otherwise it stays empty and the contacts keep to the bottom.
+        if (MediaQuery.sizeOf(context).height >= SectionIndex.minWindowHeight)
+          const Expanded(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: SingleChildScrollView(
+                primary: false,
+                child: SectionIndex(),
+              ),
+            ),
+          )
+        else
+          const Spacer(),
         gapH8,
         ContactBar(contacts: contacts.toList()),
       ],

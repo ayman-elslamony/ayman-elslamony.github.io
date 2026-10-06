@@ -16,10 +16,10 @@ abstract class SkillGroup with _$SkillGroup {
       _$SkillGroupFromJson(json);
 }
 
-/// A skill; [icon] is a simple_icons name that `IconHelper.brandIcon` resolves.
+/// One skill, shown as a chip with its name only.
 @freezed
 abstract class Skill with _$Skill {
-  const factory Skill({required String name, String? icon}) = _Skill;
+  const factory Skill({required String name}) = _Skill;
 
   factory Skill.fromJson(Map<String, dynamic> json) => _$SkillFromJson(json);
 }

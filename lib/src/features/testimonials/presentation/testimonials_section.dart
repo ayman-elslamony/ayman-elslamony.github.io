@@ -10,7 +10,10 @@ import 'package:portfolio/src/localization/generated/locale_keys.g.dart';
 /// Recommendations from people he worked with. With none in `en.json` the section draws
 /// nothing at all - not even its title - so it can never show an empty heading.
 class TestimonialsSection extends ConsumerWidget {
-  const TestimonialsSection({super.key});
+  const TestimonialsSection({super.key, this.topGap = 120});
+
+  /// The space above the section: the gap between sections on the page that holds it.
+  final double topGap;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,7 +22,7 @@ class TestimonialsSection extends ConsumerWidget {
     if (testimonials.isEmpty) return const SizedBox.shrink();
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.only(top: 120),
+      padding: EdgeInsets.only(top: topGap),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

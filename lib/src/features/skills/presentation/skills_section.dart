@@ -1,14 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:portfolio/src/common/widgets/responsive.dart';
 import 'package:portfolio/src/common/widgets/surface_card.dart';
 import 'package:portfolio/src/common/widgets/technology_chip.dart';
+import 'package:portfolio/src/common/widgets/two_column_grid.dart';
 import 'package:portfolio/src/constants/sizes.dart';
 import 'package:portfolio/src/features/skills/data/skill_repository.dart';
 import 'package:portfolio/src/localization/generated/locale_keys.g.dart';
-import 'package:portfolio/src/utils/icon_helper.dart';
 
-/// The CV's Technical Skills, one card per group, with a brand icon where one exists.
+/// The CV's Technical Skills, one card per group; two columns on desktop when there is room.
+/// No icons: only some skills have a brand logo, and a few chips with icons among many
+/// without looked unfinished (his call, 2026-10-06).
 class SkillsSection extends ConsumerWidget {
   const SkillsSection({super.key});
 
@@ -26,33 +29,37 @@ class SkillsSection extends ConsumerWidget {
             style: theme.textTheme.titleLarge,
           ),
         ),
-        for (final group in groups) ...[
-          SurfaceCard(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  group.title,
-                  style: theme.textTheme.titleMedium
-                      ?.copyWith(fontWeight: FontWeight.bold),
-                ),
-                gapH8,
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
+        TwoColumnGrid(
+          spacing: 12,
+          minTwoColumnWidth: Responsive.isDesktop(context)
+              ? 760
+              : double.infinity,
+          children: [
+            for (final group in groups)
+              SurfaceCard(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    for (final s in group.items)
-                      TechnologyChip(
-                        name: s.name,
-                        icon: IconHelper.brandIcon(s.icon),
+                    Text(
+                      group.title,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
                       ),
+                    ),
+                    gapH8,
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        for (final s in group.items)
+                          TechnologyChip(name: s.name),
+                      ],
+                    ),
                   ],
                 ),
-              ],
-            ),
-          ),
-          gapH12,
-        ],
+              ),
+          ],
+        ),
       ],
     );
   }

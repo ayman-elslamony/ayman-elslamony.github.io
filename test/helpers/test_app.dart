@@ -14,6 +14,7 @@ import 'package:portfolio/src/features/experience/domain/experience.dart';
 import 'package:portfolio/src/features/personal_info/data/personal_info_repository.dart';
 import 'package:portfolio/src/features/personal_info/domain/contact.dart';
 import 'package:portfolio/src/features/personal_info/domain/resume.dart';
+import 'package:portfolio/src/common/widgets/attention.dart';
 import 'package:portfolio/src/features/project/data/project_repository.dart';
 import 'package:portfolio/src/features/project/domain/project.dart';
 import 'package:portfolio/src/features/skills/data/skill_repository.dart';
@@ -126,6 +127,7 @@ Widget localized(Widget child) => EasyLocalization(
 
 /// [initLocalization] then the site font.
 Future<void> setUpSite() async {
+  Attention.enabled = false;
   await initLocalization();
   await loadSiteFont();
 }

@@ -21,20 +21,32 @@ class ProjectImage extends ConsumerWidget {
   /// Marks the framed image, so a test can follow it through the Hero flight.
   static const frameKey = ValueKey('project-image-frame');
 
+  /// Every screenshot in `assets/images` is 1024 x 500; the frame keeps that shape, so a
+  /// card of any width shows the whole image, undistorted.
+  static const aspectRatio = 1024 / 500;
+
+  /// The frame stops growing here, so it is never taller than 400 px.
+  static const maxWidth = 400 * aspectRatio;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // It used to be a box of 520-600 px pinned to the left, which left an empty strip
+    // beside it in a wide card. Now it fills the card's width, centred, up to [maxWidth].
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: maxWidth),
+        child: _frame(context),
+      ),
+    );
+  }
+
+  Widget _frame(BuildContext context) {
     return Stack(
       children: [
         Hero(
           tag: heroTag(project),
           child: Container(
             key: frameKey,
-            constraints: const BoxConstraints(
-              minHeight: 200,
-              minWidth: 520,
-              maxHeight: 400,
-              maxWidth: 600,
-            ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
@@ -44,34 +56,37 @@ class ProjectImage extends ConsumerWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  final width = constraints.maxWidth;
-                  return AnimatedContainer(
-                    foregroundDecoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        tileMode: TileMode.decal,
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.transparent,
-                          isHovered ? Colors.black12 : Colors.transparent,
-                          isHovered ? Colors.black26 : Colors.transparent,
-                          isHovered ? Colors.black54 : Colors.transparent,
-                        ],
+              child: AspectRatio(
+                aspectRatio: aspectRatio,
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    final width = constraints.maxWidth;
+                    return AnimatedContainer(
+                      foregroundDecoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          tileMode: TileMode.decal,
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.transparent,
+                            isHovered ? Colors.black12 : Colors.transparent,
+                            isHovered ? Colors.black26 : Colors.transparent,
+                            isHovered ? Colors.black54 : Colors.transparent,
+                          ],
+                        ),
                       ),
-                    ),
-                    duration: const Duration(seconds: 1),
-                    curve: Curves.decelerate,
-                    transform: isHovered
-                        ? (Matrix4.identity()
-                            ..translate(0.5 * width, 0.5 * width)
-                            ..scale(1.2)
-                            ..translate(0.5 * -width, 0.5 * -width))
-                        : Matrix4.identity(),
-                    child: _buildScreenshotImage(context),
-                  );
-                },
+                      duration: const Duration(seconds: 1),
+                      curve: Curves.decelerate,
+                      transform: isHovered
+                          ? (Matrix4.identity()
+                              ..translate(0.5 * width, 0.5 * width)
+                              ..scale(1.2)
+                              ..translate(0.5 * -width, 0.5 * -width))
+                          : Matrix4.identity(),
+                      child: _buildScreenshotImage(context),
+                    );
+                  },
+                ),
               ),
             ),
           ),

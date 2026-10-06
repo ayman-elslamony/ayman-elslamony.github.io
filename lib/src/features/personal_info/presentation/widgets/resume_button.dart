@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/src/common/widgets/attention.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/src/constants/sizes.dart';
 import 'package:portfolio/src/features/personal_info/domain/resume.dart';
@@ -45,31 +46,38 @@ class _ResumeButtonState extends ConsumerState<ResumeButton> {
             scale: _isHovered ? 1.04 : 1.0,
             duration: const Duration(milliseconds: 140),
             curve: Curves.easeOut,
-            child: FilledButton(
-              style: FilledButton.styleFrom(
-                backgroundColor: theme.colorScheme.primary,
-                foregroundColor: theme.colorScheme.onPrimary,
-                elevation: 0,
-                shape: const StadiumBorder(),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
-                textStyle: theme.textTheme.titleMedium
-                    ?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              onPressed: () => _onPressed(context, ref),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const FaIcon(FontAwesomeIcons.filePdf, size: 18),
-                  gapW12,
-                  Text(
-                    tr(LocaleKeys.resume),
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.onPrimary,
-                    ),
+            // A glint crosses it every 4 s (see Attention).
+            child: AttentionShine(
+              color: Colors.white.withValues(alpha: 0.35),
+              child: FilledButton(
+                style: FilledButton.styleFrom(
+                  backgroundColor: theme.colorScheme.primary,
+                  foregroundColor: theme.colorScheme.onPrimary,
+                  elevation: 0,
+                  shape: const StadiumBorder(),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 32,
+                    vertical: 18,
                   ),
-                ],
+                  textStyle: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onPressed: () => _onPressed(context, ref),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const FaIcon(FontAwesomeIcons.filePdf, size: 18),
+                    gapW12,
+                    Text(
+                      tr(LocaleKeys.resume),
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.onPrimary,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
