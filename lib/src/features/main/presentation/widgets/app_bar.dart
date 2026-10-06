@@ -11,6 +11,7 @@ import 'package:portfolio/src/constants/sizes.dart';
 import 'package:portfolio/src/features/main/presentation/widgets/app_bar_button.dart';
 import 'package:portfolio/src/features/main/presentation/widgets/dark_mode_switch.dart';
 import 'package:portfolio/src/features/main/presentation/widgets/locale_button.dart';
+import 'package:portfolio/src/features/main/presentation/widgets/whatsapp_button.dart';
 import 'package:portfolio/src/features/main/provider/section_key_provider.dart';
 import 'package:portfolio/src/localization/generated/locale_keys.g.dart';
 
@@ -99,13 +100,22 @@ class MyAppBar extends ConsumerWidget {
                       );
                     },
                   ),
+                  gapW8,
+                  const WhatsAppButton(),
+                  gapW8,
                   _buildLocaleButton(context, ref),
                   gapW8,
                   const DarkModeSwitch(),
                   gapW8,
                 ],
               ),
-            ),
+            )
+          else ...[
+            const WhatsAppButton(),
+            // A non-empty `actions` list replaces the drawer button AppBar would otherwise
+            // add by itself, so it is listed here explicitly.
+            const EndDrawerButton(),
+          ],
         ],
       ),
     );

@@ -98,6 +98,10 @@ click is sent from Dart instead (`lib/src/utils/analytics.dart`, through the `gt
 `click_linkedin`, `click_github`, `click_google_play`, `click_app_store`, `click_pub_dev` or
 `click_other_link` with `link_url`; the CV download as `file_download`; the section buttons as
 `nav_click`; `theme_toggle` and `language_change`. Read them in Reports → Engagement → Events.
+
+**WhatsApp** appears twice: in the contact row and in the app bar (`whatsapp_button.dart` —
+labelled on desktop, icon only beside the drawer button on narrower widths). Both read the one
+`contacts` entry whose link is `wa.me`, so the number and the ready message are edited there only.
 A new link needs no code: `LaunchUrlHelper.launchURL` reports every URL it opens.
 
 GA shows when, roughly where, the device and the source — never who.

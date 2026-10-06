@@ -35,4 +35,14 @@ class PersonalInfoRepository {
     }).toList();
     return contacts;
   }
+
+  /// The WhatsApp contact, read from the same `contacts` list the contact bar draws, so the
+  /// number and the prefilled message have one home. Null when no contact opens wa.me.
+  Contact? getWhatsApp() {
+    for (final contact in getContacts()) {
+      final url = contact.url;
+      if (url != null && Uri.tryParse(url)?.host == 'wa.me') return contact;
+    }
+    return null;
+  }
 }
