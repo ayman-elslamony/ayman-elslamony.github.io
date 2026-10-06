@@ -537,7 +537,7 @@ class CodegenLoader extends AssetLoader{
   "caseStudyResult": "The result",
   "caseStudyNotFound": "This page does not exist.",
   "openToWork": "Open to Senior Flutter roles · Remote or relocation",
-  "bookCallUrl": "",
+  "bookCallUrl": "https://calendar.app.google/QND5DZbTiYnYNWqi9",
   "bookCall": "Book a call",
   "testimonials": [
     {

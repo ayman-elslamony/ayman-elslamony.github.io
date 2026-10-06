@@ -327,7 +327,7 @@ void main() {
       expect(listOfMaps(emptyFromConstMap), isEmpty);
       expect(trList(const Locale('en'), 'no-such-key'), isEmpty);
       expect(trList(const Locale('en'), 'testimonials'), isNotEmpty);
-      expect(trValue(const Locale('en'), 'bookCallUrl'), '');
+      expect(trValue(const Locale('en'), 'bookCallUrl'), startsWith('https://'));
       expect(trValue(const Locale('en'), 'no-such-key'), '');
     });
 
