@@ -77,10 +77,14 @@ images:
 
 - `web/styles.css` — the pre-boot loader and page background (its own light/dark variables).
 - `web/manifest.json` — `background_color`, `theme_color` (browser chrome, install splash).
-- Three generated images — `assets/images/shared_architecture.png`,
-  `assets/images/network_inspector.png`, `web/og-image.png`. Regenerate them with
-  `python3 tools/make_banners.py` (needs Pillow); its colour constants are copied from
-  `themes.dart` and must be changed with it.
+- Four generated images — `assets/images/shared_architecture.png`,
+  `assets/images/network_inspector.png`, `web/og-image.png` (the site's link preview) and
+  `web/og-cv.png` (the `/cv` link preview: the CV's real first page, rendered with poppler's
+  `pdftoppm` — rerun after the CV changes). Regenerate them with `python3 tools/make_banners.py`
+  (needs Pillow); its colour constants are copied from `themes.dart` and must be changed with it.
+- The link-preview text — `og:`/`twitter:` tags in `web/index.html`; for `/cv`, the vault's
+  `career_facts.py` (`CV_INDEX`) writes `web/cv/index.html`. The site's description counts the
+  projects, and a test fails when `en.json` holds a different number.
 - The icons — `web/favicon.ico`, `web/icons/*` (tab, home screen, install splash, iPhone).
   Regenerate them all with `python3 tools/make_icons.py` (needs Pillow): one drawing of the mark,
   white on a teal tile in the images, and an `icon.svg` for the tab that follows dark mode. Its

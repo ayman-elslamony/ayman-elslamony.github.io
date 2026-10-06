@@ -91,6 +91,14 @@ void main() {
     }
   });
 
+  test('the link preview counts the projects en.json holds', () {
+    // web/index.html's og:description says "<n> projects"; adding a project must change it.
+    final html = File('web/index.html').readAsStringSync();
+    final n = RegExp(r'og:description" content="[^"]*?(\d+) projects').firstMatch(html);
+    expect(n, isNotNull);
+    expect(int.parse(n!.group(1)!), (data['projects'] as List).length);
+  });
+
   test('testimonials are complete, and a booking link, once set, is https', () {
     for (final t in (data['testimonials'] as List).cast<Map<String, dynamic>>()) {
       expect((t['quote'] as String?)?.trim(), isNotEmpty);
