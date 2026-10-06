@@ -111,7 +111,7 @@ def cv_card(path, size):
     d.text((left, 282), "Senior Flutter Developer", font=ImageFont.truetype(REGULAR, 32),
            fill=LIGHT_SECONDARY)
     pill_font = ImageFont.truetype(BOLD, 28)
-    label = "Curriculum Vitae  ·  PDF"
+    label = "Download CV  ·  PDF"
     tw = d.textbbox((0, 0), label, font=pill_font)[2]
     d.rounded_rectangle([left, 360, left + tw + 48, 416], radius=28, fill=LIGHT_PRIMARY)
     d.text((left + 24, 368), label, font=pill_font, fill=LIGHT_SURFACE)
