@@ -42,9 +42,16 @@ class CodegenLoader extends AssetLoader{
     },
     {
       "tooltip": "(+20) 155 284 4195",
-      "url": "tel://+201552844195/",
+      "url": "tel:+201552844195",
       "iconCodePoint": "0xf095",
       "iconFontFamily": "FontAwesomeSolid",
+      "iconFontPackage": "font_awesome_flutter"
+    },
+    {
+      "tooltip": "WhatsApp",
+      "url": "https://wa.me/201552844195",
+      "iconCodePoint": "0xf232",
+      "iconFontFamily": "FontAwesomeBrands",
       "iconFontPackage": "font_awesome_flutter"
     }
   ],

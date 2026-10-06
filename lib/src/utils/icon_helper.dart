@@ -6,6 +6,7 @@ class IconHelper {
     0xf09b: IconData(0xf09b, fontFamily: 'FontAwesomeBrands', fontPackage: 'font_awesome_flutter'),
     0xf0e0: IconData(0xf0e0, fontFamily: 'FontAwesomeSolid', fontPackage: 'font_awesome_flutter'),
     0xf095: IconData(0xf095, fontFamily: 'FontAwesomeSolid', fontPackage: 'font_awesome_flutter'),
+    0xf232: IconData(0xf232, fontFamily: 'FontAwesomeBrands', fontPackage: 'font_awesome_flutter'),
   };
 
   static IconData createIconData(int codePoint, String? fontFamily, String? fontPackage) {
